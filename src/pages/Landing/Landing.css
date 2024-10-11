@@ -1,0 +1,607 @@
+@import url("https://use.typekit.net/uwe2qif.css");
+
+* {
+    font-family: 'p22-underground', sans-serif;
+}
+
+/* From Uiverse.io by SachinKumar666 */
+
+.container-title {
+    height: 80vh;
+    padding: 12vh 2vw 8vh 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: inherit; */
+    color: #140f12;
+    text-align: start;
+    gap: 0;
+}
+
+.box-title {
+    width: 100%;
+    height: 100%;
+    background: #f4eff1;
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
+
+.box-title>div {
+    padding: 0 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+    color: #140f12;
+    text-align: start;
+}
+
+
+.box-title>div .title {
+    font-size: 64px;
+    font-weight: 900;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
+.box-title>div .subtitle {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.wave-separator {
+    width: 100vw;
+    height: 30vh;
+    padding-top: 7vh;
+    /* padding-bottom: 10vh; */
+    margin: 0;
+    background-color: #140f12;
+
+}
+
+.wave-separator .middle-wave {
+    color: #f4eff1;
+    font-size: 52px;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 6vw;
+}
+
+.caracteristicas {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    align-items: center;
+    padding: 0vw 7vw 5vw 7vw;
+    background-color: #140f12;
+}
+
+.caract-box1,
+.caract-box2 {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+/* From Uiverse.io by anniekoop */
+.card {
+    height: 200px;
+    background-color: #f4eff1;
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+    border-radius: 2px;
+    padding: 0;
+    width: 100%;
+}
+
+
+.card .text-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+.card .text-container .title {
+    padding-top: 1vw;
+    padding: 0px;
+    font-size: 24px;
+    font-weight: 400;
+    height: fit-content;
+    text-align: center;
+}
+
+
+.card .text-container .explanation {
+    padding-top: 1vw;
+    padding: 0px;
+    font-size: 18px;
+    font-weight: 300;
+    height: fit-content;
+    text-align: center;
+}
+
+.reviews-section {
+    width: 100%;
+    height: fit-content;
+}
+
+.reviews-section .title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 3vw;
+}
+
+.reviews-section .title-container .title-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-inline-start: 0px;
+    gap: 6px;
+    text-shadow: 4px 4px #f4eff1, 6px 6px #140f12;
+    color: #140f12;
+    font-weight: 900;
+}
+
+.reviews-section .title-container .title-box .title {
+    font-size: 52px;
+    text-align: end;
+    padding-inline-start: 2vw;
+}
+
+.reviews-section .title-container .title-box .question-mark {
+    font-size: 150px;
+    text-align: start;
+}
+
+.reviews-section .title-container .empty-space {
+    width: 100%;
+}
+
+.reviews-section .reviews-space {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    align-items: center;
+    padding: 3vw 5vw 5vw 15vw;
+}
+
+.reviews-section .reviews-space .reviews-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    align-items: center;
+    width: 100%;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #140f12;
+    color: #f4eff1;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card .stars {
+    display: flex;
+    grid-gap: 0.125rem;
+    gap: 0.125rem;
+    color: #fabb51;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card .stars .star {
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card .infos {
+    margin-top: 1rem;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card .infos .date-time {
+    font-size: 14px;
+    font-weight: 100;
+    color: #bababa;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card .infos .description {
+    margin-top: 0.4rem;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.reviews-section .reviews-space .reviews-container .review-card .author {
+    margin-top: 1.3rem;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* From Uiverse.io by EmmaxPlay */
+.sign-up-box {
+    width: 100vw;
+    height: fit-content;
+    /* padding: 5vh 1vw; */
+    display: flex;
+    align-items: center;
+}
+
+.final-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 7vw;
+    align-items: center;
+    /* width: 80%; */
+    padding: 5vh 5vw;
+}
+
+
+.final-card-container .web-like-card {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #F8FBFE;
+    border-radius: 8px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.final-card-container .web-like-card .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+}
+
+.final-card-container .web-like-card .tools .circle {
+    padding: 0 4px;
+}
+
+
+.final-card-container .web-like-card .tools .circle .red-box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    background-color: #ff605c;
+}
+
+.final-card-container .web-like-card .tools .circle .yellow-box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    background-color: #ffbd44;
+}
+
+.final-card-container .web-like-card .tools .circle .green-box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    background-color: #00ca4e;
+}
+
+.sign-up-box .final-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 7vw;
+    align-items: center;
+    width: 100%;
+}
+
+.sign-up-box .final-card-container .web-like-card .final-card-content .sign-up-button {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+    color: #140f12;
+    background-color: #f8f8fd;
+    text-align: center;
+    border-radius: 30px;
+    border: 6px solid #473e44;
+    box-shadow: 0px 8px #140f12;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.sign-up-box .final-card-container .web-like-card .final-card-content .sign-up-button:active {
+    position: relative;
+    top: 8px;
+    box-shadow: 0px 0px;
+}
+
+.sign-up-box .final-card-container .web-like-card .final-card-content {
+    font-weight: 400;
+    font-size: 24px;
+    display: flex;
+    /* height: inherit; */
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0px;
+    height: fit-content;
+    align-items: center;
+}
+
+.sign-up-box .final-card-container .web-like-card .final-card-content .text {
+    height: fit-content;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+@media (max-width: 1110px) {
+    .box-title>div .title {
+        font-size: 52px;
+        font-weight: 900;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 24px;
+        font-weight: 300;
+    }
+
+    .wave-separator .middle-wave {
+        padding-top: 5vw;
+        font-size: 52px;
+        font-weight: 900;
+    }
+
+    .caracteristicas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0vw 7vw 7vw 7vw;
+    }
+
+    .card .text-container .title {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .card .text-container .explanation {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+
+    .reviews-section .title-container .title-box .question-mark {
+        font-size: 130px;
+    }
+
+    .reviews-section .reviews-space {
+        display: flex;
+        flex-direction: column;
+        gap: 5vw;
+        align-items: center;
+        padding: 3vw 5vw 5vw 15vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .box-title>div .title {
+        font-size: 44px;
+        font-weight: 600;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .wave-separator .middle-wave {
+        padding-top: 5vw;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .card {
+        height: 150px;
+    }
+
+    .card .text-container .title {
+        font-size: 48px;
+        font-weight: 400;
+    }
+
+    .card .text-container .explanation {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .reviews-section .title-container .title-box .title {
+        font-size: 46px;
+        font-weight: 600;
+        min-width: 50vw;
+    }
+
+    .reviews-section .title-container .title-box .question-mark {
+        font-size: 110px;
+        font-weight: 600;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .infos .date-time {
+        font-size: 12px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    .box-title>div .title {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    .wave-separator .middle-wave {
+        padding-top: 6vw;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .card {
+        height: 100px;
+        width: 70vw;
+    }
+
+    .caract-box1,
+    .caract-box2 {
+        display: flex;
+        flex-direction: column;
+        gap: 7vw;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card .text-container .title {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .card .text-container .explanation {
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    .reviews-section .reviews-space .reviews-container {
+        flex-direction: column;
+    }
+
+    .reviews-section .title-container .title-box .title {
+        font-size: 40px;
+        font-weight: 500;
+    }
+
+    .reviews-section .title-container .title-box .question-mark {
+        font-size: 90px;
+        font-weight: 500;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .infos .date-time {
+        font-size: 10px;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .infos .description {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .author {
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    .sign-up-box .final-card-container .web-like-card .final-card-content {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .sign-up-box .final-card-container .web-like-card .final-card-content .sign-up-button {
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .box-title>div .title {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 12px;
+        font-weight: 100;
+    }
+
+    .wave-separator .middle-wave {
+        padding-top: 6vw;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .card {
+        height: 75px;
+        box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    .card:hover {
+        box-shadow: 0px 0px 5px 1.5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card .text-container .title {
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    .card .text-container .explanation {
+        font-size: 12px;
+        font-weight: 100;
+    }
+
+    .reviews-section .title-container .title-box .title {
+        font-size: 36px;
+        font-weight: 400;
+    }
+
+    .reviews-section .title-container .title-box .question-mark {
+        font-size: 80px;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .infos .date-time {
+        font-size: 10px;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .infos .description {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .reviews-section .reviews-space .reviews-container .review-card .author {
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    .sign-up-box .final-card-container .web-like-card .final-card-content {
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    .sign-up-box .final-card-container .web-like-card .final-card-content .sign-up-button {
+        font-size: 14px;
+        font-weight: 400;
+
+    }
+}
+
