@@ -40,9 +40,12 @@
 
 <!-- Vistas principales -->
 ### :mag: Vistas principales
-![Vistas Principales](assets/Views/ResponsiveDesign1.png)
-![Vistas Principales](assets/Views/ResponsiveDesign2.png)
-![Vistas Principales](assets/Views/ResponsiveDesign3.jpg)
+![Vistas Principales](assets\Views\desktop-about-us.png)
+![Vistas Principales](assets\Views\desktop-landing-page.png)
+![Vistas Principales](assets\Views\IpadAir-about-us.png)
+![Vistas Principales](assets\Views\IpadAir-landing-page.png)
+![Vistas Principales](assets\Views\IphoneXR-about-us.png)
+![Vistas Principales](assets\Views\IphoneXR-landing-page.png)
 
 <!-- Logo -->
 ### :art: Logo
