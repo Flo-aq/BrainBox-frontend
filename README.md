@@ -1,6 +1,6 @@
 # E0 :construction:
 
-* :pencil2: **Nombre Grupo:** Completar nombre de grupo
+* :pencil2: **Nombre Grupo:** BrainBox
 
 
 ## Descripción general :thought_balloon:
@@ -32,21 +32,18 @@
 ## Diseño Web :computer:
 
 <!-- Documento de diseño web -->
-### :art: Documento de diseño
-![Paleta de colores](assets/Design/PrincipalColors.png)
-![Paleta de colores](assets/Design/SecondaryColors.png)
-![Paleta de colores](assets/Design/Typography.png)
+### :art: Documento de diseño y :art: Logo
+![Paleta de colores](assets/color-typography-logo.jpeg)
 
 
 <!-- Vistas principales -->
 ### :mag: Vistas principales
-![Vistas Principales](assets\Views\desktop-about-us.png)
-![Vistas Principales](assets\Views\desktop-landing-page.png)
-![Vistas Principales](assets\Views\IpadAir-about-us.png)
-![Vistas Principales](assets\Views\IpadAir-landing-page.png)
-![Vistas Principales](assets\Views\IphoneXR-about-us.png)
-![Vistas Principales](assets\Views\IphoneXR-landing-page.png)
-
-<!-- Logo -->
-### :art: Logo
-![Logo](assets/Logo.jpg)
+![Vistas Principales](assets/Views/desktop-about-us.png)
+![Vistas Principales](assets/Views/desktop-landing-page.png)
+![Vistas Principales](assets/Views/desktop-log-in.jpeg)
+![Vistas Principales](assets/Views/IpadAir-about-us.png)
+![Vistas Principales](assets/Views/IpadAir-landing-page.png)
+![Vistas Principales](assets/Views/IpadAir-log-in.png)
+![Vistas Principales](assets/Views/IphoneXR-about-us.png)
+![Vistas Principales](assets/Views/IphoneXR-landing-page.png)
+![Vistas Principales](assets/Views/IphonXR-log-in.png)
