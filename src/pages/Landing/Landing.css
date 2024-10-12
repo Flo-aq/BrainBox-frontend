@@ -2,6 +2,7 @@
 
 * {
     font-family: 'p22-underground', sans-serif;
+    margin: 0px;
 }
 
 /* From Uiverse.io by SachinKumar666 */
@@ -28,7 +29,7 @@
 
 }
 
-.box-title>div {
+.box-title >div {
     padding: 0 10vw;
     display: flex;
     flex-direction: column;
@@ -39,7 +40,7 @@
 }
 
 
-.box-title>div .title {
+.box-title >div .title {
     font-size: 64px;
     font-weight: 900;
     height: fit-content;
@@ -47,7 +48,7 @@
     margin: 0;
 }
 
-.box-title>div .subtitle {
+.box-title >div .subtitle {
     font-size: 24px;
     font-weight: 300;
     margin: 0;
@@ -357,20 +358,20 @@
 }
 
 @media (max-width: 1110px) {
-    .box-title>div .title {
+    .box-title >div .title {
         font-size: 52px;
         font-weight: 900;
     }
 
-    .box-title>div .subtitle {
+    .box-title >div .subtitle {
         font-size: 24px;
         font-weight: 300;
     }
 
     .wave-separator .middle-wave {
         padding-top: 5vw;
-        font-size: 52px;
-        font-weight: 900;
+        font-size: 44px;
+        font-weight: 600;
     }
 
     .caracteristicas {
@@ -379,17 +380,6 @@
         align-items: center;
         padding: 0vw 7vw 7vw 7vw;
     }
-
-    .card .text-container .title {
-        font-size: 24px;
-        font-weight: 400;
-    }
-
-    .card .text-container .explanation {
-        font-size: 18px;
-        font-weight: 300;
-    }
-
 
     .reviews-section .title-container .title-box .question-mark {
         font-size: 130px;
@@ -405,35 +395,22 @@
 }
 
 @media (max-width: 900px) {
-    .box-title>div .title {
-        font-size: 44px;
+    .box-title >div .title {
         font-weight: 600;
     }
 
-    .box-title>div .subtitle {
-        font-size: 18px;
-        font-weight: 300;
+    .box-title >div .subtitle {
+        font-weight: 400;
     }
 
     .wave-separator .middle-wave {
         padding-top: 5vw;
-        font-size: 36px;
-        font-weight: 600;
     }
 
     .card {
         height: 150px;
     }
 
-    .card .text-container .title {
-        font-size: 48px;
-        font-weight: 400;
-    }
-
-    .card .text-container .explanation {
-        font-size: 18px;
-        font-weight: 300;
-    }
 
     .reviews-section .title-container .title-box .title {
         font-size: 46px;
@@ -454,20 +431,20 @@
 
 
 @media (max-width: 600px) {
-    .box-title>div .title {
-        font-size: 36px;
+    p .title {
+        font-size: 44px;
         font-weight: 600;
     }
 
-    .box-title>div .subtitle {
-        font-size: 14px;
+    p .subtitle {
+        font-size: 18px;
         font-weight: 300;
     }
 
     .wave-separator .middle-wave {
         padding-top: 6vw;
-        font-size: 24px;
-        font-weight: 400;
+        font-size: 36px;
+        font-weight: 600;
     }
 
     .card {
@@ -534,19 +511,19 @@
 }
 
 @media (max-width: 400px) {
-    .box-title>div .title {
-        font-size: 24px;
+    .box-title >div .title {
+        font-size: 34px;
         font-weight: 400;
     }
 
-    .box-title>div .subtitle {
-        font-size: 12px;
+    .box-title >div .subtitle {
+        font-size: 14px;
         font-weight: 100;
     }
 
     .wave-separator .middle-wave {
         padding-top: 6vw;
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 400;
     }
 
@@ -584,12 +561,12 @@
     }
 
     .reviews-section .reviews-space .reviews-container .review-card .infos .description {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 300;
     }
 
     .reviews-section .reviews-space .reviews-container .review-card .author {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 100;
     }
 
