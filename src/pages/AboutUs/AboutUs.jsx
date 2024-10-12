@@ -52,7 +52,7 @@ function AboutUs() {
                   </svg>
               </div>
               <p className="name-client"> Vicente Fernández
-                  <span>4° año de Ingenieria Civil
+                  <span>4° año de Ingenieria Civil con major en Computación
                   </span>
               </p>
               
