@@ -1,0 +1,239 @@
+@import url("https://use.typekit.net/uwe2qif.css");
+
+* {
+    font-family: 'p22-underground', sans-serif;
+    margin: 0px;
+}
+
+.container-title {
+    height: 80vh;
+    padding: 12vh 2vw 8vh 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: inherit; */
+    color: #140f12;
+    text-align: start;
+    gap: 0;
+}
+
+.box-title {
+    width: 100%;
+    height: 100%;
+    background: #f4eff1;
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
+
+.box-title>div {
+    padding: 0vw 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+    color: #140f12;
+    text-align: center;
+    height: 100%;
+    gap: 5vw;
+}
+
+
+.box-title>div .title {
+    font-size: 52px;
+    font-weight: 900;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
+.box-title>div .subtitle {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.black-div {
+    width: 100vw;
+    height: fit-content;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* padding-bottom: 10vh; */
+    margin: 0;
+    background-color: #140f12;
+
+}
+
+.black-div .header-black-div {
+    font-size: 52px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 0;
+    color: #f4eff1;
+}
+
+.members-container {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    align-items: center;
+    padding: 40px 7vw 40px 7vw;
+    background-color: #140f12;
+    justify-content: space-between;
+}
+
+.card-client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4eff1;
+    width: 200px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 4px solid #bababa;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: #140f12;
+}
+
+.card-client:hover {
+    transform: translateY(-10px);
+}
+
+.user-picture {
+    overflow: hidden;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    /* border: 4px solid #bababa; */
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #140f12;
+}
+
+.user-picture svg {
+    width: 20px;
+    fill: #f4eff1;
+}
+
+.name-client {
+    margin: 0;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.name-client span {
+    display: block;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+@media (max-width: 1110px) {
+    .black-div .header-black-div {
+        font-size: 44px;
+        font-weight: 600;
+    }
+    
+
+}
+
+@media (max-width: 900px) {
+    .box-title>div .title {
+        font-size: 44px;
+        font-weight: 600;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .black-div .header-black-div {
+        padding-top: 5vw;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .members-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-client {
+        width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .box-title>div .title {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .black-div .header-black-div {
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    .card-client {
+        width: 250px;
+    }
+
+    .name-client {
+        font-weight: 300;
+        font-size: 18px;
+    }
+
+    .name-client span {
+        font-weight: 100;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .box-title>div .title {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .box-title>div .subtitle {
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    .black-div .header-black-div {
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    .card-client {
+        width: 100px;
+    }
+
+    .name-client {
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    .name-client span {
+        font-weight: 100;
+        font-size: 12px;
+    }
+}
+

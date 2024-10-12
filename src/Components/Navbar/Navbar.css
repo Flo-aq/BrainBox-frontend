@@ -1,0 +1,236 @@
+@import url("https://use.typekit.net/uwe2qif.css");
+
+.menu-button {
+    display: none;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4eff1;
+    font-family: 'p22-underground', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+}
+
+nav .logo-container {
+    height: 40px;
+}
+
+
+nav .logo-container .logo-full {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+nav .logo-container .logo-full .icon {
+    height: 80%;
+    width: auto;
+}
+
+nav .logo-container .logo-full .logotype {
+    height: 80%;
+    width: auto;
+}
+
+.bottom-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding-right: 30px;
+    align-items: baseline;
+}
+
+a.log-in-button,
+a.sign-up-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 35px;
+    cursor: pointer;
+    color: #140f12;
+    background-color: #f8f8fd;
+    text-align: center;
+    border-radius: 40px;
+    border: 4px solid #473e44;
+    box-shadow: 0px 8px #140f12;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.log-in-button:active,
+a.sign-up-button:active {
+    position: relative;
+    top: 8px;
+    box-shadow: 0px 0px;
+}
+
+a.home-button,
+a.about-us-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 35px;
+    cursor: pointer;
+    color: #140f12;
+    background-color: #f8f8fd;
+    text-align: center;
+    border-radius: 40px;
+    border: 4px solid #473e44;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.home-button:hover,
+a.about-us-button:hover {
+    background-color: #d6d6d6;
+    /* Color al pasar el ratón por encima */
+}
+
+@media (max-width: 900px) {
+
+    a.home-button,
+    a.about-us-button,
+    a.log-in-button,
+    a.sign-up-button {
+        width: 90px;
+        height: 30px;
+        border: 3px solid #473e44;
+        font-size: 12px;
+    }
+
+    .bottom-bar {
+        gap: 15px;
+    }
+
+    nav .logo-container {
+        height: 35px;
+    }
+}
+
+@media (max-width: 750px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f4eff1;
+        font-family: 'p22-underground', sans-serif;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .top-bar {
+        height: 54px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f4eff1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 12px;
+        width: 100vw;
+        /* gap: 50vw;*/
+    }
+
+    .menu-button {
+        display: flex;
+        /* Muestra el botón de menú */
+        position: fixed;
+        /* Fija el botón en la ventana */
+        top: 10px;
+        /* Espacio desde la parte superior */
+        right: 10px;
+        /* Espacio desde la derecha */
+        width: 30px;
+        /* Ancho del botón */
+        height: 30px;
+        /* Altura del botón */
+        align-items: center;
+        /* Centra el contenido verticalmente */
+        justify-content: center;
+        /* Centra el contenido horizontalmente */
+        cursor: pointer;
+        /* Cambia el cursor al pasar sobre el botón */
+        background-color: #f8f8fd;
+        /* Color de fondo del botón */
+        text-align: center;
+        /* Centra el texto dentro del botón */
+        border-radius: 30px;
+        /* Bordes redondeados */
+        border: 4px solid #473e44;
+        /* Borde del botón */
+        box-shadow: 0px 8px #140f12;
+        /* Sombra del botón */
+        font-size: 24px;
+        /* Tamaño de la fuente */
+        font-weight: 600;
+        /* Peso de la fuente */
+        color: #140f12;
+        /* Color de la fuente */
+        transition: top 0.1s ease-in-out, box-shadow 0.1s ease-in-out, color 0.1s ease-in-out;
+        /* Transiciones suaves */
+    }
+
+    .menu-button.active {
+        position: fixed;
+        top: 18px;
+        right: 10px;
+        box-shadow: 0px 0px;
+        color: red;
+        /* Color cuando está activo */
+    }
+
+    .bottom-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-right: 30px;
+        align-items: center;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 100%;
+        background-color: #f4eff1;
+        z-index: 1;
+        padding-top: 10px;
+        padding-bottom: 30px;
+    }
+
+    a.home-button,
+    a.about-us-button,
+    a.log-in-button,
+    a.sign-up-button {
+        width: 50vw;
+        height: 30px;
+        border: 3px solid #473e44;
+        font-size: 12px;
+    }
+
+    nav .logo-container {
+        height: 30px;
+    }
+}
