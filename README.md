@@ -7,7 +7,7 @@
 
 - ¿De qué se tratará el proyecto? El proyecto se tratará de un Planner para estudiantes, el cual permita organizar el tiempo que se dedica a cada actividad del semestre.
 - ¿Cuál es el fin o la utilidad del proyecto? La utilidad de esta aplicación es poder darle al usuario una herramienta para organizar su semestre y poder organizar horarios de estudio con otros usuarios.
-- ¿Quiénes son los usuarios objetivo de su aplicación? Los principales usuarios son alumnos de la UC.
+- ¿Quiénes son los usuarios objetivo de su aplicación? Los principales usuarios son alumnos de la UC, pero puede ser usado por cualquier alumno universitario o escolar.
 
 ## Historia de Usuarios :busts_in_silhouette:
 
