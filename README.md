@@ -27,7 +27,7 @@
 
 ## Diagrama Entidad-Relación :scroll:
 <!-- Insertamos la imagen ER-Model.png -->
-![ER-Model](assets/ER-Model.png)
+![ER-Model](assets/ER-Model.jpeg)
 
 ## Diseño Web :computer:
 
