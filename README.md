@@ -33,7 +33,7 @@
 
 <!-- Documento de diseño web -->
 ### :art: Documento de diseño y :art: Logo
-![Paleta de colores](assets/color-typography-logo.jpeg)
+![Paleta de colores](assets/color-typography-logo.png)
 
 
 <!-- Vistas principales -->
