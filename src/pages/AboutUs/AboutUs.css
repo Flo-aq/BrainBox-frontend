@@ -142,7 +142,6 @@
 @media (max-width: 1110px) {
     .black-div .header-black-div {
         font-size: 44px;
-        font-weight: 600;
     }
     
 
@@ -151,18 +150,15 @@
 @media (max-width: 900px) {
     .box-title>div .title {
         font-size: 44px;
-        font-weight: 600;
     }
 
     .box-title>div .subtitle {
         font-size: 24px;
-        font-weight: 400;
     }
 
     .black-div .header-black-div {
         padding-top: 5vw;
         font-size: 36px;
-        font-weight: 600;
     }
 
     .members-container {
@@ -178,17 +174,14 @@
 @media (max-width: 600px) {
     .box-title>div .title {
         font-size: 36px;
-        font-weight: 600;
     }
 
     .box-title>div .subtitle {
         font-size: 18px;
-        font-weight: 300;
     }
 
     .black-div .header-black-div {
         font-size: 36px;
-        font-weight: 600;
     }
 
     .card-client {
@@ -196,12 +189,10 @@
     }
 
     .name-client {
-        font-weight: 300;
         font-size: 18px;
     }
 
     .name-client span {
-        font-weight: 100;
         font-size: 14px;
     }
 }
@@ -209,7 +200,6 @@
 @media (max-width: 400px) {
     .box-title>div .title {
         font-size: 24px;
-        font-weight: 400;
     }
 
     .box-title>div .subtitle {
@@ -219,7 +209,6 @@
 
     .black-div .header-black-div {
         font-size: 24px;
-        font-weight: 400;
     }
 
     .card-client {
@@ -227,12 +216,10 @@
     }
 
     .name-client {
-        font-weight: 300;
         font-size: 14px;
     }
 
     .name-client span {
-        font-weight: 100;
         font-size: 12px;
     }
 }
