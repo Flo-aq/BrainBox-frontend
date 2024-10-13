@@ -361,18 +361,15 @@
 @media (max-width: 1110px) {
     .box-title >div .title {
         font-size: 52px;
-        font-weight: 900;
     }
 
     .box-title >div .subtitle {
         font-size: 24px;
-        font-weight: 300;
     }
 
     .wave-separator .middle-wave {
         padding-top: 5vw;
         font-size: 44px;
-        font-weight: 600;
     }
 
     .caracteristicas {
@@ -396,13 +393,6 @@
 }
 
 @media (max-width: 900px) {
-    .box-title >div .title {
-        font-weight: 600;
-    }
-
-    .box-title >div .subtitle {
-        font-weight: 400;
-    }
 
     .wave-separator .middle-wave {
         padding-top: 5vw;
@@ -415,13 +405,11 @@
 
     .reviews-section .title-container .title-box .title {
         font-size: 46px;
-        font-weight: 600;
         min-width: 50vw;
     }
 
     .reviews-section .title-container .title-box .question-mark {
         font-size: 110px;
-        font-weight: 600;
     }
 
     .reviews-section .reviews-space .reviews-container .review-card .infos .date-time {
@@ -434,18 +422,15 @@
 @media (max-width: 600px) {
     p .title {
         font-size: 44px;
-        font-weight: 600;
     }
 
     p .subtitle {
         font-size: 18px;
-        font-weight: 300;
     }
 
     .wave-separator .middle-wave {
         padding-top: 6vw;
         font-size: 36px;
-        font-weight: 600;
     }
 
     .card {
@@ -464,12 +449,10 @@
 
     .card .text-container .title {
         font-size: 18px;
-        font-weight: 300;
     }
 
     .card .text-container .explanation {
         font-size: 14px;
-        font-weight: 100;
     }
 
     .reviews-section .reviews-space .reviews-container {
@@ -478,12 +461,10 @@
 
     .reviews-section .title-container .title-box .title {
         font-size: 40px;
-        font-weight: 500;
     }
 
     .reviews-section .title-container .title-box .question-mark {
         font-size: 90px;
-        font-weight: 500;
     }
 
     .reviews-section .reviews-space .reviews-container .review-card .infos .date-time {
@@ -492,17 +473,14 @@
 
     .reviews-section .reviews-space .reviews-container .review-card .infos .description {
         font-size: 18px;
-        font-weight: 300;
     }
 
     .reviews-section .reviews-space .reviews-container .review-card .author {
         font-size: 14px;
-        font-weight: 100;
     }
 
     .sign-up-box .final-card-container .web-like-card .final-card-content {
         font-size: 18px;
-        font-weight: 300;
     }
 
     .sign-up-box .final-card-container .web-like-card .final-card-content .sign-up-button {
@@ -514,18 +492,15 @@
 @media (max-width: 400px) {
     .box-title >div .title {
         font-size: 34px;
-        font-weight: 400;
     }
 
     .box-title >div .subtitle {
         font-size: 14px;
-        font-weight: 100;
     }
 
     .wave-separator .middle-wave {
         padding-top: 6vw;
         font-size: 24px;
-        font-weight: 400;
     }
 
     .card {
@@ -540,17 +515,14 @@
 
     .card .text-container .title {
         font-size: 14px;
-        font-weight: 300;
     }
 
     .card .text-container .explanation {
         font-size: 12px;
-        font-weight: 100;
     }
 
     .reviews-section .title-container .title-box .title {
         font-size: 36px;
-        font-weight: 400;
     }
 
     .reviews-section .title-container .title-box .question-mark {
@@ -563,22 +535,18 @@
 
     .reviews-section .reviews-space .reviews-container .review-card .infos .description {
         font-size: 16px;
-        font-weight: 300;
     }
 
     .reviews-section .reviews-space .reviews-container .review-card .author {
         font-size: 12px;
-        font-weight: 100;
     }
 
     .sign-up-box .final-card-container .web-like-card .final-card-content {
         font-size: 14px;
-        font-weight: 300;
     }
 
     .sign-up-box .final-card-container .web-like-card .final-card-content .sign-up-button {
         font-size: 14px;
-        font-weight: 400;
 
     }
 }
