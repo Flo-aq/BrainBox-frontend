@@ -47,3 +47,14 @@
 ![Vistas Principales](assets/Views/IphoneXR-about-us.png)
 ![Vistas Principales](assets/Views/IphoneXR-landing-page.png)
 ![Vistas Principales](assets/Views/IphonXR-log-in.png)
+
+### Assets Externos
+https://uiverse.io/EmmaxPlay/itchy-bobcat-50
+https://uiverse.io/Yaya12085/ugly-cat-20
+https://uiverse.io/abrahamcalsin/grumpy-ape-40
+https://uiverse.io/absoluteSTrange/cowardly-sloth-96
+https://uiverse.io/SachinKumar666/spicy-tiger-75
+https://uiverse.io/kamehame-ha/ancient-insect-32
+
+### Otros
+Se usó chatgpt para ordenar código
