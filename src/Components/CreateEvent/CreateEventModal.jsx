@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Modal.css'; // Add your CSS for styling
 
-const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
-    const [eventName, setEventName] = useState('');
+const CreateEventModal = ({ isOpen, onClose, onCreateEvent }) => {
+    const [nombreEvento, setNombreEvento] = useState('');
     const [eventType, setEventType] = useState('');
     const [personas, setPersonas] = useState('');
     const [fecha, setFecha] = useState('');
@@ -13,13 +13,13 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onCreateEvent({ eventName, eventType, personas, fecha, hora, notas, ponderacion, ramo });
+        onCreateEvent({ nombreEvento, eventType, personas, fecha, hora, notas, ponderacion, ramo });
         resetForm();
         onClose();
     };
 
     const resetForm = () => {
-        setEventName('');
+        setNombreEvento('');
         setEventType('');
         setPersonas('');
         setFecha('');
@@ -34,19 +34,19 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <h2>Create Event</h2>
+                <h2>Crear Evento</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Name of Event:
+                        Nombre:
                         <input
                             type="text"
-                            value={eventName}
-                            onChange={(e) => setEventName(e.target.value)}
+                            value={nombreEvento}
+                            onChange={(e) => setNombreEvento(e.target.value)}
                             required
                         />
                     </label>
                     <label>
-                        Type of Event:
+                        Tipo:
                         <select
                             value={eventType}
                             onChange={(e) => setEventType(e.target.value)}
@@ -59,8 +59,9 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
                             <option value="Otro">Otro</option>
                         </select>
                     </label>
+
                     <label>
-                        Add personas:
+                        + personas:
                         <input
                             type="text"
                             value={personas}
@@ -69,7 +70,7 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
                         />
                     </label>
                     <label>
-                        fecha:
+                        Fecha:
                         <input
                             type="fecha"
                             value={fecha}
@@ -78,7 +79,7 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
                         />
                     </label>
                     <label>
-                        hora:
+                        Hora:
                         <input
                             type="hora"
                             value={hora}
@@ -86,15 +87,20 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
                             required
                         />
                     </label>
-                    <label>
-                        Ponderación:
-                        <input
-                            type="number"
-                            value={ponderacion}
-                            onChange={(e) => setPonderacion(e.target.value)}
-                            required
-                        />
-                    </label>
+
+                    {/* Conditionally render "Ponderación" only if the event type is not "Otro" */}
+                    {eventType !== "Otro" && (
+                        <label>
+                            Ponderación:
+                            <input
+                                type="number"
+                                value={ponderacion}
+                                onChange={(e) => setPonderacion(e.target.value)}
+                                required
+                            />
+                        </label>
+                    )}
+
                     <label>
                         Ramo:
                         <input
@@ -105,19 +111,21 @@ const EventModal = ({ isOpen, onClose, onCreateEvent }) => {
                         />
                     </label>
                     <label>
-                        notas:
+                        Notas:
                         <textarea
                             value={notas}
                             onChange={(e) => setNotas(e.target.value)}
                         />
                     </label>
-                    <button type="submit">Create Event</button>
-                    <button type="button" onClick={onClose}>Cancel</button>
+                    <button type="submit">Crear Evento</button>
+                    <button type="button" onClick={onClose}>Cancelar</button>
                 </form>
+                <button onClick={onClose} className="close-button">
+                    Cerrar
+                </button>
             </div>
         </div>
     );
 };
 
-export default EventModal;
-
+export default CreateEventModal;
