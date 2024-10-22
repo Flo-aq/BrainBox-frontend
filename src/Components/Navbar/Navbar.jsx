@@ -3,25 +3,28 @@ import './Navbar.css';
 import icon from '../../Images/icon.svg';
 import logotype from '../../Images/logotype.svg';
 
-export const Navbar = ({ onOpenModal }) => {  // Add onOpenModal as a prop
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [buttonActive, setButtonActive] = useState(false);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+export const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false); // Controla si el menú está abierto
+    const [buttonActive, setButtonActive] = useState(false); // Controla el estado del botón
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para el ancho de la ventana
 
+    // Función para manejar cambios en el ancho de la ventana
     const handleResize = () => {
         setWindowWidth(window.innerWidth);
     };
 
     useEffect(() => {
+        // Agrega el listener de resize al componente
         window.addEventListener('resize', handleResize);
+        // Limpia el listener al desmontar el componente
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
     const handleButtonClick = () => {
-        setButtonActive(!buttonActive);
-        setMenuOpen(!menuOpen);
+        setButtonActive(!buttonActive); // Cambia el estado activo del botón
+        setMenuOpen(!menuOpen); // Cambia el estado del menú
     };
 
     return (
@@ -35,25 +38,18 @@ export const Navbar = ({ onOpenModal }) => {  // Add onOpenModal as a prop
                         </div>
                     </div>
                     <button
-                        className={`menu-button ${buttonActive ? 'active' : ''}`}
+                        className={`menu-button ${buttonActive ? 'active' : ''}`} // Añade clase activa si está activo
                         onClick={handleButtonClick}
                     >
-                        {buttonActive ? '-' : '+'}
+                        {buttonActive ? '-' : '+'} {/* Cambia el texto del botón */}
                     </button>
                 </div>
-                {(menuOpen || windowWidth > 750) && (
+                {(menuOpen || windowWidth > 750) && ( // Condición para mostrar la bottom-bar
                     <div className='bottom-bar'>
                         <a href="/" className='home-button'>Home</a>
                         <a href="/about-us" className='about-us-button'>About Us</a>
                         <a href="/log-in" className='log-in-button'>Log in</a>
                         <a href="/sign-up" className='sign-up-button'>Sign-up</a>
-                        {/* Add the Create Event button */}
-                        <button
-                            className='create-event-button'
-                            onClick={onOpenModal}
-                        >
-                            Create Event
-                        </button>
                     </div>
                 )}
             </nav>

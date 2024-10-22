@@ -195,25 +195,6 @@ a.about-us-button:hover {
         /* Transiciones suaves */
     }
 
-    .create-event-button {
-        /* Add your styles for the button here */
-        background-color: #4CAF50; /* Example color */
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-left: 10px; /* Optional spacing */
-        border-radius: 5px; /* Optional rounded corners */
-        cursor: pointer;
-    }
-    
-    .create-event-button:hover {
-        background-color: #45a049; /* Darker shade on hover */
-    }
-
     .menu-button.active {
         position: fixed;
         top: 18px;
