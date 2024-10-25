@@ -63,5 +63,7 @@ https://uiverse.io/kamehame-ha/ancient-insect-32
 
 https://www.youtube.com/watch?v=RWz23UKXdAk
 
+https://answers.netlify.com/t/problem-when-navigating-routing/98037
+
 ### Otros
 Se usó chatgpt para ordenar código

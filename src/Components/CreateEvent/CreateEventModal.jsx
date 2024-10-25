@@ -72,6 +72,7 @@ const CreateEventModal = ({ isOpen, onClose, onCreateEvent }) => {
                     </div>
 
                     <div className='input-box add-people-box'>
+
                         <span className='title'>Añadir personas</span>
                         <textarea
                             value={personas}
