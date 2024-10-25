@@ -72,7 +72,7 @@ const CreateEventModal = ({ isOpen, onClose, onCreateEvent }) => {
                     <label>
                         Fecha:
                         <input
-                            type="fecha"
+                            type="date"
                             value={fecha}
                             onChange={(e) => setFecha(e.target.value)}
                             required
@@ -81,7 +81,7 @@ const CreateEventModal = ({ isOpen, onClose, onCreateEvent }) => {
                     <label>
                         Hora:
                         <input
-                            type="hora"
+                            type="time"
                             value={hora}
                             onChange={(e) => setHora(e.target.value)}
                             required
