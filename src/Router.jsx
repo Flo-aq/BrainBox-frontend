@@ -3,6 +3,7 @@ import Landing from './pages/Landing/Landing';
 import AboutUs from './pages/AboutUs/AboutUs';
 import SignUp from './pages/SignUp/SignUp';
 import LogIn from './pages/LogIn/LogIn';
+import Instructions from './pages/Instructions/Instructions';
 
 function Router(){
   return (
@@ -12,6 +13,7 @@ function Router(){
         <Route path={"/about-us"} element={<AboutUs />} />
         <Route path={"/log-in"} element={<LogIn />} />
         <Route path={"/sign-up"} element={<SignUp />} />
+        <Route path={"/instructions"} element={<Instructions/>} />
       </Routes>
     </BrowserRouter>
   )
