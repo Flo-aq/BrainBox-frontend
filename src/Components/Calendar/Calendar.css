@@ -1,0 +1,32 @@
+.month {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.day-name {
+  text-align: center;
+}
+
+.day-number {
+  text-align: center;
+  padding: 6px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.day-today {
+  background-color: #d4d4d4;
+}
+
+.event {
+  background-color: #f87eab;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 2px;
+}
