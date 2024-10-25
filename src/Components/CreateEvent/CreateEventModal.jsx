@@ -78,24 +78,6 @@ const CreateEventModal = ({ isOpen, onClose, onCreateEvent }) => {
                             onChange={(e) => setPersonas(e.target.value)}
                             required
                         />
-                    </label>
-                    <label>
-                        Fecha:
-                        <input
-                            type="date"
-                            value={fecha}
-                            onChange={(e) => setFecha(e.target.value)}
-                            required
-                        />
-                    </label>
-                    <label>
-                        Hora:
-                        <input
-                            type="time"
-                            value={hora}
-                            onChange={(e) => setHora(e.target.value)}
-                            required
-                        />
                     </div>
                     <div className='time-container inicio'>Inicio
                         <div className='input-box date-box inicio'>
