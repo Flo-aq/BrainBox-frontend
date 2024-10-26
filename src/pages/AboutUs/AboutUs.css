@@ -119,6 +119,7 @@
     height: 60px;
     /* border: 4px solid #bababa; */
     border-radius: 999px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,6 +129,7 @@
 .user-picture img {
     width: 100%;
 }
+
 
 .name-client {
     grid-area: 4/2/5/3;
