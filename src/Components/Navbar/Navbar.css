@@ -162,7 +162,7 @@ button.menu.inactive svg.arrow {
     }
 
     .aux{
-        grid-area: 2 / 6 / 5 / 8;
+        grid-area: 2 / 6 / 5 / 9;
         display: flex;
         flex-direction: column;
         width: auto;
@@ -212,7 +212,6 @@ button.menu.inactive svg.arrow {
     a.sign-up,
     a.main,
     a.instructions {
-        --width: 100%;
         --height: 30px;
         --font-size: 12px;
     }
