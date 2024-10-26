@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import icon from '../../Images/icon.svg';
-import logotype from '../../Images/logotype.svg';
+import icon from '../../Images/logo.svg'
 
 export const Navbar = () => {
-    const [menuOpen, setMenuOpen] = useState(false); // Controla si el menú está abierto
-    const [buttonActive, setButtonActive] = useState(false); // Controla el estado del botón
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para el ancho de la ventana
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuButtonActive, setMenuButtonActive] = useState(false);
+    const [logInButtonActive, setLogInButtonActive] = useState(false);
+    const [signUpButtonActive, setSignUpButtonActive] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     // Función para manejar cambios en el ancho de la ventana
     const handleResize = () => {
@@ -14,44 +15,54 @@ export const Navbar = () => {
     };
 
     useEffect(() => {
-        // Agrega el listener de resize al componente
         window.addEventListener('resize', handleResize);
-        // Limpia el listener al desmontar el componente
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    const handleButtonClick = () => {
-        setButtonActive(!buttonActive); // Cambia el estado activo del botón
-        setMenuOpen(!menuOpen); // Cambia el estado del menú
+    const handleMenuButtonClick = () => {
+        setMenuButtonActive(!menuButtonActive);
+        setMenuOpen(!menuOpen);
+    };
+
+    const handleLogInButtonClick = () => {
+        setLogInButtonActive(!logInButtonActive);
+    };
+
+    const handleSignUpButtonClick = () => {
+        setSignUpButtonActive(!signUpButtonActive);
     };
 
     return (
         <div>
             <nav>
-                <div className='top-bar'>
-                    <div className='logo-container'>
-                        <div className='logo-full' href='/' >
-                            <img src={icon} alt='Icon' className='icon'/>
-                            <img src={logotype} alt='Logotype' className='logotype' />
-                        </div>
-                    </div>
-                    <button
-                        className={`menu-button ${buttonActive ? 'active' : ''}`} // Añade clase activa si está activo
-                        onClick={handleButtonClick}
-                    >
-                        {buttonActive ? '-' : '+'} {/* Cambia el texto del botón */}
-                    </button>
+                <img src={icon} alt='Icon' className='icon' />
+                <div className='aux'>
+                <button
+                    className={`boton-2 menu ${menuButtonActive ? 'active' : 'inactive'}`}
+                    onClick={handleMenuButtonClick}
+                >
+                    <svg className="arrow text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 17">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m2.5 2.5 12 12 12-12" />
+                    </svg>
+                    <span>Menú</span>
+                </button>
                 </div>
-                {(menuOpen || windowWidth > 750) && ( // Condición para mostrar la bottom-bar
-                    <div className='bottom-bar'>
-                        <a href="/" className='home-button'>Home</a>
-                        <a href="/about-us" className='about-us-button'>About Us</a>
-                        <a href="/log-in" className='log-in-button'>Log in</a>
-                        <a href="/sign-up" className='sign-up-button'>Sign-up</a>
+                
+
+                {(menuOpen || windowWidth >= 750) && (
+                    <div className='options-container'>
+                        <a href="/" className='boton-2 home'>Home</a>
+                        <a href="/about-us" className='boton-2 about-us'>About Us</a>
+                        <a href="/instructions" className='boton-2 instructions'>Instructions</a>
+                        <a href="/calendar" className='boton-2 main'>Main</a>
+                        <a href="/log-in" className={`boton-2 ${logInButtonActive ? 'active' : ''} log-in`} onClick={handleLogInButtonClick}>Log in</a>
+                        <a href="/sign-up" className={`boton-2 ${signUpButtonActive ? 'active' : ''} sign-up`} onClick={handleSignUpButtonClick}>Sign up</a>
                     </div>
                 )}
+
+
             </nav>
         </div>
     );

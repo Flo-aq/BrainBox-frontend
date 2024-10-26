@@ -1,0 +1,19 @@
+.logo-full {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+}
+
+.logo-full .icon {
+    height: inherit;
+    width: auto;
+}
+
+.logo-full .logotype {
+    height: inherit;
+    width: auto;
+}
