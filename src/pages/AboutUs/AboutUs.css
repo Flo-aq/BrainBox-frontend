@@ -6,8 +6,8 @@
 }
 
 .container-title {
-    height: 80vh;
-    padding: 12vh 2vw 8vh 2vw;
+    height: 100vh;
+    /* padding: 12vh 2vw 8vh 2vw; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,6 +15,7 @@
     color: var(--black);
     text-align: start;
     gap: 0;
+    width: 100vw;
 }
 
 .box-title {
@@ -74,29 +75,36 @@
 }
 
 .members-container {
-    display: flex;
-    flex-direction: row;
-    gap: 7vw;
-    align-items: center;
-    padding: 40px 7vw 40px 7vw;
+    display: grid;
+    grid-template-columns: 7vw 1fr 7vw 1fr 7vw 1fr 7vw;
+    grid-template-rows: 40px auto 40px;
     background-color: #f8c785;
-    justify-content: space-between;
+}
+
+.card-1 {
+    grid-area: 2/2/3/3;
+}
+
+.card-2 {
+    grid-area: 2/4/3/5;
+}
+
+.card-3 {
+    grid-area: 2/6/3/7;
 }
 
 .card-client {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
-    width: 200px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
+    grid-template-columns: 10px 1fr 10px;
+    grid-template-rows: 10px auto 10px 1fr 2fr 10px;
+    width: 100%;
     border-radius: 10px;
     text-align: center;
     transition: all 0.3s ease;
     color: #140f12;
     background-color: var(--white);
+    gap: 10px;
 }
 
 .card-client:hover {
@@ -104,54 +112,45 @@
 }
 
 .user-picture {
-    overflow: hidden; /* Asegúrate de que cualquier desbordamiento esté oculto */
-    width: 200px; /* Ajusta el tamaño según sea necesario */
-    height: 200px; /* Ajusta el tamaño según sea necesario */
-    border-radius: 50%; /* Mantiene la forma circular */
+    grid-area: 2/2/3/3;
+    overflow: hidden;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    /* border: 4px solid #bababa; */
+    border-radius: 999px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    background-color: #140f12;
 }
 
 .user-picture img {
     width: 100%;
-    height: auto;
-    object-fit: cover; /* Recorta los bordes manteniendo la proporción */
-    max-width: 200px; /* Limita el ancho máximo de la imagen */
-    max-height: 200px; /* Limita la altura máxima de la imagen */
-    border-radius: 50%; /* Para que se mantenga circular */
-}
-
-.user-picture svg {
-    width: 100%; /* Se adapta al tamaño del contenedor */
-    height: 100%; /* Se adapta al tamaño del contenedor */
-    max-width: 100%; /* Asegura que no se desborde */
-    max-height: 100%; /* Asegura que no se desborde */
-    fill: #f4eff1; /* Color del SVG */
 }
 
 
 .name-client {
-    margin: 0;
-    margin-top: 20px;
+    grid-area: 4/2/5/3;
     font-weight: 400;
     font-size: 24px;
 }
 
-.name-client span {
-    display: block;
+.desc-client {
+    grid-area: 5/2/6/3;
     font-weight: 300;
     font-size: 18px;
 }
 
 @media (max-width: 1110px) {
+    
+
     .black-div .header-black-div {
         font-size: 44px;
     }
     
-
+    
 }
 
 @media (max-width: 900px) {
@@ -169,12 +168,20 @@
     }
 
     .members-container {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 40px auto 20px auto 20px auto 40px;
     }
 
-    .card-client {
-        width: 300px;
+    .card-1 {
+        grid-area: 2/2/3/3;
+    }
+    
+    .card-2 {
+        grid-area: 4/2/5/3;
+    }
+    
+    .card-3 {
+        grid-area: 6/2/7/3;
     }
 }
 
@@ -191,15 +198,12 @@
         font-size: 36px;
     }
 
-    .card-client {
-        width: 250px;
-    }
-
+    
     .name-client {
         font-size: 18px;
     }
 
-    .name-client span {
+    .desc-client {
         font-size: 14px;
     }
 }
@@ -218,15 +222,11 @@
         font-size: 24px;
     }
 
-    .card-client {
-        width: 100px;
-    }
-
     .name-client {
         font-size: 14px;
     }
 
-    .name-client span {
+    .desc-client {
         font-size: 12px;
     }
 }

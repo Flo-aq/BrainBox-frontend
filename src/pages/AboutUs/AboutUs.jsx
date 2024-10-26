@@ -1,7 +1,7 @@
 import './AboutUs.css'
-import imgVicente from '../../Images/imgVicente.jpg'
-import imgCatalina from '../../Images/imgCatalina.jpg'
-import imgFlorencia from '../../Images/imgFlorencia.jpg'
+import flo_image from '../../Images/flo-image.png'
+import cata_image from '../../Images/cata-image.png'
+import vicho_image from '../../Images/vicho-image.png'
 
 function AboutUs() {
 
@@ -22,36 +22,38 @@ function AboutUs() {
           </div>
 
           <div className='members-container'>
-            <div className="card-client">
-            <div className="user-picture">
-              <img src={imgCatalina} alt="Catalina Schulz" className="client-image" /> {/* Agrega la imagen aquí */}
-            </div>
+            <div className="card-client card-1">
+              <div className="user-picture">
+                  <img src={cata_image}></img>
+              </div>
               <p className="name-client"> Catalina Schulz
-                  <span>3° año de College de Ciencias Naturales
-                  </span>
               </p>
+              <p className='desc-client'>3° año de College de Ciencias Naturales
+                  </p>
               
             </div>
 
-            <div className="card-client">
-            <div className="user-picture">
-              <img src={imgFlorencia} alt="Florencia Aqueveque" className="client-image" /> {/* Agrega la imagen aquí */}
-            </div>
+            <div className="card-client card-2">
+              <div className="user-picture">
+              <img src={flo_image}></img>
+              </div>
               <p className="name-client"> Florencia Aqueveque
-                  <span>4° año de Ingeniería Civil con major en Robótica
-                  </span>
+                  
               </p>
+              <p className='desc-client'>4° año de Ingeniería Civil con major en Robótica
+                  </p>
               
             </div>
 
-            <div className="card-client">
-            <div className="user-picture">
-              <img src={imgVicente} alt="Vicente Fernández" className="client-image" /> {/* Agrega la imagen aquí */}
-            </div>
+            <div className="card-client card-3">
+              <div className="user-picture">
+              <img src={vicho_image}></img>
+              </div>
               <p className="name-client"> Vicente Fernández
-                  <span>4° año de Ingenieria Civil con major en Computación
-                  </span>
+                  
               </p>
+              <p className='desc-client'>4° año de Ingenieria Civil con major en Computación
+                  </p>
               
             </div>
           </div>
