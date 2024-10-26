@@ -1,6 +1,7 @@
 import './AboutUs.css'
 import imgVicente from '../../Images/imgVicente.jpg'
 import imgCatalina from '../../Images/imgCatalina.jpg'
+import imgFlorencia from '../../Images/imgFlorencia.jpg'
 
 function AboutUs() {
 
@@ -23,7 +24,7 @@ function AboutUs() {
           <div className='members-container'>
             <div className="card-client">
             <div className="user-picture">
-              <img src={imgCatalina} alt="Vicente Fernández" className="client-image" /> {/* Agrega la imagen aquí */}
+              <img src={imgCatalina} alt="Catalina Schulz" className="client-image" /> {/* Agrega la imagen aquí */}
             </div>
               <p className="name-client"> Catalina Schulz
                   <span>3° año de College de Ciencias Naturales
@@ -33,11 +34,9 @@ function AboutUs() {
             </div>
 
             <div className="card-client">
-              <div className="user-picture">
-                  <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
-                  </svg>
-              </div>
+            <div className="user-picture">
+              <img src={imgFlorencia} alt="Florencia Aqueveque" className="client-image" /> {/* Agrega la imagen aquí */}
+            </div>
               <p className="name-client"> Florencia Aqueveque
                   <span>4° año de Ingeniería Civil con major en Robótica
                   </span>
