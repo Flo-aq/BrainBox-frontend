@@ -12,14 +12,15 @@ const Calendar = (props) => {
   const startingDay = getDay(firstDay); 
 
   return (
-    <div>
+    <div className='calendar'>
       <div>
         <h2 className='month'>{format(currentDate, "MMMM yyyy")}</h2>
       </div>
-      <div className='week'>
+      <div className='calendar-body'>
         {days.map(day => (
-          <div key={day} className='day-name'>{day}</div>
+          <div key={day[0]} className='day-name'>{day}</div>
         ))}
+        <div className='weeks'>
         {Array.from({ length: startingDay }).map((_, index) => (
           <div key={`empty-${index}`} className='day-number'/>
         ))}
@@ -31,6 +32,7 @@ const Calendar = (props) => {
             ))}
           </div>
         ))}
+        </div>
       </div>
     </div>
   );

@@ -20,8 +20,8 @@ const CalendarPage = () => {
 
   return (
     <>
-      <div className="container-title">
-        <button onClick={() => setShowModal(true)}>Crear evento</button>
+      <div className="calendar-content-container">
+        <button className='boton-2 crear-evento' onClick={() => setShowModal(true)}>Crear evento</button>
         <CreateEventModal
           isOpen={showModal}
           onClose={() => setShowModal(false)} // Función para cerrar el modal
