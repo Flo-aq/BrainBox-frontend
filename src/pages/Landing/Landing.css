@@ -376,12 +376,12 @@ button.sign-up-button {
 
 @media (width < 950px) {
     .landing-content-container .first-container .image-container {
-        grid-template-rows: 1fr repeat(5, 15vw);
+        grid-template-rows: 1fr 18vh 4vh 10vh repeat(2, 12vh);
     }
 
     .brain-container img {
         height: 100%;
-        max-width: 50vw;
+        max-width: 35vw;
         object-fit: contain;
     }
 
@@ -389,13 +389,13 @@ button.sign-up-button {
         height: 100%;
         opacity: 0.5;
         /* max-width: 1px; */
-        max-width: 70vw;
+        max-width: 55vw;
         object-fit: contain;
     }
 
     .box-container img {
         height: 100%;
-        max-width: 70vw;
+        max-width: 55vw;
         object-fit: contain;
     }
 
@@ -416,9 +416,7 @@ button.sign-up-button {
         width: 55%;
     }
 
-    .landing-content-container .first-container .image-container {
-        grid-template-rows: 1fr 20vh 6vh 12vh repeat(2, 14vh);
-    }
+    
 
     .landing-content-container .second-container {
         display: grid;
