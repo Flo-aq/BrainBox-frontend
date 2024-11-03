@@ -15,7 +15,7 @@ const CalendarPage = () => {
 
   const handleCreateEvent = (eventData) => {
     console.log('Evento creado:', eventData);
-    setEvents([...events, {date: eventData.fecha, title: eventData.nombreEvento}]);
+    setEvents([...events, {date: eventData.fechaInicio, title: eventData.nombreEvento}]);
   };
 
   return (

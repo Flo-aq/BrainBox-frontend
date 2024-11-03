@@ -2,6 +2,7 @@
 
 * :pencil2: **Nombre Grupo:** BrainBox
 
+Link: https://iic2513-brainbox.netlify.app
 
 ## Descripción general :thought_balloon:
 
