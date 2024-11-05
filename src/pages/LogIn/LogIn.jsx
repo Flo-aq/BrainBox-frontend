@@ -1,14 +1,15 @@
 import './LogIn.css';
-import React from "react";
+import React from 'react'; 
+import LogInForm from '../../Components/LogInForm/LogInForm'
 
 function LogIn() {
-
-  const [state, setState] = React.useState({email: "", password: ""});
 
 
   return (
     <>
-
+      <div className='log-in-form-container'>
+        <LogInForm />
+      </div>
     </>
   )
 }
