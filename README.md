@@ -28,7 +28,7 @@ Link: https://iic2513-brainbox.netlify.app
 
 ## Diagrama Entidad-Relación :scroll:
 <!-- Insertamos la imagen ER-Model.png -->
-![ER-Model](assets/ER-Model.jpeg)
+![ER-Model](assets/ER-Model.png)
 
 ## Diseño Web :computer:
 
