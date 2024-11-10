@@ -5,13 +5,14 @@
     grid-template-rows: repeat(7, auto);
     gap: 8px;
     height: auto;
-    width: 400px;
+    width: 100%;
 }
 
 .sign-up-form h1 {
     grid-area: 1/1/2/2;
-    color: rgb(77, 1, 77);
+    color: var(--black);
     text-align: center;
+    font-size: 36px;
 }
 
 .sign-up-form .formInput.container-1 {
