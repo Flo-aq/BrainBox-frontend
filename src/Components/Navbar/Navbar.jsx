@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     // Función para manejar cambios en el ancho de la ventana
     const handleResize = () => {
-        setWindowWidth(window.innerWidth);
+        setWindowWidth(Math.round(window.innerWidth));
     };
 
     useEffect(() => {
@@ -51,7 +51,7 @@ export const Navbar = () => {
                 </div>
                 
 
-                {(menuOpen || windowWidth >= 750) && (
+                {(menuOpen || windowWidth > 750) && (
                     <div className='options-container'>
                         <a href="/" className='boton-2 home'>Home</a>
                         <a href="/about-us" className='boton-2 about-us'>About Us</a>
