@@ -2,6 +2,7 @@
 
 * :pencil2: **Nombre Grupo:** BrainBox
 
+Link: https://iic2513-brainbox.netlify.app
 
 ## Descripción general :thought_balloon:
 
@@ -27,7 +28,7 @@
 
 ## Diagrama Entidad-Relación :scroll:
 <!-- Insertamos la imagen ER-Model.png -->
-![ER-Model](assets/ER-Model.jpeg)
+![ER-Model](assets/ER-Model.png)
 
 ## Diseño Web :computer:
 

@@ -1,7 +1,9 @@
+
 import './SignUp.css'
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import SignUpForm from '../../Components/SignUpForm/SignUpForm'
 
 function Signup() {
   const [Nombre, setNombre] = useState("");
@@ -68,6 +70,8 @@ function Signup() {
         <input type="submit" value="Submit" />
       </form>
     </div>
+
+
   );
 }
 
