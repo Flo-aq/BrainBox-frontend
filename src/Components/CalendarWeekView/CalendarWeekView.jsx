@@ -21,19 +21,10 @@ import {
 import './CalendarWeekView.css';
 import CreateEventForm from '../CreateEventForm/CreateEventForm'
 
-const CalendarWeekView = () => {
+
+const CalendarWeekView = ({ events, onEventCreated }) => {
   const [activeDate, setActiveDate] = useState(new Date());
   const [isFormOpen, setIsFormOpen] = useState(false);
-
-  const [events, setEvents] = useState([
-    { type: 'event', name: "Meeting with Bob", startDate: "2024-11-06T09:00", endDate: "2024-11-06T10:00" },
-    { type: 'event', name: "Lunch with Sarah", startDate: "2024-11-06T10:00", endDate: "2024-11-06T13:30" },
-    { type: 'task', name: "Homework 1", startDate: "2024-11-06T00:00", endDate: "2024-11-08T10:00", course: "Math", weight: 10 },
-    { type: 'task', name: "Project Submission", startDate: "2024-11-06T00:00", endDate: "2024-11-06T10:00", course: "Science", weight: 20 },
-    { type: 'evaluation', name: "Math Exam", startDate: "2024-11-06T00:00", endDate: "2024-11-06T12:00", duration: 120, course: "Math", weight: 30 },
-    { type: 'evaluation', name: "Science Exam", startDate: "2024-11-07T14:00", endDate: "2024-11-07T16:00", duration: 120, course: "Science", weight: 40 },
-    { type: 'evaluation', name: "Science Exam", startDate: "2024-11-11T14:00", endDate: "2024-11-11T16:00", duration: 120, course: "Science", weight: 40 }
-  ]);
 
   const handleOpenForm = () => {
     setIsFormOpen(true);
@@ -41,6 +32,11 @@ const CalendarWeekView = () => {
 
   const handleCloseForm = () => {
     setIsFormOpen(false);
+  };
+
+  const handleEventCreation = (newEvent) => {
+    // Llamas a la función pasada desde el padre para agregar el nuevo evento
+    onEventCreated(newEvent);
   };
 
   const getDaysHeader = () => {
@@ -227,7 +223,7 @@ const CalendarWeekView = () => {
       <div className="calendarContent">
         {getDaysHeader()}
         {getWeekView()}
-      </div><CreateEventForm isOpen={isFormOpen} onClose={handleCloseForm} />
+      </div><CreateEventForm isOpen={isFormOpen} onClose={handleCloseForm} onEventCreated={handleEventCreation} />
     </section>
   );
 };
