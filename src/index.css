@@ -10,39 +10,40 @@
     top: 0;
   --white: #f6f6f6;
   --black: #140f12;
-  
-}
 
-.button-normal, .button-shadow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 40px;
-  text-decoration: none;
-  width: var(--width);
-  height: var(--height);
-  border-radius: 5px;
-  border: 2px solid var(--border-color);
-  background-color: var(--bg-color);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  color: var(--font-color);
-}
+  --principal-color-yellow: #ffc266;
+  --principal-color-pink1: #ea7171;
+  --principal-color-pink2: #feaba9;
+  --principal-color-orange: #ef8c61;
+  --principal-color-brown: #b2947a;
+  --principal-color-gray: #9c999b;
 
-.button-shadow {
-  box-shadow: 4px 4px var(--border-color);
-}
+  --principal-color-dark-yellow: #c19350;
+  --principal-color-dark-pink1: #b15857;
+  --principal-color-dark-pink2: #c08281;
+  --principal-color-dark-orange: #b56b4b;
+  --principal-color-dark-brown: #645243;
+  --principal-color-dark-gray: #585557;
 
-.button-shadow.active  {
-  box-shadow: 0px 0px var(--border-color);
-  transform: translate(4px, 4px);
-}
+  --principal-color-light-yellow: #ffcf88;
+  --principal-color-light-pink1: #f3928f;
+  --principal-color-light-pink2: #ffbebc;
+  --principal-color-light-orange: #f6a683;
+  --principal-color-light-brown: #d9c5b5;
+  --principal-color-light-gray: #e3e2e3;
 
-.button-normal:hover, .button-shadow:hover {
-  background-color: var(--hover-color);
+
+  --red: #DC092C;
+  --dark-red: #a81824;
+  --light-red: #fca69a;
+
+  --green: #a1ec3e;
+  --dark-green: #69972d;
+  --light-green: #b9f16f;
+
+  --yellow: #fcbd30;
+  --dark-yellow: #bf8f2a;
+  --light-yellow: #ffcb66;
 }
 
 .boton-2{
@@ -52,22 +53,25 @@
   width: var(--width);
   align-items: center;
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  border-radius: 100px;
+  border-radius: 0.5em;
   border: 4px solid var(--border-color);
   font-weight: 600;
   place-content: center;
-  padding: 0.5em 0px;
+  padding: 0.5em 1.5em;
   font-size: var(--font-size);
   background-color: var(--bg-color);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   color: var(--font-color);
   text-decoration: none;
   line-height: 1em;
+  height: auto;
   /* height: var(--height) */
 }
 
 .boton-2:hover {
-  transform: translate(0, -0.25em);
-  background-color: var(--hover-bg-color);
-  border: 4px solid var(--hover-border-color);
+  transform: scale(1.05);
+}
+
+:focus-visible {
+  outline: none;
 }

@@ -2,6 +2,7 @@
 
 * :pencil2: **Nombre Grupo:** BrainBox
 
+Link: https://iic2513-brainbox.netlify.app
 
 ## Descripción general :thought_balloon:
 
@@ -27,7 +28,7 @@
 
 ## Diagrama Entidad-Relación :scroll:
 <!-- Insertamos la imagen ER-Model.png -->
-![ER-Model](assets/ER-Model.jpeg)
+![ER-Model](assets/ER-Model.png)
 
 ## Diseño Web :computer:
 
@@ -38,23 +39,36 @@
 
 <!-- Vistas principales -->
 ### :mag: Vistas principales
-![Vistas Principales](assets/Views/desktop-about-us.png)
-![Vistas Principales](assets/Views/desktop-landing-page.png)
-![Vistas Principales](assets/Views/desktop-log-in.jpeg)
-![Vistas Principales](assets/Views/IpadAir-about-us.png)
+![Vistas Principales](assets/Views/Desktop-about-us-page.png)
+![Vistas Principales](assets/Views/Desktop-landing-page.png)
+![Vistas Principales](assets/Views/Desktop-instructions-page.png)
+![Vistas Principales](assets/Views/IpadAir-about-us-page.png)
 ![Vistas Principales](assets/Views/IpadAir-landing-page.png)
-![Vistas Principales](assets/Views/IpadAir-log-in.png)
-![Vistas Principales](assets/Views/IphoneXR-about-us.png)
-![Vistas Principales](assets/Views/IphoneXR-landing-page.png)
-![Vistas Principales](assets/Views/IphonXR-log-in.png)
+![Vistas Principales](assets/Views/IpadAir-instructions-page.png)
+![Vistas Principales](assets/Views/IphoneSE-about-us-page.png)
+![Vistas Principales](assets/Views/IphoneSE-landing-page.png)
+![Vistas Principales](assets/Views/IphoneSE-instructions-page.png)
 
-### Assets Externos
+### Assets Externos y Referencias
 https://uiverse.io/EmmaxPlay/itchy-bobcat-50
+
 https://uiverse.io/Yaya12085/ugly-cat-20
+
 https://uiverse.io/abrahamcalsin/grumpy-ape-40
+
 https://uiverse.io/absoluteSTrange/cowardly-sloth-96
+
 https://uiverse.io/SachinKumar666/spicy-tiger-75
+
 https://uiverse.io/kamehame-ha/ancient-insect-32
 
+https://www.youtube.com/watch?v=RWz23UKXdAk
+
+https://answers.netlify.com/t/problem-when-navigating-routing/98037
+
+https://codesandbox.io/p/sandbox/react-accordion-hbuc2?file=%2Fsrc%2FApp.js
+
 ### Otros
-Se usó chatgpt para ordenar código
+Se usó chatgpt para ordenar código y crear la animación del cerebro.
+
+Se usó Adobe Firefly para crear las imágenes e iconos

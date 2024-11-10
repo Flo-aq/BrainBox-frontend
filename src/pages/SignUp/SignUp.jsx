@@ -1,4 +1,6 @@
-import './SignUp.css'
+import React, { useState } from 'react'; // Asegúrate de importar useState
+import './SignUp.css';
+import SignUpForm from '../../Components/SignUpForm/SignUpForm'
 
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -72,3 +74,4 @@ function Signup() {
 }
 
 export default Signup;
+

@@ -3,6 +3,7 @@ import './Navbar.css';
 import icon from '../../Images/icon.svg';
 import logotype from '../../Images/logotype.svg';
 
+
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [menuButtonActive, setMenuButtonActive] = useState(false);
@@ -46,16 +47,19 @@ export const Navbar = () => {
             <nav>
                 <img src={icon} alt='Icon' className='icon' />
                 <div className='aux'>
-                    <button
-                        className={`boton-2 menu ${menuButtonActive ? 'active' : 'inactive'}`}
-                        onClick={handleMenuButtonClick}
-                    >
-                        <svg className="arrow text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 17">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m2.5 2.5 12 12 12-12" />
-                        </svg>
-                        <span>Menú</span>
-                    </button>
+
+                <button
+                    className={`boton-2 menu ${menuButtonActive ? 'active' : 'inactive'}`}
+                    onClick={handleMenuButtonClick}
+                >
+                    <svg className="arrow text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 17">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m2.5 2.5 12 12 12-12" />
+                    </svg>
+                    <span>Menú</span>
+                </button>
                 </div>
+                
+
                 {(menuOpen || windowWidth >= 750) && (
                     <div className='options-container'>
                         <a href="/" className='boton-2 home'>Home</a>
@@ -77,6 +81,7 @@ export const Navbar = () => {
                         )}
                     </div>
                 )}
+
             </nav>
         </div>
     );

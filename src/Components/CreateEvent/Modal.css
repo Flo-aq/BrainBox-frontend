@@ -1,4 +1,4 @@
-.modal-overlay {
+.create-event-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,12 +8,348 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 6;
 }
 
-.modal-content {
-    background: white;
-    padding: 20px;
+.create-event-modal-content {
+    background: var(--white);
     border-radius: 5px;
-    width: 400px;
+    width: 600px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-rows: 20px auto 10px 1fr 20px;
+    grid-template-columns: 1fr 24fr 1fr;
+    height: auto;
+}
+
+.create-event-modal-content h2 {
+    width: 100%;
+    font-size: 36px;
+    font-weight: 600;
+    height: fit-content;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.create-event-modal-content form {
+    grid-area: 4 / 2 / 5 / 3;
+    display: grid;
+    grid-template-columns: repeat(6, 4fr);
+    grid-template-rows: repeat(4, auto) 1fr auto;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.create-event-modal-content form .input-box {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 5px;
+    font-size: 12px;
+    height: auto;
+}
+
+.create-event-modal-content form .input-box .title {
+    grid-area: 1 / 1 / 2 / 2;
+    display: inline-flex;
+    /* Asegura que el título y el asterisco estén en la misma línea */
+    align-items: center;
+    /* Alinea verticalmente */
+    gap: 0.25rem;
+    /* Añade espacio entre el texto y el asterisco */
+    font-size: 14px;
+}
+
+.create-event-modal-content form .input-box.date-box .title,
+.create-event-modal-content form .input-box.time-box .title {
+    font-size: 12px;
+}
+
+.create-event-modal-content form .asterisk {
+    color: var(--red);
+    margin-left: 0.25rem;
+    font-size: 1em;
+    /* Asegúrate de que el tamaño del asterisco coincida con el texto */
+}
+
+.create-event-modal-content form .input-box input {
+    border-radius: 100px;
+    border: 4px solid #feb485;
+    font-size: 14px;
+    padding: 0.5em 0.5em;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: calc(100% - 20px);
+}
+
+.create-event-modal-content form .input-box input:is(input:focus) {
+    border-color: #ff9470;
+}
+
+.create-event-modal-content form .input-box input:is(input:valid) {
+    border-color: var(--green);
+}
+
+.create-event-modal-content form .input-box select {
+    border-radius: 100px;
+    border: 4px solid #feb485;
+    font-size: 14px;
+    padding: 0.5em 0.5em;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 100%;
+}
+
+.create-event-modal-content form .input-box select:is(select:focus) {
+    border-color: #ff9470;
+}
+
+.create-event-modal-content form .input-box textarea {
+    border-radius: 20px;
+    border: 4px solid #feb485;
+    font-size: 14px;
+    padding: 0.5em 0.5em;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: calc(100% - 20px);
+    resize: none;
+    height: 50px;
+}
+
+.create-event-modal-content form .input-box textarea:is(textarea:focus) {
+    border-color: #ff9470;
+}
+
+.create-event-modal-content form .name-box {
+    grid-area: 1 / 1 / 2 / 7;
+}
+
+.create-event-modal-content form .type-box {
+    grid-area: 3/ 1 / 4 / 4;
+}
+
+.create-event-modal-content form .add-people-box {
+    grid-area: 4 / 1 / 6 / 4;
+}
+
+.create-event-modal-content form .notes-box {
+    grid-area: 4 / 4 / 6 / 7;
+}
+
+.create-event-modal-content form .time-container.inicio {
+    grid-area: 2/1/3/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+}
+
+.create-event-modal-content form .time-container.final {
+    grid-area: 2/4/3/7;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+}
+
+.create-event-modal-content form .date-box.inicio {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.time-box.inicio {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.date-box.fin {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.time-box.fin {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.ramo-pond-container {
+    grid-area: 3 / 4 / 4 / 7;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+.class-box {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.pond-box {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.button-box-1 {
+    grid-area: 6 / 1 / 7 / 5;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 10px;
+}
+
+.button-box-2 {
+    grid-area: 6 / 5 / 7 / 7;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+}
+
+button.submit {
+    grid-area: 1 / 1 / 2 / 2;
+    position: inherit;
+    --bg-color: #9ac86f;
+    --border-color: #9ac86f;
+}
+
+button.cancel {
+    grid-area: 1 / 2 / 2 / 3;
+    position: inherit;
+    --bg-color: var(--red);
+    --border-color: var(--red);
+}
+
+button.close-button {
+    grid-area: 1 / 2 / 2 / 3;
+    position: inherit;
+    --bg-color: var(--black);
+    --border-color: var(--black);
+}
+
+.create-event-modal-content .boton-2 {
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    --width: fit-content;
+    --font-color: var(--white);
+    --font-size: 14px;
+    /* grid-area: 2 / 6 / 5 / 8; */
+    height: fit-content;
+    gap: 5px;
+    justify-self: center;
+}
+
+@media (width < 750px) {
+    .modal-content {
+        width: 500px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    form {
+        gap: 10px
+    }
+
+    .input-box {
+        font-size: 8px;
+    }
+
+    .input-box .title {
+        font-size: 10px;
+    }
+
+    .input-box.date-box .title,
+    .input-box.time-box .title {
+        font-size: 8px;
+    }
+
+    .input-box input {
+        border-width: 3px;
+        font-size: 8px;
+        width: calc(100% - 10px);
+    }
+
+    .input-box select {
+        border-width: 3px;
+        font-size: 8px;
+    }
+
+    .input-box textarea {
+        border-width: 3px;
+        font-size: 8px;
+        width: calc(100% - 10px);
+    }
+
+    .time-container.inicio,
+    .time-container.final,
+    .ramo-pond-container,
+    .button-box-1,
+    .button-box-2 {
+        gap: 5px;
+    }
+
+    .time-container.inicio,
+    .time-container.final {
+        font-size: 10px;
+    }
+
+    form button {
+        --font-size: 8px;
+    }
+}
+
+@media (width < 550px) {
+    .modal-content {
+        width: 70vw;
+    }
+
+    form {
+        grid-template-rows: repeat(7, auto) 1fr auto;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .name-box {
+        grid-area: 1/1/2/4;
+    }
+
+    .time-container.inicio {
+        grid-area: 2/1/3/4;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .time-container.final {
+        grid-area: 3/1/4/4;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .type-box {
+        grid-area: 4/ 1 / 5 / 4;
+    }
+
+    .ramo-pond-container {
+        grid-area: 5 / 1 / 6 / 4;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .add-people-box {
+        grid-area: 6 / 1 / 7 / 4;
+    }
+
+    .notes-box {
+        grid-area: 7 / 1 / 8 / 4;
+    }
+    
+    .button-box-1 {
+        grid-area: 8 / 1 / 9 / 3;
+    }
+
+    .button-box-2 {
+        grid-area: 8 / 3 / 9 / 4;
+    }
+
+
 }

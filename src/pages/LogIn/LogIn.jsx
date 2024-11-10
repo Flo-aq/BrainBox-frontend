@@ -1,8 +1,11 @@
+
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../auth/AuthContext';
+import './LogIn.css'
+import LogInForm from '../../Components/LogInForm/LogInForm'
 
 import axios from 'axios';
-import './Login.css';
+
 
 
 function Login() {
@@ -65,6 +68,6 @@ function Login() {
       </form>
     </div>
   );
-}
+
 
 export default Login;
