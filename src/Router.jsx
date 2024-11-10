@@ -12,7 +12,6 @@ function Router(){
         <Route path={"/about-us"} element={<AboutUs />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/signup"} element={<Signup />} />
-        <Route path={"/usercheck"} element={<UserCheck />}/>
       </Routes>
     </BrowserRouter>
   )
