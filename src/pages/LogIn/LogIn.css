@@ -1,17 +1,19 @@
 .Login {
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-items: center;
     align-items: center;
     grid-template-columns: 1fr 400px 1fr;
     grid-template-rows: 1fr auto 1fr;
 }
 
 @media (width < 600px) {
-    .log-in-form-container {
+    .Login {
         grid-template-columns: 10vw auto 10vw;
     }
 
-    .log-in-form-container .log-in-form {
+    .Login .log-in-form {
         min-width: 250px;
         width: 100%;
     }

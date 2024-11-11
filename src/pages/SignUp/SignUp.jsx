@@ -25,8 +25,7 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h1 className="view-title">Create an account</h1>
+    <div className="sign-up-form-container">
 
       {msg.length > 0 && <div className="successMsg"> {msg} </div>}
       {error && <div className="error">Hubo un error con el Registro, por favor trata nuevamente.</div>}
