@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import "./Accordion.css";
 
 function Accordion(props) {
@@ -19,8 +18,19 @@ function Accordion(props) {
         onClick={toggleAccordion}
       >
         <p className="accordion__title">{props.title}</p>
-        <svg className="arrow text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 17">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="m2.5 2.5 12 12 12-12" />
+        <svg
+          className="arrow text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 29 17"
+        >
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="m2.5 2.5 12 12 12-12"
+          />
         </svg>
       </div>
       <div
@@ -28,10 +38,7 @@ function Accordion(props) {
         style={{ maxHeight: `${height}` }}
         className="accordion__content"
       >
-        <div
-          className="accordion__text"
-          dangerouslySetInnerHTML={{ __html: props.content }}
-        />
+        <div className="accordion__text">{props.content}</div>
       </div>
     </div>
   );
