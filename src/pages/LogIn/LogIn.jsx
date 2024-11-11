@@ -1,11 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../auth/AuthContext'
-
+import { AuthContext } from '../../auth/AuthContext';
 import './LogIn.css';
-
-
 import axios from 'axios';
-import LoginForm from '../../components/LogInForm/LoginForm'; 
+import LoginForm from '../../components/LoginForm//LogInForm'; // Import LoginForm
 
 function Login() {
   const { token, setToken } = useContext(AuthContext);
