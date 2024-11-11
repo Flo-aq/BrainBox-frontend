@@ -57,8 +57,8 @@ export const Navbar = () => {
                         <a href="/about-us" className='boton-2 about-us'>About Us</a>
                         <a href="/instructions" className='boton-2 instructions'>Instructions</a>
                         <a href="/calendar" className='boton-2 main'>Main</a>
-                        <a href="/log-in" className={`boton-2 ${logInButtonActive ? 'active' : ''} log-in`} onClick={handleLogInButtonClick}>Log in</a>
-                        <a href="/sign-up" className={`boton-2 ${signUpButtonActive ? 'active' : ''} sign-up`} onClick={handleSignUpButtonClick}>Sign up</a>
+                        <a href="/login" className={`boton-2 ${logInButtonActive ? 'active' : ''} log-in`} onClick={handleLogInButtonClick}>Log in</a>
+                        <a href="/signup" className={`boton-2 ${signUpButtonActive ? 'active' : ''} sign-up`} onClick={handleSignUpButtonClick}>Sign up</a>
                     </div>
                 )}
 

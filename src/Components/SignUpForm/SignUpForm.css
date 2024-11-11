@@ -1,11 +1,20 @@
+/* Modify the parent container or body to center the form */
+body {
+    display: flex;
+    justify-content: center; /* Horizontally center the form */
+    align-items: center; /* Vertically center the form */
+    min-height: 100vh; /* Ensure the body takes full viewport height */
+    margin: 0; /* Remove any default margin */
+}
+
 .sign-up-form {
-    grid-area: 2 / 2 / 3 / 3;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(7, auto);
     gap: 8px;
     height: auto;
     width: 400px;
+    margin-top: 50px; /* Add margin to push it lower */
 }
 
 .sign-up-form h1 {
@@ -41,8 +50,8 @@
     color: var(--principal-color-pink1);
 }
 
-.sign-up-form .submitSignUpForm{
-    grid-area: 7 / 1 / 8 / 2;;
+.sign-up-form .submitSignUpForm {
+    grid-area: 7 / 1 / 8 / 2;
     display: block;
     --width: auto;
     --font-color: var(--white);
@@ -51,11 +60,11 @@
     --font-size: 12px;
 }
 
-.sign-up-form .submitSignUpForm:disabled:hover{
+.sign-up-form .submitSignUpForm:disabled:hover {
     transform: none;
 }
 
-.sign-up-form .submitSignUpForm:disabled{
+.sign-up-form .submitSignUpForm:disabled {
     --bg-color: var(--principal-color-dark-gray);
     --border-color: var(--principal-color-dark-gray);
     cursor: not-allowed;
