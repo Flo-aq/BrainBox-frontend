@@ -1,9 +1,8 @@
 
 import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../auth/AuthContext';
+import { AuthContext } from '../../auth/AuthContext'
 
 import './LogIn.css';
-import React from 'react'; 
 import LogInForm from '../../Components/LogInForm/LogInForm'
 
 

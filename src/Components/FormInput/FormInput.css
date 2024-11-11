@@ -12,6 +12,7 @@
     width: 100%;
     /* padding: 4px 6px; */
     align-items: end;
+    height: 25.2px;
 }
 
 .formInput .input-header-container label {
@@ -138,7 +139,7 @@
     box-shadow: 0 0 0.3em #b2947a70;
 }
 
-.error-container span {
+.formInput .error-container span {
     display: block;
     width: 100%;
     white-space: pre-wrap;
