@@ -20,11 +20,16 @@ import {
 } from "date-fns";
 import './CalendarWeekView.css';
 import CreateEventForm from '../CreateEventForm/CreateEventForm'
+import axios from 'axios';
 
-
-const CalendarWeekView = ({ events, onEventCreated }) => {
+const CalendarWeekView = () => {
   const [activeDate, setActiveDate] = useState(new Date());
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [cursos, setCursos] = useState([]);
+  const [tasksAndEvaluations, setTasksAndEvaluations] = useState([]);
+  const [invitaciones, setInvitaciones] = useState([]);
+
+  const [events, setEvents] = useState([]);
 
   const handleOpenForm = () => {
     setIsFormOpen(true);
@@ -37,7 +42,69 @@ const CalendarWeekView = ({ events, onEventCreated }) => {
   const handleEventCreation = (newEvent) => {
     // Llamas a la función pasada desde el padre para agregar el nuevo evento
     onEventCreated(newEvent);
+    handleCloseForm(); // Cerrar el formulario después de crear el evento
   };
+
+  const userId = 1; 
+    const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
+
+    const getTasksEvaluations = async () => {
+      try {
+        // Obtener cursos del estudiante
+        const cursosResponse = await axios.get(`${apiUrl}/cursos/estudiante/${userId}`);
+        console.log("Respuesta de cursos:", cursosResponse);
+  
+        if (cursosResponse && cursosResponse.data && Array.isArray(cursosResponse.data)) {
+          const cursos = cursosResponse.data;
+  
+          // Obtener tareas y evaluaciones para cada curso
+          const tasksAndEvaluationsData = await Promise.all(
+            cursos.map(async (curso) => {
+              const tareasResponse = await axios.get(`${apiUrl}/tareas_entregas/curso/${curso.id}`);
+              console.log(`Tareas para el curso ${curso.id}:`, tareasResponse);
+  
+              const evaluacionesResponse = await axios.get(`${apiUrl}/evaluaciones/curso/${curso.id}`);
+              console.log(`Evaluaciones para el curso ${curso.id}:`, evaluacionesResponse);
+  
+              const tareas = tareasResponse.data.map(tarea => ({
+                type: 'task',
+                name: tarea.nombre,
+                startDate: tarea.fecha_comienzo,
+                endDate: tarea.fecha_entrega,
+                course: curso.id,
+                weight: tarea.valor,
+              }));
+  
+              const evaluaciones = evaluacionesResponse.data.map(evaluacion => ({
+                type: 'evaluation',
+                name: evaluacion.nombre,
+                startDate: evaluacion.fecha_inicio,
+                endDate: evaluacion.fecha_fin,
+                course: curso.id,
+                weight: evaluacion.valor,
+              }));
+  
+              return [...tareas, ...evaluaciones];
+            })
+          );
+  
+          // Flatten the array of arrays into a single array
+          const allEvents = tasksAndEvaluationsData.flat();
+  
+          setEvents(allEvents); // Guardar eventos en el estado
+          console.log(allEvents)
+        } else {
+          console.error('La respuesta de cursos no es un array:', cursosResponse);
+        }
+      } catch (error) {
+        console.error('Error fetching tasks and evaluations:', error);
+      }
+    };
+  
+    useEffect(() => {
+      getTasksEvaluations(); // Llamamos a la función cuando se monta el componente
+    }, []);
+
 
   const getDaysHeader = () => {
     const weekStartDate = startOfWeek(activeDate, { weekStartsOn: 1 });
@@ -86,6 +153,7 @@ const CalendarWeekView = ({ events, onEventCreated }) => {
     events.forEach(event => {
       if (event.type === 'task') {
         const duration = differenceInMinutes(parseISO(event.endDate), parseISO(event.startDate));
+        console.log(duration);
         if (duration > 24 * 60) {
           const startEvent = {
             ...event,

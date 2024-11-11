@@ -3,12 +3,12 @@ import FormInput from '../FormInput/FormInput';
 import TimeInput from '../TimeInput/TimeInput';
 import './CreateEventForm.css';
 import { isThisHour, isAfter, isSameDay, getDate, getMonth, getYear, isBefore, intervalToDuration } from 'date-fns';
-import React, { useContext } from 'react';
-import { AuthContext } from '../auth/AuthContext';
-import ApiClient from '../api/ApiClient';
-import Popup from '../PopUp/PopUp';
 
-const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
+
+
+const CreateEventForm = ({ isOpen, onClose }) => {
+    
+
     const [values, setValues] = useState({
         name: "",
         startDate: "",
@@ -24,31 +24,6 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
         class: "",
         notes: "",
     });
-
-    const [isPopupOpen, setIsPopupOpen] = useState(false); // Estado para controlar el popup
-    const [popupMessage, setPopupMessage] = useState('');
-    const [popupTitle, setPopupTitle] = useState('');
-    const [isSuccess, setIsSuccess] = useState(false); // Estado para saber si la creación fue exitosa
-    const [eventoData, setEventoData] = useState(null);
-    const { token } = useContext(AuthContext);
-    const apiClient = new ApiClient(token);
-    // Función para abrir el popup con título y mensaje
-    const openPopup = (title, message, success) => {
-        setPopupTitle(title);
-        setPopupMessage(message);
-        setIsSuccess(success);
-        setIsPopupOpen(true);
-    };
-
-    // Función para cerrar el popup
-    const closePopup = () => {
-        setIsPopupOpen(false);
-        if (isSuccess) {
-            onClose(); // Ejecuta onClose solo si la creación fue exitosa
-            onEventCreated(eventoResponse.data); 
-        }
-    };
-
 
     const [isValid, setIsValid] = useState({});
     const [errors, setErrors] = useState({});
@@ -143,7 +118,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
             const startTimePeriod = updatedValueString === "startTimePeriod" ? updatedValue : values.startTimePeriod;
 
             const areBothTimesFull = endTimeHour && endTimeMinutes && endTimePeriod && startTimeHour && startTimeMinutes && startTimePeriod;
-
+            
             if (isSameDate && areBothTimesFull) {
                 const startTimeHourFull = convertTo24Hour(startTimeHour, startTimePeriod);
                 const endTimeHourFull = convertTo24Hour(endTimeHour, endTimePeriod);
@@ -158,7 +133,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
 
                 const startDateWithTime = new Date(startYear, startDay, startMonth, startTimeHourFull, startTimeMinutes);
                 const endDateWithTime = new Date(endYear, endDay, endMonth, endTimeHourFull, endTimeMinutes);
-
+    
                 return !isBefore(endDateWithTime, startDateWithTime);
             }
         }
@@ -352,7 +327,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                         endTime: false
                     }));
                 }
-
+                
             } else {
                 setValues(prevValues => ({
                     ...prevValues,
@@ -506,7 +481,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                         ...prevIsValid,
                         [name]: true,
                     }));
-
+    
                     setErrors((prevErrors) => ({
                         ...prevErrors,
                         [name]: "",
@@ -539,9 +514,6 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (isFormValid) {
-            const nombre = values.name;
-            const description = `${values.class} qqqq ${values.notes}`;
-
             if (!isAllDay) {
                 const startDateObj = new Date(values.startDate);
                 const endDateObj = new Date(values.endDate);
@@ -583,11 +555,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                 openPopup('Éxito', 'El evento se creo correctamente.', true);
             } catch (error) {
                 openPopup('Error', 'Hubo un problema al crear el evento.', false);
-            }
-        }
-
-
-    };
+            }}}
 
     const toggleAllDay = () => {
         setIsAllDay(!isAllDay);
@@ -601,10 +569,10 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
         return null;
     }
 
-    return (<>
+    return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <form className={`create-event-form ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`} onSubmit={handleSubmit}>
+                <form className={`create-event-form ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`} onSubmit={handleSubmit}>
                     <h1>Crear Evento</h1>
                     <div className="name-input-container">
                         {nameInput.map((input) => (
@@ -631,7 +599,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                                 show={isAllDay ? 'isAllDay' : 'notIsAllDay'}
                             />
                         ))}
-                        <span className={`time-divider ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>to</span>
+                        <span className={`time-divider ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`}>to</span>
                         {endDateInput.map((input) => (
                             <FormInput
                                 {...input}
@@ -645,7 +613,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                         ))}
                     </div>
 
-                    <div className={`hour-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
+                    <div className={`hour-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`}>
                         <div className="input-header-container">
                             <label>Hora</label>
                             <span className="required-span">Obligatorio</span>
@@ -689,7 +657,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
 
 
 
-                    <div className={`class-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
+                    <div className={`class-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`}>
                         <div className="input-header-container">
                             <label>Ramo</label>
                         </div>
@@ -707,9 +675,9 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                                 ))}
                             </select>
                         </div>
-
+                        
                     </div>
-                    <div className={`notes-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
+                    <div className={`notes-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`}>
                         <div className="input-header-container">
                             <label>Notas</label>
                         </div>
@@ -723,7 +691,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                         </div>
                     </div>
 
-                    <div className={`all-day-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
+                    <div className={`all-day-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`}>
                         <div className="input-header-container">
                             <label>Todo el día</label>
                         </div>
@@ -738,7 +706,7 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                         </div>
                     </div>
 
-                    <div className={`form-buttons ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
+                    <div className={`form-buttons ${isAllDay ? 'isAllDay' : 'notIsAllDay' }`}>
                         <button type="submit" className={`boton-2 submit-button ${isFormValid ? 'valid' : 'invalid'}`} disabled={!isFormValid}>
                             Crear
                         </button>
@@ -749,13 +717,6 @@ const CreateEventForm = ({ isOpen, onClose, onEventCreated }) => {
                 </form>
             </div>
         </div>
-        <Popup
-            title={popupTitle}
-            message={popupMessage}
-            isOpen={isPopupOpen}
-            onClose={closePopup}  // Llamamos a closePopup aquí
-        />
-    </>
     );
 };
 
