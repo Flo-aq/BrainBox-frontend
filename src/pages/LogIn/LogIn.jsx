@@ -1,6 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { AuthContext } from '../../auth/AuthContext';
+import { AuthContext } from '../../auth/AuthContext'
+
 import './LogIn.css';
+
+
 import axios from 'axios';
 import LoginForm from '../../components/LogInForm/LoginForm'; 
 
