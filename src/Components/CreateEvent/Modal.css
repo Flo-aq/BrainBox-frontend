@@ -1,4 +1,4 @@
-.modal-overlay {
+.create-event-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@
     z-index: 6;
 }
 
-.modal-content {
+.create-event-modal-content {
     background: var(--white);
     border-radius: 5px;
     width: 600px;
@@ -22,7 +22,7 @@
     height: auto;
 }
 
-h2 {
+.create-event-modal-content h2 {
     width: 100%;
     font-size: 36px;
     font-weight: 600;
@@ -30,7 +30,7 @@ h2 {
     grid-area: 2 / 2 / 3 / 3;
 }
 
-form {
+.create-event-modal-content form {
     grid-area: 4 / 2 / 5 / 3;
     display: grid;
     grid-template-columns: repeat(6, 4fr);
@@ -40,7 +40,7 @@ form {
     width: 100%;
 }
 
-.input-box {
+.create-event-modal-content form .input-box {
     display: grid;
     grid-template-rows: auto auto;
     gap: 5px;
@@ -48,7 +48,7 @@ form {
     height: auto;
 }
 
-.input-box .title {
+.create-event-modal-content form .input-box .title {
     grid-area: 1 / 1 / 2 / 2;
     display: inline-flex;
     /* Asegura que el título y el asterisco estén en la misma línea */
@@ -59,19 +59,19 @@ form {
     font-size: 14px;
 }
 
-.input-box.date-box .title,
-.input-box.time-box .title {
+.create-event-modal-content form .input-box.date-box .title,
+.create-event-modal-content form .input-box.time-box .title {
     font-size: 12px;
 }
 
-.asterisk {
+.create-event-modal-content form .asterisk {
     color: var(--red);
     margin-left: 0.25rem;
     font-size: 1em;
     /* Asegúrate de que el tamaño del asterisco coincida con el texto */
 }
 
-.input-box input {
+.create-event-modal-content form .input-box input {
     border-radius: 100px;
     border: 4px solid #feb485;
     font-size: 14px;
@@ -82,15 +82,15 @@ form {
     width: calc(100% - 20px);
 }
 
-.input-box input:is(input:focus) {
+.create-event-modal-content form .input-box input:is(input:focus) {
     border-color: #ff9470;
 }
 
-.input-box input:is(input:valid) {
+.create-event-modal-content form .input-box input:is(input:valid) {
     border-color: var(--green);
 }
 
-.input-box select {
+.create-event-modal-content form .input-box select {
     border-radius: 100px;
     border: 4px solid #feb485;
     font-size: 14px;
@@ -101,11 +101,11 @@ form {
     width: 100%;
 }
 
-.input-box select:is(select:focus) {
+.create-event-modal-content form .input-box select:is(select:focus) {
     border-color: #ff9470;
 }
 
-.input-box textarea {
+.create-event-modal-content form .input-box textarea {
     border-radius: 20px;
     border: 4px solid #feb485;
     font-size: 14px;
@@ -118,27 +118,27 @@ form {
     height: 50px;
 }
 
-.input-box textarea:is(textarea:focus) {
+.create-event-modal-content form .input-box textarea:is(textarea:focus) {
     border-color: #ff9470;
 }
 
-.name-box {
+.create-event-modal-content form .name-box {
     grid-area: 1 / 1 / 2 / 7;
 }
 
-.type-box {
+.create-event-modal-content form .type-box {
     grid-area: 3/ 1 / 4 / 4;
 }
 
-.add-people-box {
+.create-event-modal-content form .add-people-box {
     grid-area: 4 / 1 / 6 / 4;
 }
 
-.notes-box {
+.create-event-modal-content form .notes-box {
     grid-area: 4 / 4 / 6 / 7;
 }
 
-.time-container.inicio {
+.create-event-modal-content form .time-container.inicio {
     grid-area: 2/1/3/4;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -146,7 +146,7 @@ form {
     gap: 10px;
 }
 
-.time-container.final {
+.create-event-modal-content form .time-container.final {
     grid-area: 2/4/3/7;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -154,7 +154,7 @@ form {
     gap: 10px;
 }
 
-.date-box.inicio {
+.create-event-modal-content form .date-box.inicio {
     grid-area: 2 / 1 / 3 / 2;
 }
 
@@ -221,7 +221,7 @@ button.close-button {
     --border-color: var(--black);
 }
 
-form button {
+.create-event-modal-content .boton-2 {
     position: relative;
     top: 0;
     display: flex;

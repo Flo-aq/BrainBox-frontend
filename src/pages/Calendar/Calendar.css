@@ -1,6 +1,6 @@
 .calendar-content-container {
     grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 15vh 75vh 10vh;
+    grid-template-rows: 15vh 1fr 10vh;
     display: grid;
     height: 100vh;
     width: 100%;
@@ -9,28 +9,3 @@
     grid-area: 2/2/3/3;
 }
 
-button.crear-evento {
-    --width: auto;
-    --font-color: var(--black);
-    --bg-color: var(--white);
-    --border-color: var(--white);
-    --font-size: 14px;
-    position: fixed;
-    top: 92vh;
-    left: calc(50vw - 80px);
-}
-
-@media (width < 600px) {
-  .calendar-content-container {
-    grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 15vh 75vh 10vh;
-    display: grid;
-    height: 100vh;
-    width: 100%;
-}
-
-button.crear-evento {
-    top: 92vh;
-    --font-size: 10px;
-}
-}
