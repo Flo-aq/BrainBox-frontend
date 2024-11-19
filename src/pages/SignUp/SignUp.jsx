@@ -1,19 +1,13 @@
-
-import './SignUp.css'
-
 import React, { useState } from 'react';
+import './SignUp.css';
 import axios from 'axios';
-import SignUpForm from '../../Components/SignUpForm/SignUpForm'
+import SignUpForm from '../../Components/SignUpForm/SignUpForm'; // Import SignUpForm
 
-function Signup() {
-  const [Nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [contrasena, setContraseena] = useState("");
+function SignUp() {
   const [error, setError] = useState(false);
   const [msg, setMsg] = useState("");
 
-
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event, Nombre, correo, contrasena) => {
     event.preventDefault();
 
     axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, {
@@ -25,54 +19,21 @@ function Signup() {
         setError(false);
         setMsg('Registro exitoso! Ahora puedes volver y loguearte');
       }).catch((error) => {      
-      console.error('Ocurrió un error:', error);
-      setError(true); // aquí puede haber más lógica para tratar los errores
+        console.error('Ocurrió un error:', error);
+        setError(true); // Aquí puede haber más lógica para tratar los errores
       });
-    }
+  };
 
   return (
-    <div classnombre="Login">
-      {msg.length > 0 && <div classnombre="successMsg"> {msg} </div>}
+    <div>
+      <h1 className="view-title">Create an account</h1>
 
-      {error && <div classnombre="error">Hubo un error con el Registro, por favor trata nuevamente.</div>}
+      {msg.length > 0 && <div className="successMsg"> {msg} </div>}
+      {error && <div className="error">Hubo un error con el Registro, por favor trata nuevamente.</div>}
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nombre:
-          <input 
-            type="text" 
-            nombre="Nombre"
-            value={Nombre}
-            onChange={e => setNombre(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          correo:
-          <input 
-            type="correo" 
-            nombre="correo"
-            value={correo}
-            onChange={e => setCorreo(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          contrasena:
-          <input 
-            type="contrasena" 
-            nombre="contrasena"
-            value={contrasena}
-            onChange={e => setContraseena(e.target.value)}
-            required
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <SignUpForm handleSubmit={handleSubmit} />
     </div>
-
-
   );
 }
 
-export default Signup;
+export default SignUp;
