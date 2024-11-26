@@ -56,9 +56,9 @@ a.log-in {
 
 a.sign-up {
     --width: auto;
-    --font-color: var(--black);
-    --border-color: #feb485;
-    --bg-color: #feb485;
+    --font-color: var(--white);
+    --border-color: var(--principal-color-orange);
+    --bg-color: var(--principal-color-orange);
     --font-size: 15px;
 }
 

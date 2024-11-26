@@ -36,8 +36,8 @@ const CreateEventModal = ({ isOpen, onClose, onCreateEvent }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="modal-overlay">
-            <div className="modal-content">
+        <div className="create-event-modal-overlay">
+            <div className="create-event-modal-content">
                 <h2>Crear Evento</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-box name-box">
