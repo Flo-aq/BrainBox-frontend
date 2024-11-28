@@ -2,11 +2,12 @@ name: Deploy website
 
 on: 
     push:
-        branches: [ "main", "development" ]
-
+        branches: [ "main" ]
+    workflow_dispatch:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
       - name: Repository Checkout
         uses: actions/checkout@v4

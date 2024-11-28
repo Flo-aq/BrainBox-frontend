@@ -108,6 +108,7 @@ const SignUpForm = () => {
         onChange={onChange}
         errorMessage={errors[input.name]} // Pass error message here
         className={`SignUpForm ${input.name}`}
+        show="show"
         />
       ))}
       <div className="log-in-span">

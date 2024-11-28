@@ -9,7 +9,7 @@
     min-width: 100vw;
     top: 0;
   --white: #f6f6f6;
-  --black: #140f12;
+  --black: #070707;
 
   --principal-color-yellow: #ffc266;
   --principal-color-pink1: #ea7171;
@@ -30,7 +30,9 @@
   --principal-color-light-pink2: #ffbebc;
   --principal-color-light-orange: #f6a683;
   --principal-color-light-brown: #d9c5b5;
-  --principal-color-light-gray: #e3e2e3;
+  --principal-color-light-gray: #dddddd;
+
+  --principal-color-middle-gray: #bdbbbc;
 
 
   --red: #DC092C;
