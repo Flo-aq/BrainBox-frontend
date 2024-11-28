@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import icon from '../../Images/logo.svg'
+import icon from '../../Images/icon.svg';
+import logotype from '../../Images/logotype.svg';
+
 
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -45,6 +47,7 @@ export const Navbar = () => {
             <nav>
                 <img src={icon} alt='Icon' className='icon' />
                 <div className='aux'>
+
                     <button
                         className={`boton-2 menu ${menuButtonActive ? 'active' : 'inactive'}`}
                         onClick={handleMenuButtonClick}
@@ -54,6 +57,7 @@ export const Navbar = () => {
                         </svg>
                         <span>Menú</span>
                     </button>
+
                 </div>
                 
 
@@ -63,14 +67,18 @@ export const Navbar = () => {
                         <a href="/about-us" className='boton-2 about-us'>About Us</a>
                         <a href="/instructions" className='boton-2 instructions'>Instructions</a>
                         <a href="/calendar" className='boton-2 main'>Main</a>
+
                         <a href="/login" className={`boton-2 ${logInButtonActive ? 'active' : ''} log-in`} onClick={handleLogInButtonClick}>Log in</a>
                         <a href="/signup" className={`boton-2 ${signUpButtonActive ? 'active' : ''} sign-up`} onClick={handleSignUpButtonClick}>Sign up</a>
+
                         
                         {/* Mostrar botones de login y signup solo si el usuario no está logueado */}
                         {!isLoggedIn && (
                             <>
+
                                 <a href="/login" className={`boton-2 ${logInButtonActive ? 'active' : ''} log-in`} onClick={handleLogInButtonClick}>Log in</a>
                                 <a href="/signup" className={`boton-2 ${signUpButtonActive ? 'active' : ''} sign-up`} onClick={handleSignUpButtonClick}>Sign up</a>
+
                             </>
                         )}
 
@@ -80,6 +88,7 @@ export const Navbar = () => {
                         )}
                     </div>
                 )}
+
             </nav>
         </div>
     );
