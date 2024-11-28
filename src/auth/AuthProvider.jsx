@@ -9,7 +9,7 @@ function AuthProvider({ children }) {
     function logout() {
 
         setToken(null);
-
+    }
     useEffect(() => {
         localStorage.setItem('token', token);
     }, [token]);

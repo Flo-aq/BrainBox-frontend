@@ -2,7 +2,7 @@ import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
 import "./LogInForm.css";
 
-const LogInForm = () => {
+const LogInForm = ({ handleSubmit }) => { // Asegúrate de recibir handleSubmit como prop
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -28,15 +28,10 @@ const LogInForm = () => {
             placeholder: "Contraseña1#",
             label: "Contraseña",
             required: true,
-            pattern: ".{1,}",  // A pattern that matches any non-empty string
+            pattern: ".{1,}", // A pattern that matches any non-empty string
             errorMessage: "La contraseña no puede estar vacía",
         },
     ];
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Your form submission logic here
-    };
 
     const onChange = (e) => {
         const { name, value } = e.target;
@@ -60,8 +55,14 @@ const LogInForm = () => {
 
     const isFormValid = Object.values(errors).every((error) => error === "") && inputs.every((input) => !input.required || (values[input.name] !== ""));
 
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        // Llamar al handleSubmit que viene como prop con los valores del formulario
+        handleSubmit(e, values.email, values.password);
+    };
+
     return (
-        <form className="log-in-form" onSubmit={handleSubmit}>
+        <form className="log-in-form" onSubmit={handleFormSubmit}>
             <h1>Log in</h1>
             {inputs.map((input) => (
                 <FormInput
@@ -78,7 +79,9 @@ const LogInForm = () => {
                 <div className="text1">¿No tienes una cuenta?</div>
                 <a className="log-in-reference" href="/sign-up">Crea una cuenta</a>
             </div>
-            <button className="boton-2 submitLogInForm" type="submit" disabled={!isFormValid}>Iniciar sesión</button>
+            <button className="boton-2 submitLogInForm" type="submit" disabled={!isFormValid}>
+                Iniciar sesión
+            </button>
         </form>
     );
 };

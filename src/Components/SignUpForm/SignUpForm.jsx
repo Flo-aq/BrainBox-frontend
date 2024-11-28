@@ -59,7 +59,9 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your form submission logic here
+    if (isFormValid) {
+      onSubmit(values); // Pasar los valores al padre
+    }
   };
 
   const onChange = (e) => {
