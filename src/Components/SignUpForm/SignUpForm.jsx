@@ -2,7 +2,7 @@ import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
 import "./SignUpForm.css";
 
-const SignUpForm = () => {
+const SignUpForm = ({ onSubmit }) => { // Recibe onSubmit como prop
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -18,8 +18,7 @@ const SignUpForm = () => {
       name: "username",
       type: "text",
       placeholder: "Juanito",
-      errorMessage:
-        "El nombre de usuario debe tener entre 3 y 16 números y/o letras",
+      errorMessage: "El nombre de usuario debe tener entre 3 y 16 números y/o letras",
       label: "Nombre de usuario",
       pattern: "^[A-Za-z0-9]{3,16}$",
       required: false,
@@ -39,8 +38,7 @@ const SignUpForm = () => {
       name: "password",
       type: "password",
       placeholder: "Contraseña1#",
-      errorMessage:
-        "La contraseña debe tener de 8 a 20 caracteres y debe contener al menos una letra, un número y un carácter especial.",
+      errorMessage: "La contraseña debe tener de 8 a 20 caracteres y debe contener al menos una letra, un número y un carácter especial.",
       label: "Contraseña",
       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
       required: true,
@@ -60,15 +58,23 @@ const SignUpForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isFormValid) {
-      onSubmit(values); // Pasar los valores al padre
+      // Mapeo de los valores para que coincidan con el formato esperado por el servidor
+      const dataToSend = {
+        Nombre: values.username, // Mapea 'username' a 'Nombre'
+        correo: values.email,    // Mapea 'email' a 'correo'
+        contrasena: values.password, // Mapea 'password' a 'contrasena'
+      };
+      
+      console.log("Datos a enviar desde SignUpForm:", dataToSend);
+      
+      onSubmit(dataToSend); // Llama a la función pasada como prop con los datos mapeados
     }
   };
 
   const onChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-  
-    // Validate input value
+
     const input = inputs.find((input) => input.name === name);
     if (input) {
       let isValid;
@@ -82,8 +88,7 @@ const SignUpForm = () => {
         [name]: isValid ? "" : input.errorMessage,
       }));
     }
-  
-    // Revalidate confirmPassword if password changes
+
     if (name === "password") {
       const confirmPasswordInput = inputs.find((input) => input.name === "confirmPassword");
       if (confirmPasswordInput) {
@@ -95,22 +100,22 @@ const SignUpForm = () => {
       }
     }
   };
-  // Check if there are any errors
+
   const isFormValid = Object.values(errors).every((error) => error === "") &&
-  inputs.every((input) => !input.required || (values[input.name] !== ""));
+    inputs.every((input) => !input.required || (values[input.name] !== ""));
 
   return (
     <form className="sign-up-form" onSubmit={handleSubmit}>
       <h1>Register</h1>
       {inputs.map((input) => (
         <FormInput
-        {...input}
-        key={input.id}
-        value={values[input.name]}
-        onChange={onChange}
-        errorMessage={errors[input.name]} // Pass error message here
-        className={`SignUpForm ${input.name}`}
-        show="show"
+          {...input}
+          key={input.id}
+          value={values[input.name]}
+          onChange={onChange}
+          errorMessage={errors[input.name]}
+          className={`SignUpForm ${input.name}`}
+          show="show"
         />
       ))}
       <div className="log-in-span">
