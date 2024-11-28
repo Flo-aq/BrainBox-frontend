@@ -14,6 +14,7 @@ function SignUp() {
         Nombre: Nombre,
         correo: correo,
         contrasena: contrasena
+
       }).then((response) => {
         console.log('Registro exitoso! Ahora puedes volver y loguearte');
         setError(false);
@@ -31,8 +32,10 @@ function SignUp() {
       {error && <div className="error">Hubo un error con el Registro, por favor trata nuevamente.</div>}
 
       <SignUpForm handleSubmit={handleSubmit} />
+
     </div>
   );
 }
 
 export default SignUp;
+

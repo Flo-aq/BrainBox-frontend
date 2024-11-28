@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './pages/Landing/Landing';
 import AboutUs from './pages/AboutUs/AboutUs';
+
+
 import CalendarPage from './pages/Calendar/Calendar';
 import Instructions from './pages/Instructions/Instructions';
 import Signup from './pages/SignUp/SignUp';
 import Login from './pages/LogIn/LogIn';
 import AdminCheck from './protected/AdminCheck'
 import UserCheck from './protected/UserCheck'
+
 
 function Router(){
   return (
@@ -20,6 +23,7 @@ function Router(){
         <Route path={"/instructions"} element={<Instructions/>} />
         <Route path={"/admincheck"} element={<AdminCheck />}/>
         <Route path={"/usercheck"} element={<UserCheck />}/>
+
       </Routes>
     </BrowserRouter>
   )
