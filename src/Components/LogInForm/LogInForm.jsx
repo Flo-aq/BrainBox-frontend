@@ -2,7 +2,7 @@ import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
 import "./LogInForm.css";
 
-const LogInForm = ({ handleSubmit }) => { // Asegúrate de recibir handleSubmit como prop
+const LogInForm = ({ onSubmit }) => { // Asegúrate de recibir handleSubmit como prop
     const [values, setValues] = useState({
         email: "",
         password: "",
@@ -55,14 +55,23 @@ const LogInForm = ({ handleSubmit }) => { // Asegúrate de recibir handleSubmit 
 
     const isFormValid = Object.values(errors).every((error) => error === "") && inputs.every((input) => !input.required || (values[input.name] !== ""));
 
-    const handleFormSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        // Llamar al handleSubmit que viene como prop con los valores del formulario
-        handleSubmit(e, values.email, values.password);
-    };
+        if (isFormValid) {
+          // Mapeo de los valores para que coincidan con el formato esperado por el servidor
+          const dataToSend = {
+            correo: values.email,    // Mapea 'email' a 'correo'
+            contrasena: values.password, // Mapea 'password' a 'contrasena'
+          };
+          
+          console.log("Datos a enviar desde LoginForm:", dataToSend);
+          
+          onSubmit(dataToSend); // Llama a la función pasada como prop con los datos mapeados
+        }
+      };
 
     return (
-        <form className="log-in-form" onSubmit={handleFormSubmit}>
+        <form className="log-in-form" onSubmit={handleSubmit}>
             <h1>Log in</h1>
             {inputs.map((input) => (
                 <FormInput
