@@ -77,7 +77,7 @@ const LogInForm = ({ handleSubmit }) => { // Asegúrate de recibir handleSubmit 
             ))}
             <div className="sign-up-span">
                 <div className="text1">¿No tienes una cuenta?</div>
-                <a className="log-in-reference" href="/sign-up">Crea una cuenta</a>
+                <a className="log-in-reference" href="/signup">Crea una cuenta</a>
             </div>
             <button className="boton-2 submitLogInForm" type="submit" disabled={!isFormValid}>
                 Iniciar sesión

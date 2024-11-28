@@ -115,7 +115,7 @@ const SignUpForm = () => {
       ))}
       <div className="log-in-span">
         <div className="text1">¿Ya tienes una cuenta?</div>
-        <a className="log-in-reference" href="/log-in">Inicia sesión</a>
+        <a className="log-in-reference" href="/login">Inicia sesión</a>
       </div>
       <button className="boton-2 submitSignUpForm" type="submit" disabled={!isFormValid}>Submit</button>
     </form>
