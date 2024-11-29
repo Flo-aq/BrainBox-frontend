@@ -10,32 +10,31 @@ function Login() {
   const [error, setError] = useState(false);
   const [msg, setMsg] = useState("");
 
-  const handleSubmit = async (event, correo, contrasena) => {
-    event.preventDefault();
+  const handleSubmit = async (formData) => {
 
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, {
-      correo: correo,
-      contrasena: contrasena
-    }).then((response) => {
-      console.log('Login successful');
+    const dataToSend = {
+      correo: formData.correo,    // Cambia `email` a `correo`
+      contrasena: formData.contrasena, // Cambia `password` a `contrasena`
+    };
+
+    console.log("Datos a enviar al backend:", dataToSend); // Log para ver el formato final antes de enviar
+    
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, dataToSend);
+      console.log('Registro exitoso! Ahora puedes volver y loguearte');
       setError(false);
-      setMsg("Login exitoso!");
-      // Recibimos el token y lo procesamos
-      const access_token = response.data.access_token;
-      localStorage.setItem('token', access_token);
-      setToken(access_token);
-      console.log("Se seteo el token: ", token);
-    }).catch((error) => {
-      console.error('An error occurred while trying to login:', error);
+      setMsg('Login exitoso!');
+    } catch (error) {
+      console.error('Ocurrió un error:', error);
       setError(true);
-    });
-
+      setMsg('Hubo un error con el Login, por favor trata nuevamente.');
+    }
   };
 
 
 
   return (
-    <div className="log-in-form-container">
+    <div className="Login">
       {msg.length > 0 && <div className="successMsg"> {msg} </div>}
       {error && <div className="error">Hubo un error con el Login, por favor trata nuevamente.</div>}
 
