@@ -41,10 +41,10 @@ function SignUp() {
       console.log('Registro exitoso! Ahora puedes volver y loguearte');
 
       openPopup('Éxito', 'El signup fue exitoso.', false);
-    }).catch((error) => {
+    } catch(error) {
       console.error('Ocurrió un error:', error);
       openPopup('Error', 'Hubo un problema al hacer signup.', true);
-    });
+    };
   };
 
   return (
