@@ -42,13 +42,17 @@ function Login() {
     try {
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, dataToSend);
       if (response.status === 200) {
-        const { token, estudiante } = response.data;
-        localStorage.setItem('token', token);
+        const { access_token, estudiante } = response.data;
+        localStorage.setItem('token', access_token);
         localStorage.setItem('userId', estudiante.id);
         localStorage.setItem('email', estudiante.email);
         localStorage.setItem('role', estudiante.role)
         console.log("Login successful:", response.data);
-        navigate('/calendar');
+        if (estudiante.role == "user") {
+          navigate('/userclasses');
+        } else if (estudiante.role == "admin") {
+          navigate('/adminclasses');
+        }
       }
 
     } catch (error) {
