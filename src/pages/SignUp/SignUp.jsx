@@ -12,9 +12,9 @@ function SignUp() {
   const handleSubmit = async (formData) => {
 
     const dataToSend = {
-      nombre: formData.username, // Cambia `username` a `nombre`
-      correo: formData.email,    // Cambia `email` a `correo`
-      contrasena: formData.password, // Cambia `password` a `contrasena`
+      nombre: formData.Nombre, // Cambia `username` a `nombre`
+      correo: formData.correo,    // Cambia `email` a `correo`
+      contrasena: formData.contrasena, // Cambia `password` a `contrasena`
     };
 
     console.log("Datos a enviar al backend:", dataToSend); // Log para ver el formato final antes de enviar
