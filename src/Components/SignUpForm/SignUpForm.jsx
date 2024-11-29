@@ -60,7 +60,7 @@ const SignUpForm = ({ onSubmit }) => { // Recibe onSubmit como prop
     if (isFormValid) {
       // Mapeo de los valores para que coincidan con el formato esperado por el servidor
       const dataToSend = {
-        Nombre: values.username, // Mapea 'username' a 'Nombre'
+        nombre: values.username, // Mapea 'username' a 'Nombre'
         correo: values.email,    // Mapea 'email' a 'correo'
         contrasena: values.password, // Mapea 'password' a 'contrasena'
       };
