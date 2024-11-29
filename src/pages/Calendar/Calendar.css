@@ -1,6 +1,6 @@
 .calendar-content-container {
-  grid-template-columns: 5vw 90vw 5vw;
-  grid-template-rows: 15vh 1fr 10vh;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr 50px;
   display: grid;
   height: auto;
   width: 100%;

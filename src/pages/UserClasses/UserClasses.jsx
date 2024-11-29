@@ -6,8 +6,8 @@ import './UserClasses.css'
 
 const UserClasses = () => {
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
-  const userId = 1;
-
+  const userId = 1; // TODO change user id
+  // TODO uncomment api 
   const userclasses = [{
     "id": 1,
     "nombre": "Tecnologia y Aplicaciones Web",
