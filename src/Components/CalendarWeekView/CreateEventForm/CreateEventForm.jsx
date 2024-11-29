@@ -7,6 +7,7 @@ import Popup from '../../PopUp/PopUp';
 import axios from 'axios';
 
 const CreateEventForm = ({ isOpen, onClose }) => {
+  // TODO set clases options from user classes
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
   const [popup, setPopup] = useState({ isOpen: false, title: '', message: '' });
 
@@ -19,6 +20,7 @@ const CreateEventForm = ({ isOpen, onClose }) => {
   };
 
   const handleFormClose = () => {
+    resetForm();
     closePopup();
     onClose();
   };
@@ -50,6 +52,27 @@ const CreateEventForm = ({ isOpen, onClose }) => {
   const [isAllDay, setIsAllDay] = useState(false);
 
   const [modified, setModified] = useState({});
+
+  const resetForm = () => {
+    setValues({
+      name: "",
+    startDate: "",
+    startTime: "",
+    startTimeHour: "--",
+    startTimeMinutes: "--",
+    startTimePeriod: "--",
+    endDate: "",
+    endTime: "",
+    endTimeHour: "--",
+    endTimeMinutes: "--",
+    endTimePeriod: "--",
+    class: "",
+    notes: "",
+    });
+    setErrors({});
+    setIsAllDay(false);
+    setModified({});
+  };
 
   const classes = ["Select a class", "class1", "class2", "class3"];
 
@@ -556,7 +579,7 @@ const CreateEventForm = ({ isOpen, onClose }) => {
 
         // Crear invitación después de la creación del evento
         const invitacionResponse = await axios.post(`${apiUrl}/invitaciones`, {
-          estudiante_ID: apiClient.userId,
+          estudiante_ID: apiClient.userId, //TODO change user id
           evento_ID: eventoResponse.data.id,
           estado: true,
           tarea_entrega_id: null

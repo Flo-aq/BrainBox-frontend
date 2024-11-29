@@ -20,6 +20,7 @@ const AddTaskEvForm = ({ type, isOpen, onClose }) => {
   };
 
   const handleFormClose = () => {
+    resetForm();
     closePopup();
     onClose();
   };
@@ -50,6 +51,26 @@ const AddTaskEvForm = ({ type, isOpen, onClose }) => {
   const [isAllDay, setIsAllDay] = useState(false);
 
   const [modified, setModified] = useState({});
+
+  const resetForm = () => {
+    setValues({
+      name: "",
+      startDate: "",
+      startTime: "",
+      startTimeHour: "--",
+      startTimeMinutes: "--",
+      startTimePeriod: "--",
+      endDate: "",
+      endTime: "",
+      endTimeHour: "--",
+      endTimeMinutes: "--",
+      endTimePeriod: "--",
+      weight: "",
+    });
+    setErrors({});
+    setIsAllDay(false);
+    setModified({});
+  };
 
   const nameInput = [
     {
@@ -573,8 +594,6 @@ const AddTaskEvForm = ({ type, isOpen, onClose }) => {
   };
 
   const isTimeInputsDisabled = !values.startDate || !values.endDate || errors.startDate || errors.endDate;
-
-
 
   if (!isOpen) {
     return null;
