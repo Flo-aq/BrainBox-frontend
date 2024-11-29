@@ -5,37 +5,39 @@ import icon from '../../Images/logo.svg'
 export const Navbar = () => {
   // TODO show according to user-token
   const [expanded, setExpanded] = useState(false);
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role')
 
   const toggleNavbar = () => {
     setExpanded(prev => !prev);
   };
 
-  const handleClick = (e) => {
-    // Lógica de log out
-    console.log('Log Out clicked');
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role')
   };
-
-  const token = localStorage.getItem('token');
-  const role = localStorage.getItem('role')
 
 
   return (
     <div className={`navbar ${expanded ? 'expanded' : ''}`}>
       <div className='navbar-section'>
-        {!expanded ? <button className='open-navbar' onClick={toggleNavbar}>
+        {!expanded ? (
+        <button className='open-navbar' onClick={toggleNavbar}>
           <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke="none"
               strokeLinecap="round"
               strokeLinejoin="round" fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
           </svg>
         </button>
-          : <button className='close-navbar' onClick={toggleNavbar}>
+        ) : (
+        <button className='close-navbar' onClick={toggleNavbar}>
             <svg stroke="none"
               strokeLinecap="round"
               strokeLinejoin="round" fill="currentColor" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
             </svg>
-          </button>}
+          </button>
+          )}
       </div>
       <div className="navbar-section logo">
         <a href="/">
@@ -114,46 +116,49 @@ export const Navbar = () => {
           </div>
         </a>
       </div>
-      
+
       <div className="navbar-section">
-      {token === "" && ( <>
-        <a href="login">
-          <div className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="none"
-                strokeLinecap="round"
-                strokeLinejoin="round" fill="currentColor" d="M14 14.252v2.09A6 6 0 0 0 6 22l-2-.001a8 8 0 0 1 10-7.748zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm8 6h3v2h-3v3.5L15 18l5-4.5V17z" />
-            </svg>
-            <span>Log In</span>
-          </div>
-        </a>
-        <a href='/signup'>
-          <div className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 18L17 18M17 18L14 18M17 18V15M17 18V21M11 21H4C4 17.134 7.13401 14 11 14C11.695 14 12.3663 14.1013 13 14.2899M15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z" fill="none" stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={"2px"} />
-            </svg>
-            <span>Sign Up</span>
-          </div>
-        </a>
-        </>
-      )}
-        {token !== "" && (
-          <div onClick={handleClick} className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z"
-                fill="currentColor"
-                stroke="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span>Log Out</span>
-          </div>
+        {token != "null" && ( 
+          <a href="/">
+              <div onClick={handleSignOut} className="navbar-item">
+                <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z"
+                    fill="currentColor"
+                    stroke="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Log Out</span>
+              </div>
+            </a>        
         )}
+        {token == "null" && (
+          <>
+          <a href="/login">
+            <div className="navbar-item">
+              <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round" fill="currentColor" d="M14 14.252v2.09A6 6 0 0 0 6 22l-2-.001a8 8 0 0 1 10-7.748zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm8 6h3v2h-3v3.5L15 18l5-4.5V17z" />
+              </svg>
+              <span>Log In</span>
+            </div>
+          </a>
+          <a href='/signup'>
+            <div className="navbar-item">
+              <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 18L17 18M17 18L14 18M17 18V15M17 18V21M11 21H4C4 17.134 7.13401 14 11 14C11.695 14 12.3663 14.1013 13 14.2899M15 7C15 9.20914 13.2091 11 11 11C8.79086 11 7 9.20914 7 7C7 4.79086 8.79086 3 11 3C13.2091 3 15 4.79086 15 7Z" fill="none" stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={"2px"} />
+              </svg>
+              <span>Sign Up</span>
+            </div>
+          </a>
+          </>
+          )}
       </div>
     </div>
   );
