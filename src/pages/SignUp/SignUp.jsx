@@ -25,23 +25,30 @@ function SignUp() {
     handleSubmit();
   };
 
-  const handleSubmit = async (event, Nombre, correo, contrasena) => {
-    event.preventDefault();
 
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, {
-      Nombre: Nombre,
-      correo: correo,
-      contrasena: contrasena
-    }).then((response) => {
+  const handleSubmit = async (formData) => {
+
+    const dataToSend = {
+      nombre: formData.nombre, // Cambia `username` a `nombre`
+      correo: formData.correo,    // Cambia `email` a `correo`
+      contrasena: formData.contrasena, // Cambia `password` a `contrasena`
+    };
+
+    console.log("Datos a enviar al backend:", dataToSend); // Log para ver el formato final antes de enviar
+    
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`, dataToSend);
       console.log('Registro exitoso! Ahora puedes volver y loguearte');
+
       openPopup('Éxito', 'El signup fue exitoso.', false);
-    }).catch((error) => {
+    } catch(error) {
       console.error('Ocurrió un error:', error);
       openPopup('Error', 'Hubo un problema al hacer signup.', true);
-    });
+    };
   };
 
-  return (<>
+  return (
+   <>
     <div className='sign-up-form-container'>
       <SignUpForm onSubmit={handleSubmit} />
     </div>
