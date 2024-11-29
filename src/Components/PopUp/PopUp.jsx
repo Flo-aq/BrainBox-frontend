@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './Popup.css'; // Aquí puedes personalizar el estilo del popup
+import React from 'react';
+import './Popup.css';
 
-const Popup = ({ title, message, isOpen, onClose }) => {
-  if (!isOpen) return null; // No renderiza el popup si isOpen es false
+const Popup = ({ title, message, isOpen, onClose, onRetry, onFormClose, isError }) => {
+  if (!isOpen) return null;
 
   return (
     <div className="popup-overlay">
@@ -13,6 +13,11 @@ const Popup = ({ title, message, isOpen, onClose }) => {
         </div>
         <div className="popup-body">
           <p>{message}</p>
+          <div className="popup-actions">
+            {isError && <button className="popup-button" onClick={onRetry}>Reintentar</button>}
+            <button className="popup-button" onClick={onFormClose}>{isError ? "Cerrar formulario" : "Cerrar"}</button>
+            {isError && <button className="popup-button" onClick={onRetry}>Cerrar</button>}
+          </div>
         </div>
       </div>
     </div>

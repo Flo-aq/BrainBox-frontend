@@ -1,0 +1,76 @@
+.modal-overlay .modal-content-4 {
+  width: 300px;
+  grid-area: 2/2/3/3;
+  background: var(--white);
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 28px auto 28px;
+  grid-template-columns: 28px 1fr 28px;
+  height: auto;
+}
+
+.add-class-user-content {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.modal-overlay .modal-content-4 form.add-class-user {
+  grid-area: 2 / 2 / 3 / 3;
+  gap: 8px;
+  width: 100%;
+  display: grid;
+  height: auto;
+}
+
+form.add-class-user .h1 {
+  width: 100%;
+  font-size: 36px;
+  font-weight: 600;
+  height: fit-content;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+form.add-class-user select {
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 2px solid var(--principal-color-gray);
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 34px;
+}
+
+form.add-class-user .buttons {
+  display: flex;
+  justify-content: space-between;
+  grid-area: 3/1/4/2;
+  width: 100%;
+}
+
+form.add-class-user .buttons button {
+  width: fit-content;
+  --font-size: 14px;
+}
+
+form.add-class-user .buttons .submit {
+  --bg-color: var(--green);
+  --border-color: var(--green);
+  --font-color: var(--white);
+}
+
+form.add-class-user .buttons .cancel {
+  --bg-color: var(--red);
+  --border-color: var(--red);
+  --font-color: var(--white);
+}
+
+form.add-class-user .buttons .submit:disabled {
+  --bg-color: var(--principal-color-dark-gray);
+  --border-color: var(--principal-color-dark-gray);
+  --font-color: var(--white);
+  cursor: not-allowed;
+}
+
+form.add-class-user .buttons .submit:disabled:hover {
+  transform: none;
+}

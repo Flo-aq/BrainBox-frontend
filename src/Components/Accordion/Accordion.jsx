@@ -1,23 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./Accordion.css";
+import React, { useState, useRef } from 'react';
+import './Accordion.css';
 
-function Accordion(props) {
+const Accordion = ({ content, title, llave }) => {
   const [active, setActive] = useState(false);
-  const content = useRef(null);
-  const [height, setHeight] = useState("0px");
+  const accordionSection = useRef(null);
 
-  function toggleAccordion() {
+  const toggleAccordion = () => {
     setActive(!active);
-    setHeight(active ? "0px" : `${content.current.scrollHeight}px`);
-  }
+  };
 
   return (
-    <div className="accordion__section">
-      <div
-        className={`accordion ${active ? "active" : ""}`}
-        onClick={toggleAccordion}
-      >
-        <p className="accordion__title">{props.title}</p>
+    <div ref={accordionSection} className={`accordion__section ${llave ? llave : ""}`}>
+      <div className={`accordion ${active ? "active" : ""}`} onClick={toggleAccordion}>
+        <p className="accordion__title">{title}</p>
         <svg
           className="arrow text-gray-800 dark:text-white"
           aria-hidden="true"
@@ -33,15 +28,11 @@ function Accordion(props) {
           />
         </svg>
       </div>
-      <div
-        ref={content}
-        style={{ maxHeight: `${height}` }}
-        className="accordion__content"
-      >
-        <div className="accordion__text">{props.content}</div>
+      <div className="accordion__content" style={{ display: active ? 'flex' : 'none' }}>
+        {content}
       </div>
     </div>
   );
-}
+};
 
 export default Accordion;

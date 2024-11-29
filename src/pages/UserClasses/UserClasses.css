@@ -1,0 +1,97 @@
+.user-classes {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 100px auto 1fr 30px;
+  gap: 0px;
+  width: 100%;
+}
+
+.user-classes h1 {
+  grid-area: 2/2/3/3;
+  padding: 0px 0px 30px 0px;
+  text-align: center;
+  font-size: 52px;
+  font-weight: 900px;
+}
+
+.user-classes .classes {
+  grid-area: 3 / 2 / 4 / 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,
+      minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.user-classes .classes .add-class-card {
+  border-radius: 8px;
+  width: 100%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  background-color: var(--principal-color-light-gray);
+  align-items: center;
+  justify-content: center;
+}
+
+.add-class-card button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 1em;
+  font-weight: 600;
+  place-content: center;
+  background-color: var(--white);
+  color: var(--principal-color-dark-gray);
+  text-decoration: none;
+  line-height: 1em;
+  border: none;
+
+}
+
+.add-class-card button:hover {
+  transform: scale(1.05);
+}
+
+.add-class-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.available-class {
+  background-color: #f8f9fa;
+  margin: 4px;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.available-class:hover {
+  background-color: #e2e6ea;
+}
+
+
+
