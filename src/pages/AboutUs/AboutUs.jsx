@@ -17,46 +17,46 @@ function AboutUs() {
       </div>
       <div className='black-div'>
 
-          <div className='header-black-div'>
-            Los integrantes
+        <div className='header-black-div'>
+          Los integrantes
+        </div>
+
+        <div className='members-container'>
+          <div className="card-client card-1">
+            <div className="user-picture">
+              <img src={cata_image}></img>
+            </div>
+            <p className="name-client"> Catalina Schulz
+            </p>
+            <p className='desc-client'>3° año de College de Ciencias Naturales
+            </p>
+
           </div>
 
-          <div className='members-container'>
-            <div className="card-client card-1">
-              <div className="user-picture">
-                  <img src={cata_image}></img>
-              </div>
-              <p className="name-client"> Catalina Schulz
-              </p>
-              <p className='desc-client'>3° año de College de Ciencias Naturales
-                  </p>
-              
-            </div>
-
-            <div className="card-client card-2">
-              <div className="user-picture">
+          <div className="card-client card-2">
+            <div className="user-picture">
               <img src={flo_image}></img>
-              </div>
-              <p className="name-client"> Florencia Aqueveque
-                  
-              </p>
-              <p className='desc-client'>4° año de Ingeniería Civil con major en Robótica
-                  </p>
-              
             </div>
+            <p className="name-client"> Florencia Aqueveque
 
-            <div className="card-client card-3">
-              <div className="user-picture">
-              <img src={vicho_image}></img>
-              </div>
-              <p className="name-client"> Vicente Fernández
-                  
-              </p>
-              <p className='desc-client'>4° año de Ingenieria Civil con major en Computación
-                  </p>
-              
-            </div>
+            </p>
+            <p className='desc-client'>4° año de Ingeniería Civil con major en Robótica
+            </p>
+
           </div>
+
+          <div className="card-client card-3">
+            <div className="user-picture">
+              <img src={vicho_image}></img>
+            </div>
+            <p className="name-client"> Vicente Fernández
+
+            </p>
+            <p className='desc-client'>4° año de Ingenieria Civil con major en Computación
+            </p>
+
+          </div>
+        </div>
 
       </div>
 

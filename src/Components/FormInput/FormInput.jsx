@@ -1,8 +1,9 @@
+
 import { useState } from "react";
 import "./FormInput.css";
 
 const FormInput = (props) => {
-  const { label, errorMessage, onChange, id, required, show,...inputProps } = props;
+  const { label, errorMessage, onChange, id, required, show, ...inputProps } = props;
   const [focus, setFocused] = useState(false);
   const [modified, setModified] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -42,8 +43,10 @@ const FormInput = (props) => {
           </div>
 
         ) : null}
-        {required  && (inputProps.className.includes("SignUpForm") || (inputProps.className.includes("CreateEventForm") && (inputProps.name !== "startDate" || ( inputProps.name === "startDate" && show === "isAllDay")))) ? <span className="required-span">Obligatorio</span> : null}
-      </div>
+        {required && (inputProps.className.includes("SignUpForm") || 
+        (inputProps.className.includes("CreateEventForm") && (inputProps.name !== "startDate" || (inputProps.name === "startDate" && show === "isAllDay")))) ||
+        (inputProps.className.includes("AddTaskEvForm") && (inputProps.name !== "startDate" || (inputProps.name === "startDate" && show === "isAllDay"))) ? <span className="required-span">Obligatorio</span> : null}
+      </div> 
       <div className="input-container">
         <input
           {...inputProps}

@@ -1,20 +1,21 @@
-.Login {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 1fr 400px 1fr;
-    grid-template-rows: 1fr auto 1fr;
+
+.log-in-form-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 400px 1fr;
+  grid-template-rows: 1fr auto 1fr;
 }
 
 @media (width < 600px) {
-    .Login {
-        grid-template-columns: 10vw auto 10vw;
-    }
+  .log-in-form-container {
+    grid-template-columns: 10vw auto 10vw;
+  }
 
-    .Login .log-in-form {
-        min-width: 250px;
-        width: 100%;
-    }
+  .log-in-form-container .log-in-form {
+    min-width: 250px;
+    width: 100%;
+  }
 }

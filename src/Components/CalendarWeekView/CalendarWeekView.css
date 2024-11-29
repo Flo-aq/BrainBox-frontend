@@ -1,4 +1,5 @@
-.calendar-week-view {
+.calendar-content-container .calendar .calendar-week-view {
+  grid-area: 2 / 1 / 4 / 3;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 91.2px 1fr;
@@ -6,81 +7,24 @@
   height: fit-content;
 }
 
-.calendar-week-view .header {
-  grid-area: 1/2/2/3;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto auto auto;
-  gap: 4px;
-  margin: 0px 0px 8px 0px;
-  align-content: end;
-}
-
-.calendar-week-view .header h2 {
-  grid-area: 1/1/2/2;
-  align-self: end;
-  line-height: 0.5em;
-  font-size: 24px;
-}
-
-.calendar-week-view .header .navIcon.previous {
-  grid-area: 1/3/2/4;
-  --width: auto;
-    padding: 0.5em 0.5em;
-    line-height: 0.5em;
-    height: fit-content;
-    --font-size: 16px;
-    --bg-color: var(--white);
-    --font-color: var(--principal-color-gray);
-}
-
-.calendar-week-view .header .today {
-  grid-area: 1/4/2/5;
-  grid-area: 1 / 4 / 2 / 5;
-    /* line-height: 0.5em; */
-    --font-size: 12px;
-    height: fit-content;
-    --bg-color: var(--white);
-    --font-color: var(--principal-color-dark-gray);
-}
-
-.calendar-week-view .header .navIcon.next {
-  grid-area: 1/5/2/6;
-  --width: auto;
-    padding: 0.5em 0.5em;
-    line-height: 0.5em;
-    height: fit-content;
-    --font-size: 16px;
-    --bg-color: var(--white);
-    --font-color: var(--principal-color-gray);
-}
-
-.calendar-week-view .header .createEvent {
-  grid-area: 1/6/2/7;
-    --font-size: 12px;
-    --bg-color: var(--principal-color-brown);
-    --font-color: var(--white);
-    height: fit-content;
-}
-
-
-.calendar-week-view .hoursColumn {
+.calendar-content-container .calendar .calendar-week-view .hoursColumn {
   grid-area: 3/1/4/2;
   display: flex;
   flex-direction: column;
   width: 50px;
-  height: 100%;
+  height: calc(100% - 20px);
 }
 
-.calendar-week-view .hoursColumn .hour {
+.calendar-content-container .calendar .calendar-week-view .hoursColumn .hour {
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   font-size: 10px;
   text-align: left;
 }
 
-.calendar-week-view .calendarContent {
+.calendar-content-container .calendar .calendar-week-view .calendarContent {
   grid-area: 2/2/4/3;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -89,21 +33,21 @@
   width: 100%;
 }
 
-.calendar-week-view .calendarContent .daysContainer {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer {
   grid-area: 1/1/2/2;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, minmax(105px, 1fr));
 }
 
-.calendar-week-view .calendarContent .weekView {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .weekView {
   grid-area: 2/1/3/2;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, minmax(105px, 1fr));
 }
 
-.calendar-week-view .calendarContent .daysContainer .day {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day {
   margin: 4px 2px;
   /* cursor: pointer; */
   display: flex;
@@ -117,46 +61,46 @@
   background-color: var(--principal-color-light-gray);
 }
 
-.calendar-week-view .calendarContent .daysContainer .day .number {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day .number {
   font-size: 36px;
   font-weight: 600;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day .title {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day .title {
   font-size: 20px;
   font-weight: 600;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Monday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Monday {
   grid-area: 1/1/2/2;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Tuesday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Tuesday {
   grid-area: 1/2/2/3;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Wednesday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Wednesday {
   grid-area: 1/3/2/4;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Thursday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Thursday {
   grid-area: 1/4/2/5;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Friday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Friday {
   grid-area: 1/5/2/6;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Saturday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Saturday {
   grid-area: 1/6/2/7;
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.Sunday {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.Sunday {
   grid-area: 1/7/2/8;
 }
 
 
-.calendar-week-view .calendarContent .weekView .dayColumn {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn {
   display: grid;
   grid-template-rows: repeat(144, calc((0.007* 1em + 1.5px + 1em) / 2));
   /* grid-gap: 1px; */
@@ -170,27 +114,26 @@
   margin: 0px 2px;
 }
 
-.calendar-week-view .calendarContent .weekView .dayColumn .eventBox {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox {
   background-color: var(--principal-color-light-pink1);
-    color: white;
-    border-radius: 8px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    cursor: pointer;
-    min-width: 30px;
-    height: calc(100% - 4px);
-    margin: 2px 2px;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  min-width: 30px;
+  height: calc(100% - 4px);
+  margin: 2px 2px;
 }
 
 
-.calendar-week-view .calendarContent .weekView .dayColumn .eventBox:hover {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox:hover {
   background-color: #45a049;
 }
 
-.calendar-week-view .calendarContent .weekView .dayColumn .eventBox .eventBoxText {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox .eventBoxText {
   text-align: left;
   width: 80%;
   overflow: hidden;
@@ -202,103 +145,97 @@
   white-space: normal;
 }
 
-.calendar-week-view .calendarContent .inactiveDay {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .inactiveDay {
   opacity: 0.5;
 }
 
-.calendar-week-view .calendarContent .weekView .dayColumn.today {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn.today {
   background-color: var(--principal-color-gray);
 }
 
-.calendar-week-view .calendarContent .daysContainer .day.today {
+.calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day.today {
   background-color: var(--principal-color-gray);
   color: var(--white);
 }
 
+.calendar-content-container .calendar .calendar-week-view .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
 @media (width < 880px) {
-  .calendar-week-view {
+  .calendar-content-container .calendar .calendar-week-view {
     grid-template-rows: auto 74.4px 1fr;
   }
 
-  .calendar-week-view .calendarContent .daysContainer {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer {
     grid-template-columns: repeat(7, minmax(90px, 120px));
   }
 
-  .calendar-week-view .calendarContent .weekView {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView {
     grid-template-columns: repeat(7, minmax(90px, 120px));
   }
 
-  .calendar-week-view .hoursColumn {
+  .calendar-content-container .calendar .calendar-week-view .hoursColumn {
     width: 30px;
   }
 
-  .calendar-week-view .calendarContent .daysContainer .day .number {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day .number {
     font-size: 30px;
   }
-  
-  .calendar-week-view .calendarContent .daysContainer .day .title {
+
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day .title {
     font-size: 12px;
   }
 
-  .calendar-week-view .calendarContent .weekView .dayColumn {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn {
     display: grid;
     font-size: 8px;
   }
 
-  .calendar-week-view .calendarContent .weekView .dayColumn .eventBox {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox {
     min-width: 22px;
   }
 
-  .calendar-week-view .hoursColumn .hour {
+  .calendar-content-container .calendar .calendar-week-view .hoursColumn .hour {
     font-size: 9px;
   }
 }
 
 @media (width < 500px) {
-  .calendar-week-view {
+  .calendar-content-container .calendar .calendar-week-view {
     grid-template-rows: auto 56.8px 1fr;
   }
 
-  .calendar-week-view .weekView .daysContainer {
+  .calendar-content-container .calendar .calendar-week-view .weekView .daysContainer {
     grid-template-columns: repeat(7, minmax(75px, 90px));
   }
 
-  .calendar-week-view .calendarContent .weekView {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView {
     grid-template-columns: repeat(7, minmax(75px, 90px));
   }
 
-  .calendar-week-view .calendarContent .daysContainer .day .number {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day .number {
     font-size: 18px;
   }
-  
-  .calendar-week-view .calendarContent .daysContainer .day .title {
+
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .daysContainer .day .title {
     font-size: 8px;
   }
 
-  .calendar-week-view .calendarContent .weekView .dayColumn .eventBox {
+  .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox {
     min-width: 18px;
   }
-  .calendar-week-view .header h2 {
-    font-size: 18px;
-  }
-  
-  .calendar-week-view .header .navIcon.previous {
-      --font-size: 10px;
-  }
-  
-  .calendar-week-view .header .today {
-      --font-size: 8px;
-  }
-  
-  .calendar-week-view .header .navIcon.next {
-      --font-size: 10px;
-  }
-  
-  .calendar-week-view .header .createEvent {
-      --font-size: 8px;
-  }
 
-  .calendar-week-view .hoursColumn .hour {
+  .calendar-content-container .calendar .calendar-week-view .hoursColumn .hour {
     font-size: 8px;
   }
 }
