@@ -29,7 +29,8 @@ function SignUp() {
   const handleSubmit = async (formData) => {
 
     const dataToSend = {
-      nombre: formData.nombre, // Cambia `username` a `nombre`
+
+      nombre: formData.Nombre, // Cambia `username` a `nombre`
       correo: formData.correo,    // Cambia `email` a `correo`
       contrasena: formData.contrasena, // Cambia `password` a `contrasena`
     };
