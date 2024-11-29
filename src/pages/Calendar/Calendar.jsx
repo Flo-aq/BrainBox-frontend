@@ -18,14 +18,15 @@ const CalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [activeDate, setActiveDate] = useState(new Date());
   const [isFormOpen, setIsFormOpen] = useState(false);
+  //TODO change user id
   const userId = 1;
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
 
   const parseAndAdjustDate = (dateString) => {
     const [datePart, timePart] = dateString.split('T');
-    const [year, day, month] = datePart.split('-').map(Number);
+    const [year, month, day] = datePart.split('-').map(Number);
     const [hours, minutes] = timePart.split(':').map(Number);
-
+    
     const adjustedDate = new Date(year, month - 1, day, hours, minutes);
     return adjustedDate;
   };
