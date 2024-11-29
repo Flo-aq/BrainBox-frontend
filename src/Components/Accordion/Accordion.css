@@ -1,104 +1,121 @@
+
 /* Style the accordion section */
 .accordion__section {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-    cursor: pointer;
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: none;
-    outline: none;
-    transition: background-color 0.6s ease;
-    color: var(--black);
-    border-radius: 40px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+.accordion__section .accordion {
+  cursor: pointer;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  outline: none;
+  background-color: var(--white);
+  border-radius: 40px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: calc(100% - 2em);
+}
+
+.accordion__section.ins .accordion,
+.accordion__section.class .accordion {
+  color: var(--black);
+}
+
+.accordion__section.tasks .accordion,
+.accordion__section.evs .accordion {
+  color: var(--principal-color-dark-gray);
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.accordion:hover {
-    transform: translate(0, -0.25em);
+.accordion__section .accordion:hover {
+  transform: translate(0, -0.25em);
 }
 
-.accordion.active {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+.accordion__section .accordion.active {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Style the accordion content title */
-.accordion__title {
-    font-weight: 400;
-    font-size: 24px;
+.accordion__section.ins .accordion .accordion__title,
+.accordion__section.class .accordion .accordion__title {
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.accordion__section.tasks .accordion .accordion__title,
+.accordion__section.evs .accordion .accordion__title {
+  font-weight: 400;
+  font-size: 20px;
 }
 
 /* Style the accordion chevron icon */
-.accordion  svg.arrow {
-    height: 8px;
-    stroke-width: 3px;
+.accordion__section .accordion svg.arrow {
+  height: 8px;
+  stroke-width: 3px;
 }
 
-.accordion svg {
-    transition: transform 0.3s ease;
+.accordion__section .accordion svg {
+  transition: transform 0.3s ease;
 }
 
-.accordion.active svg.arrow {
-    transform: rotate(180deg); 
+.accordion__section .accordion.active svg.arrow {
+  transform: rotate(180deg);
 }
 
-.accordion.inactive svg.arrow {
-    transform: rotate(0deg); 
+.accordion__section .accordion.inactive svg.arrow {
+  transform: rotate(0deg);
 }
 
 /* Style to rotate icon when state is active */
 
 /* Style the accordion content panel. Note: hidden by default */
-.accordion__content {
-    overflow: hidden;
-    transition: max-height 0.6s ease;
+.accordion__section .accordion__content {
+  font-weight: 400;
+  font-size: 14px;
+  width: 100%;
 }
 
-/* Style the accordion content text */
-.accordion__text {
-    font-weight: 400;
-    font-size: 14px;
-    padding: 18px;
+.accordion__section.ins .accordion__content .content,
+.accordion__section.class .accordion__content .content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 @media (max-width: 900px) {
-    .accordion__text {
-        font-size: 12px;
-    }
-    
+  .accordion__section .accordion__content {
+    font-size: 12px;
+  }
 }
 
-
 @media (max-width: 600px) {
-    .accordion__title {
-        font-size: 18px;
-    }
+  .accordion__section .accordion .accordion__title {
+    font-size: 18px;
+  }
 
-    .accordion svg.arrow {
-        height: 6px;
-        stroke-width: 5px;
-    }
-    
+  .accordion__section .accordion svg.arrow {
+    height: 6px;
+    stroke-width: 5px;
+  }
 }
 
 @media (max-width: 400px) {
-    .accordion__title {
-        font-size: 14px;
-    }
+  .accordion__section .accordion .accordion__title {
+    font-size: 14px;
+  }
 
-    .accordion svg.arrow {
-        height: 5px;
-        stroke-width: 4px;
-    }
+  .accordion__section .accordion svg.arrow {
+    height: 5px;
+    stroke-width: 4px;
+  }
 
-    .accordion__text {
-        font-size: 10px;
-    }
+  .accordion__section .accordion__content {
+    font-size: 10px;
+  }
 }

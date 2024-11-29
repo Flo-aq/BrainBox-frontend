@@ -1,0 +1,79 @@
+.event-info {
+  background-color: var(--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+}
+
+.event-info .event-info-content {
+  display: grid;
+  gap: 8px;
+  height: fit-content;
+}
+
+.event-info .event-info-content .title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: start;
+  color: var(--principal-color-dark-gray);
+}
+
+.event-info .event-info-content .text-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+}
+
+.event-info .event-info-content .text-group .text-secondary {
+  font-size: 0.75rem;
+  color: var(--principal-color-gray);
+  white-space: pre-wrap;
+}
+
+.event-info .event-info-content .text-group .text-principal {
+  font-size: 1.25rem;
+  color: var(--black);
+  white-space: pre-wrap;
+  font-weight: 600;
+}
+
+.event-info .event-info-content .banners {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+  gap: 4px;
+}
+
+.event-info .event-info-content .banners .banner {
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  max-width: calc(100% - 2em);
+  font-size: 14px;
+  align-content: center;
+  height: auto;
+}
+
+.event-info .event-info-content .banners .banner p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  display: block;
+  color: var(--white);
+}
+
+.event-info .event-info-content .banners .banner p:first-letter {
+  text-transform: uppercase;
+}
+
+.event-info .event-info-content .banners .banner.duration {
+  background-color: var(--principal-color-light-orange);
+}
+
+.event-info .event-info-content .banners .banner.weight {
+  background-color: var(--principal-color-yellow);
+}
