@@ -65,7 +65,7 @@ const SignUpForm = () => {
   const onChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-  
+
     // Validate input value
     const input = inputs.find((input) => input.name === name);
     if (input) {
@@ -80,7 +80,7 @@ const SignUpForm = () => {
         [name]: isValid ? "" : input.errorMessage,
       }));
     }
-  
+
     // Revalidate confirmPassword if password changes
     if (name === "password") {
       const confirmPasswordInput = inputs.find((input) => input.name === "confirmPassword");
@@ -95,20 +95,20 @@ const SignUpForm = () => {
   };
   // Check if there are any errors
   const isFormValid = Object.values(errors).every((error) => error === "") &&
-  inputs.every((input) => !input.required || (values[input.name] !== ""));
+    inputs.every((input) => !input.required || (values[input.name] !== ""));
 
   return (
     <form className="sign-up-form" onSubmit={handleSubmit}>
       <h1>Register</h1>
       {inputs.map((input) => (
         <FormInput
-        {...input}
-        key={input.id}
-        value={values[input.name]}
-        onChange={onChange}
-        errorMessage={errors[input.name]} // Pass error message here
-        className={`SignUpForm ${input.name}`}
-        show="show"
+          {...input}
+          key={input.id}
+          value={values[input.name]}
+          onChange={onChange}
+          errorMessage={errors[input.name]} // Pass error message here
+          className={`SignUpForm ${input.name}`}
+          show="show"
         />
       ))}
       <div className="log-in-span">

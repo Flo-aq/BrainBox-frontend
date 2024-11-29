@@ -1,0 +1,102 @@
+.class-card {
+  border-radius: 8px;
+  width: 100%;
+  min-width: 300px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+}
+
+.class-card:hover {
+  transform: scale(1.05);
+}
+
+.class-card .class-card-content {
+  display: grid;
+  gap: 8px;
+  padding: 24px;
+  height: 100%;
+  width: calc(100% - 48px);
+  grid-template-rows: auto 1fr auto auto;
+}
+
+.class-card .class-card-content .title {
+  text-align: left;
+  display: flex;
+  height: calc(2 * (0.007 * 24px + 1.5px + 24px) + 5px);
+  width: inherit;
+  grid-area: 1/1/2/2;
+}
+
+.class-card .class-card-content .title .text {
+  height: 100%;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow-wrap: break-word;
+  white-space: normal;
+
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--principal-color-dark-gray);
+}
+
+.class-card .class-card-content .banners {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+  gap: 4px;
+  grid-area: 3/1/4/2;
+  width: 100%;
+}
+
+.class-card .class-card-content .banners .banner {
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  max-width: calc(100% - 2em);
+  font-size: 14px;
+  align-content: center;
+}
+
+.class-card .class-card-content .banners .banner p{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: var(--white);
+}
+
+.class-card .class-card-content .banners .banner p:first-letter {
+  text-transform: uppercase;
+}
+
+.class-card .class-card-content .banners .banner.credits {
+  background-color: var(--principal-color-light-orange);
+}
+
+.class-card .class-card-content .banners .banner.schedule {
+  background-color: var(--principal-color-yellow);
+}
+
+.class-card .class-card-content .buttons {
+  display: flex;
+  justify-content: space-between;
+  grid-area: 4/1/5/2;
+  width: 100%;
+
+}
+
+.class-card .class-card-content .buttons .delete {
+  --bg-color: var(--red);
+  --border-color: var(--red);
+  --font-color: var(--white);
+  width: fit-content;
+  --font-size: 14px;
+}

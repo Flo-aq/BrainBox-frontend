@@ -1,0 +1,129 @@
+.accordion__section .accordion__content .content {
+  padding: 8px 16px;
+}
+
+.admin-classes .content-container .accordion__content .content .empty-section {
+  padding: 12.4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+  border-radius: 40px;
+  font-size: 20px;
+  color: var(--principal-color-dark-gray);
+  background-color: var(--principal-color-light-gray);
+  width: calc(100% - 24.8px);
+}
+
+.admin-classes .content-container {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* <div className='add-evs-card'>
+  <div className='add-evs-card-content'>
+    <button className='add-evs' */
+
+.admin-classes .content-container .add-evs-card, .admin-classes .content-container .add-tasks-card {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+  color: var(--principal-color-dark-gray);
+  background-color: var(--principal-color-light-gray);
+  align-items: center;
+    justify-content: center;
+}
+
+
+.accordion__section .accordion__content .content button {
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 1em;
+  font-weight: 600;
+  place-content: center;
+  background-color: var(--white);
+  color: var(--principal-color-dark-gray);
+  text-decoration: none;
+  line-height: 1em;
+  border: none;
+
+}
+
+.accordion__section .accordion__content .content button:hover {
+  transform: scale(1.05);
+}
+
+.admin-classes .content-container .add-classes {
+  padding: calc(16px - 2px + 0.4px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  outline: none;
+  background-color: var(--principal-color-light-gray);
+  border-radius: 40px;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--black);
+}
+
+.admin-classes .content-container .add-classes button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 1em;
+  font-weight: 600;
+  place-content: center;
+  background-color: var(--white);
+  color: var(--principal-color-dark-gray);
+  text-decoration: none;
+  line-height: 1em;
+  border: none;
+
+}
+
+.admin-classes .content-container .add-classes button:hover {
+  transform: scale(1.05);
+}
+
+.admin-classes .events-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,
+      minmax(300px, 1fr));
+  width: calc(100% - 32px);
+  gap: 8px;
+  padding: 8px 16px;
+  height: max-content;
+}
+
+.admin-classes {
+  display: grid;
+  grid-template-columns: 1fr 80vw 1fr;
+  grid-template-rows: 20vh auto 1fr 10vh;
+}
+
+.admin-classes .header-container {
+  grid-area: 2/2/3/3;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-classes .content-container {
+  grid-area: 3/2/4/3;
+}

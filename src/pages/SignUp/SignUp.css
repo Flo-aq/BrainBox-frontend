@@ -1,20 +1,20 @@
 .sign-up-form-container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-template-columns: 1fr 400px 1fr;
-    grid-template-rows: 1fr auto 1fr;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 400px 1fr;
+  grid-template-rows: 1fr auto 1fr;
 }
 
 @media (width < 600px) {
-    .sign-up-form-container {
-        grid-template-columns: 10vw auto 10vw;
-    }
+  .sign-up-form-container {
+    grid-template-columns: 10vw auto 10vw;
+  }
 
-    .sign-up-form-container .sign-up-form {
-        min-width: 250px;
-        width: 100%;
-    }
+  .sign-up-form-container .sign-up-form {
+    min-width: 250px;
+    width: 100%;
+  }
 }
