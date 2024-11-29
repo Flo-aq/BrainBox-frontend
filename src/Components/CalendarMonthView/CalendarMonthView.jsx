@@ -41,87 +41,80 @@
 // }
 
 // export default Calendar;
-
-import React, { useState, useEffect } from "react";
+//todo
+import React from "react";
 import {
   format,
   startOfMonth,
-  endOfMonth,
-  startOfWeek,
-  endOfWeek,
   addDays,
+  startOfWeek,
   isSameDay,
   isSameMonth,
-  parseISO,
   getDate,
   getMonth,
-  getYear
+  getYear,
+  getWeekOfMonth,
+  getDay
 } from "date-fns";
 import './CalendarMonthView.css';
+import CreateEventForm from "../CalendarWeekView/CreateEventForm/CreateEventForm";
 
-const CalendarMonthView = () => {
-  const [activeDate, setActiveDate] = useState(new Date());
-
-  const getHeader = () => {
-    const monthStartDate = startOfMonth(activeDate);
-    const days = [];
-    for (let day = 0; day < 7; day++) {
-      const currentDate = addDays(startOfWeek(monthStartDate, { weekStartsOn: 1 }), day);
-      days.push(
-        <div key={day} className="day weekNames">
-          <p className="title">{format(currentDate, "E")}</p>
-        </div>
-      );
-    }
+const CalendarMonthView = ({ events, activeDate, isFormOpen, handleCloseForm }) => {
+  // Obtener la cabecera de los días de la semana
+  const getDaysHeader = () => {
+    const daysOfWeek = ['L', 'Ma', 'Mi', 'J', 'V', 'S', 'D']; // Lunes a Domingo
     return (
-      <>
-        <div className="header">
-          <button
-            className="navIcon previous"
-            onClick={() => setActiveDate(addDays(activeDate, -1))}
-          >{"<"}</button>
-          <button
-            className="navIcon next"
-            onClick={() => setActiveDate(addDays(activeDate, 1))}
-          >{">"}</button>
-          <h2 className="currentMonth">{format(activeDate, "MMMM yyyy")}</h2>
-          <div className="weekContainer">{days}</div>
-        </div>
-      </>
+      <div className="daysHeader">
+        {daysOfWeek.map((day, index) => (
+          <div key={index} className="dayHeader">{day}</div>
+        ))}
+      </div>
     );
   };
 
-  const generateDatesForCurrentMonth = (date) => {
-    const monthStartDate = startOfMonth(date);
-    const monthEndDate = endOfMonth(date);
-    const startDate = startOfWeek(monthStartDate, { weekStartsOn: 1 });
-    const endDate = endOfWeek(monthEndDate, { weekStartsOn: 1 });
-
+  // Generar las celdas del mes (días del mes)
+  const generateDaysForMonth = () => {
+    const startOfMonthDate = startOfMonth(activeDate);
+    const startDate = startOfWeek(startOfMonthDate, { weekStartsOn: 1 });
     const days = [];
     let currentDate = startDate;
+    const endDate = addDays(startDate, 42); // 6 semanas (7 días * 6 = 42 días)
 
     while (currentDate <= endDate) {
+      const isToday = isSameDay(currentDate, new Date());
+      const isCurrentMonth = isSameMonth(currentDate, activeDate);
+
       days.push(
         <div
-          key={currentDate}
-          className={`dayColumn 
-            ${isSameMonth(currentDate, date) ? "" : "inactiveDay"}
-            ${isSameDay(currentDate, new Date()) ? "today" : ""}`}
+          key={getDate(currentDate)}
+          className={`dayCell ${isToday ? "today" : ""} ${!isCurrentMonth ? "inactiveDay" : ""}`}
         >
-          <div className="date">{getDate(currentDate)}</div>
+          <div className="dayNumber">{getDate(currentDate)}</div>
+          <div className="eventsContainer">
+            {events.filter(event => isSameDay(event.startDate, currentDate) || isSameDay(event.endDate, currentDate))
+              .map((event, index) => (
+                <div key={index} className="eventBox">
+                  <p>{event.name}</p>
+                </div>
+              ))}
+          </div>
         </div>
       );
       currentDate = addDays(currentDate, 1);
     }
-    return days;
+
+    return (
+      <div className="daysGrid">
+        {days}
+      </div>
+    );
   };
 
   return (
-    <section className="calendar month-view">
-      {getHeader()}
-      <div className="monthView">
-        {generateDatesForCurrentMonth(activeDate)}
-      </div>
+    <section className="calendar-month-view">
+      {getDaysHeader()}
+      {generateDaysForMonth()}
+      <CreateEventForm isOpen={isFormOpen} onClose={handleCloseForm} />
     </section>
   );
 };

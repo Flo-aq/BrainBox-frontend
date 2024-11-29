@@ -7,10 +7,19 @@ class ApiClient {
       throw new Error('userId is missing');
     }
 
-    this.userId = userId;  // Usamos userId directamente
+    this.userId = userId;
     this.axiosConfig = axios.create({
       baseURL: import.meta.env.VITE_BACKEND_URL,
       validateStatus: (status) => status < 500,
+    });
+  }
+
+  /**
+   * Invitaciones
+   */
+  async createInvitacion(formValues) {
+    return this.axiosConfig.post('/invitaciones', formValues, {
+      headers: { 'X-User-Id': this.userId },
     });
   }
 
@@ -23,20 +32,14 @@ class ApiClient {
     });
   }
 
+
   async getEvento(eventoId) {
     return this.axiosConfig.get(`/eventos/${eventoId}`, {
       headers: { 'X-User-Id': this.userId },  // Usamos un header para el userId
     });
   }
 
-  /**
-   * Invitaciones
-   */
-  async createInvitacion(formValues) {
-    return this.axiosConfig.post('/invitaciones', formValues, {
-      headers: { 'X-User-Id': this.userId },  // Usamos un header para el userId
-    });
-  }
+
 
   async getInvitacionesEstudiante(estudianteId) {
     return this.axiosConfig.get(`/invitaciones/estudiante/${estudianteId}`, {
@@ -60,9 +63,7 @@ class ApiClient {
   }
 
   async getCurso(cursoId) {
-    return this.axiosConfig.get(`/cursos/${cursoId}`, {
-      headers: { 'X-User-Id': this.userId },  // Usamos un header para el userId
-    });
+    return this.axiosConfig.get(`/cursos/${cursoId}`);
   }
 
   async getCursosEstudiante(estudianteId) {

@@ -1,63 +1,64 @@
 .time-input-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  position: relative;
 }
 
 .time-input-container select {
-    padding: 0.5em;
-    border-radius: 5px;
-    border: 2px solid var(--principal-color-gray);
-    font-size: 14px;
-    width: 100%;
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    cursor: pointer;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 2px solid var(--principal-color-gray);
+  font-size: 14px;
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  height: 34px;
 }
 
 
 .time-input-container select:focus {
-    box-shadow: 0 0 0.3em #b2947a70;
+  box-shadow: 0 0 0.3em #b2947a70;
 }
 
 .time-input-container select.invalid:focus {
-    box-shadow: 0 0 0.3em #dc092c70;
+  box-shadow: 0 0 0.3em #dc092c70;
 }
 
 .time-input-container select.valid:focus {
-    box-shadow: 0 0 0.3em #a1ec3e70;
+  box-shadow: 0 0 0.3em #a1ec3e70;
 }
 
 .time-input-container select.invalid {
-    border: 2px solid var(--red);
+  border: 2px solid var(--red);
 }
 
 .time-input-container select.valid {
-    border: 2px solid var(--green);
+  border: 2px solid var(--green);
 }
 
 .time-input-container span {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    align-content: center;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  align-content: center;
 }
 
 .time-input-container .divider-1 {
-    grid-area: 1/2/2/3;
+  grid-area: 1/2/2/3;
 }
 
 .time-input-container .divider-2 {
-    grid-area: 1/4/2/5;
+  grid-area: 1/4/2/5;
 }
 
 .time-input-container .hour-input {
-    grid-area: 1/1/2/2;
+  grid-area: 1/1/2/2;
 }
 
 .time-input-container .minutes-input {
-    grid-area: 1/3/2/4;
+  grid-area: 1/3/2/4;
 }
 
 .time-input-container .period-input {
-    grid-area: 1/5/2/6;
+  grid-area: 1/5/2/6;
 }

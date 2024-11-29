@@ -1,11 +1,94 @@
 .calendar-content-container {
-    grid-template-columns: 5vw 90vw 5vw;
-    grid-template-rows: 15vh 1fr 10vh;
-    display: grid;
-    height: 100vh;
-    width: 100%;
-}
-.calendar {
-    grid-area: 2/2/3/3;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr 50px;
+  display: grid;
+  height: auto;
+  width: 100%;
 }
 
+.calendar-content-container .calendar {
+  grid-area: 2 / 2 / 3 / 3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 91.2px 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.calendar-content-container .calendar .header {
+  grid-area: 1/2/2/3;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto auto;
+  gap: 4px;
+  margin: 0px 0px 8px 0px;
+  align-content: end;
+}
+
+.calendar-content-container .calendar .header h2 {
+  grid-area: 1/1/2/2;
+  align-self: end;
+  line-height: 0.5em;
+  font-size: 24px;
+}
+
+.calendar-content-container .calendar .header .navIcon.previous {
+  grid-area: 1/3/2/4;
+  --width: auto;
+  padding: 0.5em 0.5em;
+  line-height: 0.5em;
+  height: fit-content;
+  --font-size: 16px;
+  --bg-color: var(--white);
+  --font-color: var(--principal-color-gray);
+}
+
+.calendar-content-container .calendar .header .today {
+  grid-area: 1/4/2/5;
+  grid-area: 1 / 4 / 2 / 5;
+  /* line-height: 0.5em; */
+  --font-size: 12px;
+  height: fit-content;
+  --bg-color: var(--white);
+  --font-color: var(--principal-color-dark-gray);
+}
+
+.calendar-content-container .calendar .header .navIcon.next {
+  grid-area: 1/5/2/6;
+  --width: auto;
+  padding: 0.5em 0.5em;
+  line-height: 0.5em;
+  height: fit-content;
+  --font-size: 16px;
+  --bg-color: var(--white);
+  --font-color: var(--principal-color-gray);
+}
+
+.calendar-content-container .calendar .header .createEvent {
+  grid-area: 1/6/2/7;
+  --font-size: 12px;
+  --bg-color: var(--principal-color-brown);
+  --font-color: var(--white);
+  height: fit-content;
+}
+
+@media (width < 500px) {
+  .calendar-content-container .calendar .header h2 {
+    font-size: 18px;
+  }
+
+  .calendar-content-container .calendar .header .navIcon.previous {
+    --font-size: 10px;
+  }
+
+  .calendar-content-container .calendar .header .today {
+    --font-size: 8px;
+  }
+
+  .calendar-content-container .calendar .header .navIcon.next {
+    --font-size: 10px;
+  }
+
+  .calendar-content-container .calendar .header .createEvent {
+    --font-size: 8px;
+  }
+}

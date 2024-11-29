@@ -1,39 +1,58 @@
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
-  
-  .popup-container {
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    max-width: 80%;
-  }
-  
-  .popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 24px;
-  }
-  
-  .popup-body {
-    margin-top: 14px;
-  }
-  
-  .close-btn {
-    --bg-color: var(--red);
-    --border-color: var(--red);
-    --font-color: var(--white);
-    --font-size: 14px;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-overlay .popup-container {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  width: 307px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.popup-overlay .popup-container .popup-icon {
+  justify-content: center;
+  width: 100%;
+  display: flex;
+}
+
+.popup-overlay .popup-container svg {
+  height: 50px;
+  width: 50px;
+}
+.popup-overlay .popup-container svg.error {
+  color: var(--red);
+}
+
+.popup-overlay .popup-container svg.valid {
+  color: var(--green);
+}
+
+.popup-overlay .popup-container .popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+}
+
+.popup-overlay .popup-container .popup-body {
+  margin-top: 16px;
+}
+
+.popup-overlay .popup-container .popup-actions {
+  display: flex;
+      flex-direction: row;
+      gap: 8px;
+}

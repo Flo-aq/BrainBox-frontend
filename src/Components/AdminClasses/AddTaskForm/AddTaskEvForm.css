@@ -1,0 +1,268 @@
+.modal-overlay .modal-content-2 {
+  width: 400px;
+  grid-area: 2/2/3/3;
+  background: var(--white);
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 28px auto 28px;
+  grid-template-columns: 28px 1fr 28px;
+  height: auto;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form {
+  grid-area: 2 / 2 / 3 / 3;
+  gap: 8px;
+  width: 100%;
+  display: grid;
+  height: auto;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form.isAllDay {
+  grid-template-rows: repeat(6, auto);
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form.notIsAllDay {
+  grid-template-rows: repeat(7, auto);
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .h1 {
+  width: 100%;
+  font-size: 36px;
+  font-weight: 600;
+  height: fit-content;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .name-input-container {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .date-input-container {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .hour-input-container.isAllDay {
+  display: none;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .weight-input-container.isAllDay {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .all-day-input-container.isAllDay {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .hour-input-container.notIsAllDay {
+  grid-area: 4 / 1 / 5 / 2;
+  display: grid;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .weight-input-container.notIsAllDay {
+  grid-area: 6 / 1 / 7 / 2;
+}
+
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .all-day-input-container.notIsAllDay {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .all-day-input-container {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 4px;
+}
+
+
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 4px;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons.notIsAllDay {
+  grid-area: 7 / 1 / 8 / 2;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons.isAllDay {
+  grid-area: 6 / 1 / 7 / 2;
+}
+
+
+.modal-overlay .modal-content-2 form .hour-input-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 8px auto 4px 20px;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-header-container {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 4px;
+  width: 100%;
+  /* padding: 4px 6px; */
+  align-items: end;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-header-container label {
+  grid-area: 1/1/2/2;
+  font-size: 12px;
+  color: var(--principal-color-gray);
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-header-container span {
+  grid-area: 1 / 4 / 2 / 5;
+  display: block;
+  text-align: end;
+  font-size: 10px;
+  background-color: var(--light-red);
+  width: fit-content;
+  padding: 0.5em;
+  color: var(--dark-red);
+  border-radius: 0.5em;
+  border: 2px solid var(--red);
+  font-weight: 600;
+  height: fit-content;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-container {
+  grid-area: 3 / 1 / 4 / 2;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 50px 1fr;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-container .time-input-container.startTime {
+  width: 100%;
+  justify-self: center;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-container .time-input-container.startTime {
+  grid-area: 1/1/2/2;
+}
+
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-container .time-divider {
+  grid-area: 1/2/2/3;
+  width: 100%;
+  text-align: center;
+  /* justify-self: center; */
+  justify-content: center;
+  /* justify-items: center; */
+  height: fit-content;
+  align-self: center;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .input-container .time-input-container.endTime {
+  grid-area: 1/3/2/4;
+  width: 100%;
+  justify-self: center;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .error-container {
+  grid-area: 5/1/6/2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 50px 1fr;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .error-container span {
+  display: block;
+  width: 100%;
+  white-space: pre-wrap;
+  color: var(--red);
+  font-size: 10px;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .error-container .errorMessageStartTime {
+  grid-area: 1/1/2/2;
+}
+
+.modal-overlay .modal-content-2 form .hour-input-container .error-container .errorMessageEndTime {
+  grid-area: 1/3/2/4;
+}
+
+.modal-overlay .modal-content-2 form .date-input-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 50px 1fr;
+}
+
+
+.modal-overlay .modal-content-2 form .date-input-container .formInput.container-2.notIsAllDay {
+  grid-area: 1/1/2/2;
+}
+
+.modal-overlay .modal-content-2 form .date-input-container .formInput.container-2.isAllDay {
+  grid-area: 1/1/2/4;
+}
+
+.modal-overlay .modal-content-2 form .date-input-container .time-divider.notIsAllDay {
+  width: 100%;
+  text-align: center;
+  /* justify-self: center; */
+  justify-content: center;
+  /* justify-items: center; */
+  height: calc(26px + 20px + 4px);
+  align-self: end;
+}
+
+.modal-overlay .modal-content-2 form .date-input-container .time-divider.isAllDay {
+  display: none;
+}
+
+.modal-overlay .modal-content-2 form .date-input-container .formInput.container-3.notIsAllDay {
+  grid-area: 1/3/2/4;
+}
+
+.modal-overlay .modal-content-2 form .date-input-container .formInput.container-3.isAllDay {
+  display: none;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .all-day-input-container .input-header-container {
+  grid-area: 1/2/2/3;
+  font-size: 12px;
+  color: var(--principal-color-gray);
+  width: fit-content;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .all-day-input-container .input-container {
+  grid-area: 1/3/2/4;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: fit-content;
+  height: 13px;
+}
+
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons .submit-button {
+  grid-area: 1/4/2/5;
+  --bg-color: var(--green);
+  --border-color: var(--green);
+  --font-color: var(--white);
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons .submit-button:disabled {
+  --bg-color: var(--principal-color-dark-gray);
+  --border-color: var(--principal-color-dark-gray);
+  --font-color: var(--white);
+  cursor: not-allowed;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons .submit-button:disabled:hover {
+  transform: none;
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons .cancel-button {
+  grid-area: 1/3/2/4;
+  --bg-color: var(--red);
+  --border-color: var(--red);
+  --font-color: var(--white);
+}
+
+.modal-overlay .modal-content-2 form.add-task-ev-form .form-buttons button {
+  width: fit-content;
+  --font-size: 14px;
+}

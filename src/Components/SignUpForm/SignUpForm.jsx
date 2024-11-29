@@ -60,7 +60,7 @@ const SignUpForm = ({ onSubmit }) => { // Recibe onSubmit como prop
     if (isFormValid) {
       // Mapeo de los valores para que coincidan con el formato esperado por el servidor
       const dataToSend = {
-        Nombre: values.username, // Mapea 'username' a 'Nombre'
+        nombre: values.username, // Mapea 'username' a 'Nombre'
         correo: values.email,    // Mapea 'email' a 'correo'
         contrasena: values.password, // Mapea 'password' a 'contrasena'
       };
@@ -75,6 +75,7 @@ const SignUpForm = ({ onSubmit }) => { // Recibe onSubmit como prop
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
 
+    // Validate input value
     const input = inputs.find((input) => input.name === name);
     if (input) {
       let isValid;
@@ -89,6 +90,7 @@ const SignUpForm = ({ onSubmit }) => { // Recibe onSubmit como prop
       }));
     }
 
+    // Revalidate confirmPassword if password changes
     if (name === "password") {
       const confirmPasswordInput = inputs.find((input) => input.name === "confirmPassword");
       if (confirmPasswordInput) {
@@ -113,7 +115,8 @@ const SignUpForm = ({ onSubmit }) => { // Recibe onSubmit como prop
           key={input.id}
           value={values[input.name]}
           onChange={onChange}
-          errorMessage={errors[input.name]}
+          errorMessage={errors[input.name]} // Pass error message here
+
           className={`SignUpForm ${input.name}`}
           show="show"
         />
