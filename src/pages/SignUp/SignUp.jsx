@@ -7,6 +7,7 @@ function SignUp() {
   const [error, setError] = useState(false);
   const [msg, setMsg] = useState("");
 
+
   const handleSubmit = async (event, Nombre, correo, contrasena) => {
     event.preventDefault();
 
@@ -30,7 +31,7 @@ function SignUp() {
       {msg.length > 0 && <div className="successMsg"> {msg} </div>}
       {error && <div className="error">Hubo un error con el Registro, por favor trata nuevamente.</div>}
 
-      <SignUpForm handleSubmit={handleSubmit} />
+      <SignUpForm onSubmit={handleSubmit} />
     </div>
   );
 }

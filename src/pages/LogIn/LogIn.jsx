@@ -1,8 +1,9 @@
+
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../auth/AuthContext';
 import './LogIn.css';
 import axios from 'axios';
-import LoginForm from '../../components/LoginForm//LogInForm'; // Import LoginForm
+import LoginForm from '../../Components/LogInForm/LogInForm'; // Import LoginForm
 
 function Login() {
   const { token, setToken } = useContext(AuthContext);
@@ -28,14 +29,17 @@ function Login() {
       console.error('An error occurred while trying to login:', error);
       setError(true);
     });
+
   };
+
+
 
   return (
     <div className="log-in-form-container">
       {msg.length > 0 && <div className="successMsg"> {msg} </div>}
       {error && <div className="error">Hubo un error con el Login, por favor trata nuevamente.</div>}
 
-      <LoginForm handleSubmit={handleSubmit} />
+      <LoginForm onSubmit={handleSubmit} />
     </div>
   );
 }

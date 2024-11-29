@@ -1,5 +1,7 @@
+
 import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
+
 
 function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
@@ -11,6 +13,7 @@ function AuthProvider({ children }) {
   useEffect(() => {
     localStorage.setItem('token', token);
   }, [token]);
+
 
   return (
     <AuthContext.Provider value={{ token, setToken, logout }}>
