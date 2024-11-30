@@ -81,6 +81,9 @@ function AdminClasses() {
   const getTasks = async (courseId) => {
     try {
       const response = await axios.get(`${apiUrl}/tareas_entregas/curso/${courseId}`);
+      if (response.st === 0) {
+        return [];
+      }
       return response.data.map((tarea) => ({
         type: 'task',
         name: tarea.nombre,
@@ -98,7 +101,7 @@ function AdminClasses() {
 
   const getEvaluations = async (courseId) => {
     try {
-      const response = await axios.get(`${apiUrl}/evaluaciones/curso/${courseId}}`);
+      const response = await axios.get(`${apiUrl}/evaluaciones/curso/${courseId}`);
       return response.data.map((evaluacion) => ({
         type: 'evaluation',
         name: evaluacion.nombre,
