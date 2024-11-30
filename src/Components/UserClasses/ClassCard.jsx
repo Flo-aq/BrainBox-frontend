@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ClassCard.css';
 import Popup from '../PopUp/PopUp';
 import axios from 'axios';
