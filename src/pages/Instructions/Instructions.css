@@ -1,7 +1,7 @@
 .instructions-content {
   display: grid;
   grid-template-columns: 50px 1fr 50px;
-  grid-template-rows: 100px auto 1fr 30px;
+  grid-template-rows: 50px auto 1fr 30px;
   gap: 0px;
   width: 100%;
   background-color: var(--white);

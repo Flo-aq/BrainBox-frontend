@@ -130,7 +130,7 @@
 
 
 .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox:hover {
-  background-color: #45a049;
+  background-color: var(--principal-color-pink1);
 }
 
 .calendar-content-container .calendar .calendar-week-view .calendarContent .weekView .dayColumn .eventBox .eventBoxText {

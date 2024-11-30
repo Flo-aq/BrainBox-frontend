@@ -20,7 +20,6 @@ import CreateEventForm from "./CreateEventForm/CreateEventForm";
 import EventInfoPopUp from "../EventInfoPopUp/EventInfoPopUp";
 
 const CalendarWeekView = ({ events, activeDate, isFormOpen, handleCloseForm }) => {
-
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const openPopup = (event) => setSelectedEvent(event);

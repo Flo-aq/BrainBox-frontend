@@ -1,46 +1,84 @@
 
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './LogIn.css';
 import axios from 'axios';
 import LoginForm from '../../Components/LogInForm/LogInForm'; // Import LoginForm
+import Popup from '../../Components/PopUp/PopUp';
 
 function Login() {
+  const navigate = useNavigate();
   const { token, setToken } = useContext(AuthContext);
-  const [error, setError] = useState(false);
-  const [msg, setMsg] = useState("");
+  const [popup, setPopup] = useState({ isOpen: false, title: '', message: '' });
 
-  const handleSubmit = async (event, correo, contrasena) => {
-    event.preventDefault();
-
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, {
-      correo: correo,
-      contrasena: contrasena
-    }).then((response) => {
-      console.log('Login successful');
-      setError(false);
-      setMsg("Login exitoso!");
-      // Recibimos el token y lo procesamos
-      const access_token = response.data.access_token;
-      localStorage.setItem('token', access_token);
-      setToken(access_token);
-      console.log("Se seteo el token: ", token);
-    }).catch((error) => {
-      console.error('An error occurred while trying to login:', error);
-      setError(true);
-    });
-
+  const openPopup = (title, message, isError = false) => {
+    setPopup({ isOpen: true, title, message, isError });
   };
 
+  const closePopup = () => {
+    setPopup({ isOpen: false, title: '', message: '', isError: false });
+  };
 
+  const handleFormClose = () => {
+    closePopup();
+    window.location.href = '/userclasses';
+  };
+
+  const handleRetry = () => {
+    closePopup();
+    handleSubmit();
+  };
+
+  const handleSubmit = async (formData) => {
+
+    const dataToSend = {
+      correo: formData.correo,    // Cambia `email` a `correo`
+      contrasena: formData.contrasena, // Cambia `password` a `contrasena`
+    };
+
+    console.log("Datos a enviar al backend:", dataToSend); // Log para ver el formato final antes de enviar
+    
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, dataToSend);
+      if (response.status === 200) {
+        const { access_token, estudiante } = response.data;
+        localStorage.setItem('token', access_token);
+        localStorage.setItem('userId', estudiante.id);
+        localStorage.setItem('email', estudiante.email);
+        localStorage.setItem('role', estudiante.role)
+        console.log("Login successful:", response.data);
+        if (estudiante.role == "user") {
+          navigate('/userclasses');
+        } else if (estudiante.role == "admin") {
+          navigate('/adminclasses');
+        }
+      }
+
+    } catch (error) {
+      console.error('Ocurrió un error:', error);
+      setError(true);
+      setMsg('Hubo un error con el Login, por favor trata nuevamente.');
+    }
+  };
 
   return (
-    <div className="log-in-form-container">
-      {msg.length > 0 && <div className="successMsg"> {msg} </div>}
-      {error && <div className="error">Hubo un error con el Login, por favor trata nuevamente.</div>}
 
-      <LoginForm onSubmit={handleSubmit} />
-    </div>
+    <>
+      <div className="log-in-form-container">
+        <LoginForm onSubmit={handleSubmit} />
+      </div>
+      <Popup
+        title={popup.title}
+        message={popup.message}
+        isOpen={popup.isOpen}
+        onClose={closePopup}
+        onRetry={handleRetry}
+        onFormClose={handleFormClose}
+        isError={popup.isError}
+      />
+    </>
+
   );
 }
 
