@@ -17,10 +17,6 @@ export const Navbar = () => {
   };
 
 
-  const token = localStorage.getItem('token');
-  const role = localStorage.getItem('role')
-  console.log(token);
-
   return (
     <div className={`navbar ${expanded ? 'expanded' : ''}`}>
       <div className='navbar-section'>
