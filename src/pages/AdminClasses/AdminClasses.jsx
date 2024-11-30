@@ -210,6 +210,7 @@ function AdminClasses() {
       {loading ? (
         <Loading />
       ) : (
+        <>
         <div className="admin-classes">
           <div className="header-container">
             <h1>Administrar Clases</h1>
@@ -240,17 +241,12 @@ function AdminClasses() {
             </div>
             <AddClassForm isOpen={isAddClassFormOpen} onClose={closeAddClassForm} courses={courses} />
           </div>
-          {isFormOpen && (
-            <AddTaskEvForm type={formType} isOpen={isFormOpen} onClose={closeForm} />
-          )}
         </div>
 
-        {isFormOpen && (
-          <AddTaskEvForm type={formType} courseId={courseId} isOpen={isFormOpen} onClose={closeForm} />
-        )}
-      </div>
+        {isFormOpen && (<AddTaskEvForm type={formType} courseId={courseId} isOpen={isFormOpen} onClose={closeForm} />)}
+        </>
     )}
-  </>
+    </>
 
   );
 };
