@@ -21,7 +21,7 @@
   height: auto;
 }
 
-form.add-class-user .h1 {
+form.add-class-user h1 {
   width: 100%;
   font-size: 36px;
   font-weight: 600;

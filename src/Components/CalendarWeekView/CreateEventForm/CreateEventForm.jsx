@@ -7,7 +7,6 @@ import Popup from '../../PopUp/PopUp';
 import axios from 'axios';
 
 const CreateEventForm = ({ isOpen, onClose }) => {
-  // TODO set clases options from user classes
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
   const [popup, setPopup] = useState({ isOpen: false, title: '', message: '' });
 
@@ -42,7 +41,6 @@ const CreateEventForm = ({ isOpen, onClose }) => {
     endTimeHour: "--",
     endTimeMinutes: "--",
     endTimePeriod: "--",
-    class: "",
     notes: "",
   });
 
@@ -66,7 +64,6 @@ const CreateEventForm = ({ isOpen, onClose }) => {
     endTimeHour: "--",
     endTimeMinutes: "--",
     endTimePeriod: "--",
-    class: "",
     notes: "",
     });
     setErrors({});
@@ -74,7 +71,6 @@ const CreateEventForm = ({ isOpen, onClose }) => {
     setModified({});
   };
 
-  const classes = ["Select a class", "class1", "class2", "class3"];
 
   const nameInput = [
     {
@@ -565,9 +561,7 @@ const CreateEventForm = ({ isOpen, onClose }) => {
       const startDateWithTime = isAllDay ? new Date(getYear(startDateObj) - 1, getMonth(startDateObj) + 1, getDate(startDateObj) + 1, 0, 0, 0) : new Date(getYear(startDateObj) - 1, getMonth(startDateObj) + 1, getDate(startDateObj) + 1, convertTo24Hour(values.startTimeHour, values.startTimePeriod), values.startTimeMinutes);
       const endDateWithTime = isAllDay ? addMinutes(new Date(getYear(startDateObj) - 1, getMonth(startDateObj) + 1, getDate(startDateObj) + 1, 0, 0, 0), 1439) : new Date(getYear(endDateObj) - 1, getMonth(endDateObj) + 1, getDate(endDateObj) + 1, convertTo24Hour(values.endTimeHour, values.endTimePeriod), values.endTimeMinutes);
 
-      const description = (values.class && values.notes)
-        ? `${values.class} - ${values.notes}`
-        : values.class || values.notes || "";
+      const description = values.notes
       try {
         // Primero crear el evento
         const eventoResponse = await axios.post(`${apiUrl}/eventos`, {
@@ -579,7 +573,7 @@ const CreateEventForm = ({ isOpen, onClose }) => {
 
         // Crear invitación después de la creación del evento
         const invitacionResponse = await axios.post(`${apiUrl}/invitaciones`, {
-          estudiante_ID: apiClient.userId, //TODO change user id
+          estudiante_ID: localStorage.getItem("userId"), 
           evento_ID: eventoResponse.data.id,
           estado: true,
           tarea_entrega_id: null
@@ -691,28 +685,6 @@ const CreateEventForm = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-
-
-          <div className={`class-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
-            <div className="input-header-container">
-              <label>Ramo</label>
-            </div>
-            <div className="input-container">
-              <select
-                className="class-input"
-                name="class"
-                value={values.class}
-                onChange={onChange}
-              >
-                {classes.map((classOption) => (
-                  <option key={classOption} value={classOption}>
-                    {classOption}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-          </div>
           <div className={`notes-input-container ${isAllDay ? 'isAllDay' : 'notIsAllDay'}`}>
             <div className="input-header-container">
               <label>Notas</label>

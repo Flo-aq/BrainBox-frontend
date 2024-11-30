@@ -3,7 +3,6 @@ import './Navbar.css';
 import icon from '../../Images/logo.svg'
 
 export const Navbar = () => {
-  // TODO show according to user-token
   const [expanded, setExpanded] = useState(false);
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role')
@@ -17,6 +16,10 @@ export const Navbar = () => {
     localStorage.removeItem('role')
   };
 
+
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role')
+  console.log(token);
 
   return (
     <div className={`navbar ${expanded ? 'expanded' : ''}`}>
@@ -47,42 +50,42 @@ export const Navbar = () => {
         </a>
       </div>
       {role === "user" && (
-      <div className="navbar-section">
-        <a href="/calendar">
-          <div className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm-2 2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5 6H4v8h16v-8z" stroke="none"
-                strokeLinecap="round"
-                strokeLinejoin="round" fill="currentColor" />
-            </svg>
-            <span>Calendar</span>
-          </div>
-        </a>
-        <a href="/userclasses">
-          <div className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="none"
-                strokeLinecap="round"
-                strokeLinejoin="round" fill="currentColor" d="M20.005 2C21.107 2 22 2.898 22 3.99v16.02c0 1.099-.893 1.99-1.995 1.99H4v-4H2v-2h2v-3H2v-2h2V8H2V6h2V2h16.005zM8 4H6v16h2V4zm12 0H10v16h10V4z" />
-            </svg>
-            <span>My Classes</span>
-          </div>
-        </a>
-      </div>
+        <div className="navbar-section">
+          <a href="/calendar">
+            <div className="navbar-item">
+              <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 3h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2v2h6V1h2v2zm-2 2H9v2H7V5H4v4h16V5h-3v2h-2V5zm5 6H4v8h16v-8z" stroke="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round" fill="currentColor" />
+              </svg>
+              <span>Calendar</span>
+            </div>
+          </a>
+          <a href="/userclasses">
+            <div className="navbar-item">
+              <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round" fill="currentColor" d="M20.005 2C21.107 2 22 2.898 22 3.99v16.02c0 1.099-.893 1.99-1.995 1.99H4v-4H2v-2h2v-3H2v-2h2V8H2V6h2V2h16.005zM8 4H6v16h2V4zm12 0H10v16h10V4z" />
+              </svg>
+              <span>My Classes</span>
+            </div>
+          </a>
+        </div>
       )}
       {role === "admin" && (
-      <div className="navbar-section">
-        <a href="/adminclasses">
-          <div className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke="none"
-                strokeLinecap="round"
-                strokeLinejoin="round" fill="currentColor" d="M5 12.5c0 .313.461.858 1.53 1.393C7.914 14.585 9.877 15 12 15c2.123 0 4.086-.415 5.47-1.107 1.069-.535 1.53-1.08 1.53-1.393v-2.171C17.35 11.349 14.827 12 12 12s-5.35-.652-7-1.671V12.5zm14 2.829C17.35 16.349 14.827 17 12 17s-5.35-.652-7-1.671V17.5c0 .313.461.858 1.53 1.393C7.914 19.585 9.877 20 12 20c2.123 0 4.086-.415 5.47-1.107 1.069-.535 1.53-1.08 1.53-1.393v-2.171zM3 17.5v-10C3 5.015 7.03 3 12 3s9 2.015 9 4.5v10c0 2.485-4.03 4.5-9 4.5s-9-2.015-9-4.5zm9-7.5c2.123 0 4.086-.415 5.47-1.107C18.539 8.358 19 7.813 19 7.5c0-.313-.461-.858-1.53-1.393C16.086 5.415 14.123 5 12 5c-2.123 0-4.086.415-5.47 1.107C5.461 6.642 5 7.187 5 7.5c0 .313.461.858 1.53 1.393C7.914 9.585 9.877 10 12 10z" />
-            </svg>
-            <span>All Classes</span>
-          </div>
-        </a>
-      </div>
+        <div className="navbar-section">
+          <a href="/adminclasses">
+            <div className="navbar-item">
+              <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round" fill="currentColor" d="M5 12.5c0 .313.461.858 1.53 1.393C7.914 14.585 9.877 15 12 15c2.123 0 4.086-.415 5.47-1.107 1.069-.535 1.53-1.08 1.53-1.393v-2.171C17.35 11.349 14.827 12 12 12s-5.35-.652-7-1.671V12.5zm14 2.829C17.35 16.349 14.827 17 12 17s-5.35-.652-7-1.671V17.5c0 .313.461.858 1.53 1.393C7.914 19.585 9.877 20 12 20c2.123 0 4.086-.415 5.47-1.107 1.069-.535 1.53-1.08 1.53-1.393v-2.171zM3 17.5v-10C3 5.015 7.03 3 12 3s9 2.015 9 4.5v10c0 2.485-4.03 4.5-9 4.5s-9-2.015-9-4.5zm9-7.5c2.123 0 4.086-.415 5.47-1.107C18.539 8.358 19 7.813 19 7.5c0-.313-.461-.858-1.53-1.393C16.086 5.415 14.123 5 12 5c-2.123 0-4.086.415-5.47 1.107C5.461 6.642 5 7.187 5 7.5c0 .313.461.858 1.53 1.393C7.914 9.585 9.877 10 12 10z" />
+              </svg>
+              <span>All Classes</span>
+            </div>
+          </a>
+        </div>
       )}
       <div className="navbar-section">
         <a href="/">
@@ -132,7 +135,7 @@ export const Navbar = () => {
                 </svg>
                 <span>Log Out</span>
               </div>
-            </a>        
+            </a>       
         )}
         {token == "null" && (
           <>

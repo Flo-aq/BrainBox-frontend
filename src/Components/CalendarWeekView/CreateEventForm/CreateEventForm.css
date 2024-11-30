@@ -32,14 +32,14 @@
 }
 
 .modal-overlay .modal-content form.create-event-form.isAllDay {
-  grid-template-rows: repeat(7, auto);
+  grid-template-rows: repeat(6, auto);
 }
 
 .modal-overlay .modal-content form.create-event-form.notIsAllDay {
-  grid-template-rows: repeat(8, auto);
+  grid-template-rows: repeat(7, auto);
 }
 
-.modal-overlay .modal-content form.create-event-form .h1 {
+.modal-overlay .modal-content form.create-event-form h1 {
   width: 100%;
   font-size: 36px;
   font-weight: 600;
@@ -59,12 +59,8 @@
   display: none;
 }
 
-.modal-overlay .modal-content form.create-event-form .class-input-container.isAllDay {
-  grid-area: 5 / 1 / 6 / 2;
-}
-
 .modal-overlay .modal-content form.create-event-form .notes-input-container.isAllDay {
-  grid-area: 6 / 1 / 7 / 2;
+  grid-area: 5 / 1 / 6 / 2;
 }
 
 .modal-overlay .modal-content form.create-event-form .all-day-input-container.isAllDay {
@@ -77,12 +73,8 @@
   display: grid;
 }
 
-.modal-overlay .modal-content form.create-event-form .class-input-container.notIsAllDay {
-  grid-area: 6 / 1 / 7 / 2;
-}
-
 .modal-overlay .modal-content form.create-event-form .notes-input-container.notIsAllDay {
-  grid-area: 7 / 1 / 8 / 2;
+  grid-area: 6 / 1 / 7 / 2;
 }
 
 .modal-overlay .modal-content form.create-event-form .all-day-input-container.notIsAllDay {
@@ -104,11 +96,11 @@
 }
 
 .modal-overlay .modal-content form.create-event-form .form-buttons.notIsAllDay {
-  grid-area: 8 / 1 / 9 / 2;
+  grid-area: 7 / 1 / 8 / 2;
 }
 
 .modal-overlay .modal-content form.create-event-form .form-buttons.isAllDay {
-  grid-area: 7 / 1 / 8 / 2;
+  grid-area: 6 / 1 / 7 / 2;
 }
 
 
@@ -118,14 +110,12 @@
   grid-template-rows: auto 8px auto 4px 20px;
 }
 
-.modal-overlay .modal-content form .class-input-container,
 .modal-overlay .modal-content form .notes-input-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 8px auto;
 }
 
-.modal-overlay .modal-content form .class-input-container .input-header-container,
 .modal-overlay .modal-content form .hour-input-container .input-header-container,
 .modal-overlay .modal-content form .notes-input-container .input-header-container {
   grid-area: 1 / 1 / 2 / 2;
@@ -138,7 +128,6 @@
 }
 
 
-.modal-overlay .modal-content form .class-input-container .input-header-container label,
 .modal-overlay .modal-content form .hour-input-container .input-header-container label,
 .modal-overlay .modal-content form .notes-input-container .input-header-container label {
   grid-area: 1/1/2/2;
@@ -147,7 +136,6 @@
 }
 
 
-.modal-overlay .modal-content form .class-input-container .input-header-container span,
 .modal-overlay .modal-content form .hour-input-container .input-header-container span {
   grid-area: 1 / 4 / 2 / 5;
   display: block;
@@ -164,7 +152,6 @@
 }
 
 
-.modal-overlay .modal-content form .class-input-container .input-container,
 .modal-overlay .modal-content form .notes-input-container .input-container {
   grid-area: 3 / 1 / 4 / 2;
   display: grid;
@@ -180,7 +167,6 @@
 }
 
 
-.modal-overlay .modal-content form .class-input-container .input-container select,
 .modal-overlay .modal-content form .notes-input-container .input-container textarea {
   grid-area: 1 / 1 / 2 / 2;
   padding: 0.5em;
@@ -191,9 +177,6 @@
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.modal-overlay .modal-content form .class-input-container .input-container select {
-  height: 34px;
-}
 
 .modal-overlay .modal-content form .notes-input-container .input-container textarea {
   resize: none;
@@ -229,10 +212,6 @@
   justify-self: center;
 }
 
-.modal-overlay .modal-content form .class-input-container .input-container select:focus {
-  box-shadow: 0 0 0.3em #b2947a70;
-}
-
 .modal-overlay .modal-content form .hour-input-container .error-container {
   grid-area: 5/1/6/2;
   width: 100%;
@@ -240,10 +219,6 @@
   grid-template-columns: 1fr 50px 1fr;
 }
 
-.modal-overlay .modal-content form .class-input-container .error-container {
-  grid-area: 5/1/6/2;
-  width: 100%;
-}
 
 .modal-overlay .modal-content form .hour-input-container .error-container span {
   display: block;
