@@ -29,7 +29,19 @@ const Accordion = ({ content, title, llave }) => {
         </svg>
       </div>
       <div className="accordion__content" style={{ display: active ? 'flex' : 'none' }}>
-        {content}
+      
+        <div>
+          {content.map((item, index) => (
+            <div key={index} style={{ marginBottom: '20px', textAlign: 'left', display: 'flex', flexDirection: 'column' }}>
+              <p>{item.text}</p>
+              <img src={item.imgSrc} alt={`Imagen ${index + 1}`} style={{
+                width: index === 1 || index === 2 || index === 3 ? '300px' : '150px', // Cambiar el tamaño si el índice es 2
+                alignSelf: 'center',
+              }} />
+            </div>
+          ))}
+        </div>
+      
       </div>
     </div>
   );

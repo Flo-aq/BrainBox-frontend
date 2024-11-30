@@ -4,38 +4,43 @@ import icon from '../../Images/logo.svg'
 
 export const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role')
 
   const toggleNavbar = () => {
     setExpanded(prev => !prev);
   };
 
-  const handleClick = (e) => {
-    // Lógica de log out
-    console.log('Log Out clicked');
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role')
   };
+
 
   const token = localStorage.getItem('token');
   const role = localStorage.getItem('role')
   console.log(token);
 
-
   return (
     <div className={`navbar ${expanded ? 'expanded' : ''}`}>
       <div className='navbar-section'>
-        {!expanded ? <button className='open-navbar' onClick={toggleNavbar}>
+        {!expanded ? (
+        <button className='open-navbar' onClick={toggleNavbar}>
           <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke="none"
               strokeLinecap="round"
               strokeLinejoin="round" fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
           </svg>
         </button>
-          : <button className='close-navbar' onClick={toggleNavbar}>
+        ) : (
+        <button className='close-navbar' onClick={toggleNavbar}>
             <svg stroke="none"
               strokeLinecap="round"
               strokeLinejoin="round" fill="currentColor" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" />
             </svg>
-          </button>}
+          </button>
+          )}
       </div>
       <div className="navbar-section logo">
         <a href="/">
@@ -116,8 +121,25 @@ export const Navbar = () => {
       </div>
 
       <div className="navbar-section">
-        {token == "null" && (<>
-          <a href="login">
+        {token != "null" && ( 
+          <a href="/">
+              <div onClick={handleSignOut} className="navbar-item">
+                <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z"
+                    fill="currentColor"
+                    stroke="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span>Log Out</span>
+              </div>
+            </a>       
+        )}
+        {token == "null" && (
+          <>
+          <a href="/login">
             <div className="navbar-item">
               <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke="none"
@@ -138,22 +160,8 @@ export const Navbar = () => {
               <span>Sign Up</span>
             </div>
           </a>
-        </>
-        )}
-        {token != "null" && (
-          <div onClick={handleClick} className="navbar-item">
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z"
-                fill="currentColor"
-                stroke="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span>Log Out</span>
-          </div>
-        )}
+          </>
+          )}
       </div>
     </div>
   );

@@ -127,3 +127,10 @@
 .admin-classes .content-container {
   grid-area: 3/2/4/3;
 }
+
+.offline-notice {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}

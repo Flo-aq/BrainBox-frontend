@@ -6,14 +6,16 @@ import EventInfo from '../../Components/AdminClasses/EventInfo/EventInfo';
 import { Loading } from '../../Components/Loading/Loading';
 import AddClassForm from '../../Components/AdminClasses/AddClassForm/AddClassForm';
 import AddTaskEvForm from '../../Components/AdminClasses/AddTaskForm/AddTaskEvForm';
+import { getLogs } from '../../db/log';
+import { saveLog } from '../../db/log';
+import { isOnline } from '../../db/log';
 
 function AdminClasses() {
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
   const [courses, setCourses] = useState([]);
   const [courseData, setCourseData] = useState([]);
-  const [loading, setLoading] = useState(true);  // Estado de carga
+  const [loading, setLoading] = useState(true);
   const [isAddClassFormOpen, setIsAddClassFormOpen] = useState(false);
-
   const [isFormOpen, setFormOpen] = useState(false);
   const [formType, setFormType] = useState('');
   const [courseId, setCourseId] = useState(null);
@@ -31,8 +33,6 @@ function AdminClasses() {
   const openAddClassForm = () => setIsAddClassFormOpen(true);
   const closeAddClassForm = () => setIsAddClassFormOpen(false);
 
-
-  // Función para ajustar fechas
   const parseAndAdjustDate = (dateString) => {
     const [datePart, timePart] = dateString.split('T');
     const [year, month, day] = datePart.split('-').map(Number);
@@ -40,17 +40,44 @@ function AdminClasses() {
     return new Date(year, month - 1, day, hours, minutes);
   };
 
-  // Obtener cursos
-  const getCourses = async () => {
-    try {
-      const response = await axios.get(`${apiUrl}/cursos`);
-      setCourses(response.data);
-    } catch (error) {
-      console.error('Error fetching courses:', error);
-    }
+  const renderOfflineCourses = () => {
+    getLogs().then(offlineData => {
+      console.log('Datos recibidos:', offlineData);
+      const processedCourses = Array.isArray(offlineData) ? offlineData : [];
+      console.log('Datos procesados:', processedCourses);
+      setCourses(processedCourses); // Actualiza el estado de cursos
+      setLoading(false);
+    }).catch(error => {
+      console.error('Error al obtener los logs:', error);
+      setLoading(false);
+    });
   };
 
-  // Obtener tareas y entregas de un curso
+  const getCourses = async () => {
+    setLoading(true);
+    if (isOnline()) {
+      try {
+        const response = await axios.get(`${apiUrl}/cursos`);
+        setCourses(response.data);
+        await saveLog(response.data);
+        getLogs().then((logs) => console.log('Resultado de getLogs:', logs));
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+      }
+    } else {
+      const offlineData = await getLogs();
+      if (offlineData.length > 0) {
+        setCourses(offlineData);
+        console.log(offlineData);
+        renderOfflineCourses(offlineData);
+      } else {
+        console.log('No hay datos de cursos disponibles offline.');
+        setCourses([]);
+      }
+    }
+    setLoading(false);
+  };
+
   const getTasks = async (courseId) => {
     try {
       const response = await axios.get(`${apiUrl}/tareas_entregas/curso/${courseId}`);
@@ -69,10 +96,9 @@ function AdminClasses() {
     }
   };
 
-  // Obtener evaluaciones de un curso
   const getEvaluations = async (courseId) => {
     try {
-      const response = await axios.get(`${apiUrl}/evaluaciones/curso/${courseId}`);
+      const response = await axios.get(`${apiUrl}/evaluaciones/curso/${courseId}}`);
       return response.data.map((evaluacion) => ({
         type: 'evaluation',
         name: evaluacion.nombre,
@@ -88,7 +114,6 @@ function AdminClasses() {
     }
   };
 
-  // Obtener datos del curso con sus tareas y evaluaciones
   const fetchCourseData = async (course) => {
     const tasks = await getTasks(course.id);
     const evaluations = await getEvaluations(course.id);
@@ -101,16 +126,22 @@ function AdminClasses() {
   };
 
   useEffect(() => {
-    getCourses();
+    if (isOnline() === false) {
+      console.log("entro");
+      setLoading(false);
+      renderOfflineCourses();
+      setLoading(false);
+    } else {
+      getCourses();
+    }
   }, []);
 
-  // Obtener información detallada para cada curso
   useEffect(() => {
     const fetchAllData = async () => {
-      setLoading(true);  // Activar estado de carga
+      setLoading(true);
       const allData = await Promise.all(courses.map(fetchCourseData));
       setCourseData(allData);
-      setLoading(false);  // Desactivar estado de carga una vez que todos los datos estén disponibles
+      setLoading(false);
     };
 
     if (courses.length) {
@@ -118,7 +149,6 @@ function AdminClasses() {
     }
   }, [courses]);
 
-  // Renderizar tareas y evaluaciones
   const renderCourseContent = (data) => {
     return (
       <div className='content'>
@@ -130,18 +160,17 @@ function AdminClasses() {
               content={
                 <div className='events-content'>
                   {data.tasks.map((task, index) => (
-                    <EventInfo event={task} />
+                    <EventInfo event={task} key={index} />
                   ))}
                   <div className='add-tasks-card'>
-              <div className='add-tasks-card-content'>
-                <button className='add-tasks' onClick={() => openForm('task')}>+</button>
-              </div>
-            </div>
+                    <div className='add-tasks-card-content'>
+                      <button className='add-tasks' onClick={() => openForm('task')}>+</button>
+                    </div>
+                  </div>
                 </div>
               }
             />
           </>
-
         ) : (
           <div className='empty-section'>Añadir Tareas/Entregas
             <button className='add tasks' onClick={() => openForm('task', data.course.id)}>+</button>
@@ -156,13 +185,13 @@ function AdminClasses() {
               <>
                 <div className='events-content'>
                   {data.evaluations.map((evaluation, index) => (
-                    <EventInfo event={evaluation} />
+                    <EventInfo event={evaluation} key={index} />
                   ))}
                   <div className='add-evs-card'>
-                  <div className='add-evs-card-content'>
-                    <button className='add-evs' onClick={() => openForm('evaluation')}>+</button>
+                    <div className='add-evs-card-content'>
+                      <button className='add-evs' onClick={() => openForm('evaluation')}>+</button>
+                    </div>
                   </div>
-                </div>
                 </div>
               </>
             }
@@ -176,37 +205,54 @@ function AdminClasses() {
     );
   };
 
-  return (<>
-    {loading ? (  // Si estamos cargando, mostrar "Cargando..."
-      <Loading />
-    ) : (
-      <div className="admin-classes">
-        <div className="header-container">
-          <h1>Administrar Clases</h1>
-          <p>Gestiona las tareas, entregas y evaluaciones de los cursos.</p>
-        </div>
-        <div className="content-container">
-          {courseData.map((data, index) => (
-            <Accordion
-              key={index}
-              llave="class"
-              title={data.course.nombre}
-              content={renderCourseContent(data)}
-            />
-          ))}
-          <div className='add-classes'>
-            Agregar curso
-            <button className='add class' onClick={openAddClassForm}>+</button>
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="admin-classes">
+          <div className="header-container">
+            <h1>Administrar Clases</h1>
+            <p>Gestiona las tareas, entregas y evaluaciones de los cursos.</p>
+            {!isOnline() && (
+              <p className="offline-notice">Cursos OFFLINE</p>
+            )}
           </div>
-          <AddClassForm isOpen={isAddClassFormOpen} onClose={closeAddClassForm} courses={courses} />
+          <div className="content-container">
+            {courses.length === 0 ? (
+              <div className="empty-section">
+                <p>No hay cursos disponibles. Cargando cursos offline...</p>
+                {renderOfflineCourses()}
+              </div>
+            ) : (
+              courseData.map((data, index) => (
+                <Accordion
+                  key={index}
+                  llave="class"
+                  title={data.course.nombre}
+                  content={renderCourseContent(data)}
+                />
+              ))
+            )}
+            <div className='add-classes'>
+              Agregar curso
+              <button className='add class' onClick={openAddClassForm}>+</button>
+            </div>
+            <AddClassForm isOpen={isAddClassFormOpen} onClose={closeAddClassForm} courses={courses} />
+          </div>
+          {isFormOpen && (
+            <AddTaskEvForm type={formType} isOpen={isFormOpen} onClose={closeForm} />
+          )}
         </div>
+
         {isFormOpen && (
           <AddTaskEvForm type={formType} courseId={courseId} isOpen={isFormOpen} onClose={closeForm} />
         )}
       </div>
     )}
   </>
+
   );
-}
+};
 
 export default AdminClasses;
