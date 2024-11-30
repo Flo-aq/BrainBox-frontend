@@ -77,3 +77,25 @@
 .event-info .event-info-content .banners .banner.weight {
   background-color: var(--principal-color-yellow);
 }
+
+.event-info .event-info-content .banners button {
+  font-size: 12px;
+  grid-area: 1 / 2 / 2 / 3;
+  width: fit-content;
+}
+
+.event-info .event-info-content .banners button.edit {
+  padding: 0.5em 0.5em;
+  color: var(--black);
+  box-shadow: none;
+}
+
+.event-info .event-info-content .banners button.edit:hover {
+  transform: none;
+}
+
+
+.event-info .event-info-content .banners button svg {
+  width: 20px;
+  height: 20px;
+}

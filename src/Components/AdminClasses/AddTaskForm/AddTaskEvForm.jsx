@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import { isThisHour, isAfter, isSameDay, getDate, getMonth, getYear, isBefore, intervalToDuration, addMinutes } from 'date-fns';
 
-const AddTaskEvForm = ({ type, isOpen, onClose }) => {
+const AddTaskEvForm = ({ courseId, type, isOpen, onClose }) => {
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
   const [popup, setPopup] = useState({ isOpen: false, title: '', message: '' });
 
@@ -579,7 +579,24 @@ const AddTaskEvForm = ({ type, isOpen, onClose }) => {
 
       const weight = values.weight / 100;
       try {
-        //TODO crear con Api
+        if (type == "task") {
+            const response = await axios.post(`${apiUrl}/tareas_entregas`, {
+              nombre: values.name,
+              valor: weight,
+              fecha_comienzo: startDateWithTime,
+              fecha_entrega: endDateWithTime,
+              curso_id: courseId,
+            })
+        } else {
+          const response = await axios.post(`${apiUrl}/evaluaciones`, {
+            nombre: values.name,
+            valor: weight,
+            fecha_inicio: startDateWithTime,
+            fecha_fin: endDateWithTime,
+            curso_id: courseId,
+          })
+        }
+        
 
         // Almacenar el evento creado y mostrar el popup
         openPopup('Éxito', `${type === "task" ? "La tarea/entrega" : "La evaluación"} se creó correctamente.`, false);

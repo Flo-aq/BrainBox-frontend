@@ -21,7 +21,7 @@
   scrollbar-gutter: stable;
 }
 
-.modal-overlay .modal-content-3 form.add-class-form .h1 {
+.modal-overlay .modal-content-3 form.add-class-form h1 {
   width: 100%;
   font-size: 36px;
   font-weight: 600;

@@ -18,8 +18,7 @@ const CalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [activeDate, setActiveDate] = useState(new Date());
   const [isFormOpen, setIsFormOpen] = useState(false);
-  //TODO change user id
-  const userId = 1;
+  const userId = localStorage.getItem("userId");
   const apiUrl = 'https://grupo5-backend-24-2-ga6y.onrender.com';
 
   const parseAndAdjustDate = (dateString) => {

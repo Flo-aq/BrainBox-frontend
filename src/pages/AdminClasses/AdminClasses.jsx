@@ -16,9 +16,11 @@ function AdminClasses() {
 
   const [isFormOpen, setFormOpen] = useState(false);
   const [formType, setFormType] = useState('');
+  const [courseId, setCourseId] = useState(null);
 
-  const openForm = (type) => {
+  const openForm = (type, courseId) => {
     setFormType(type);
+    setCourseId(courseId); // Add a new state to store the current course ID
     setFormOpen(true);
   };
 
@@ -142,7 +144,7 @@ function AdminClasses() {
 
         ) : (
           <div className='empty-section'>Añadir Tareas/Entregas
-            <button className='add tasks' onClick={() => openForm('task')}>+</button>
+            <button className='add tasks' onClick={() => openForm('task', data.course.id)}>+</button>
           </div>
         )}
 
@@ -167,7 +169,7 @@ function AdminClasses() {
           />
         ) : (
           <div className='empty-section'>Añadir Evaluaciones
-            <button className='add evs' onClick={() => openForm('evaluation')}>+</button>
+            <button className='add evs' onClick={() => openForm('evaluation', data.course.id)}>+</button>
           </div>
         )}
       </div>
@@ -199,7 +201,7 @@ function AdminClasses() {
           <AddClassForm isOpen={isAddClassFormOpen} onClose={closeAddClassForm} courses={courses} />
         </div>
         {isFormOpen && (
-          <AddTaskEvForm type={formType} isOpen={isFormOpen} onClose={closeForm} />
+          <AddTaskEvForm type={formType} courseId={courseId} isOpen={isFormOpen} onClose={closeForm} />
         )}
       </div>
     )}
