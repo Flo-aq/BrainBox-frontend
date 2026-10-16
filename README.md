@@ -2,8 +2,6 @@
 
 Aplicación web para organizar el semestre: ramos, notas, tareas, eventos de estudio compartidos y calendario. Proyecto grupal del curso IIC2513 (Tecnologías y Aplicaciones Web, PUC Chile, 2024-2).
 
-**Demo:** https://iic2513-brainbox.netlify.app
-
 ## Qué hace
 
 - Registro e inicio de sesión (JWT) para estudiantes y administradores
