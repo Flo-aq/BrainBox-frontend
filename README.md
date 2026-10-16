@@ -15,6 +15,10 @@ Aplicación web para organizar el semestre: ramos, notas, tareas, eventos de est
 
 React 18, Vite, React Router, Axios, jwt-decode, IndexedDB (`idb`), date-fns y moment. Despliegue en Netlify con CI en GitHub Actions. El backend vive en un repositorio aparte.
 
+## Mi rol
+
+Diseñé e implementé el frontend, con CSS puro (sin librerías de componentes ni Tailwind): calendario mensual y semanal, notas con promedio, eventos compartidos y modo claro/oscuro.
+
 ## Equipo
 
 Florencia Aqueveque ([@Flo-aq](https://github.com/Flo-aq)), [@cpschulz](https://github.com/cpschulz), [@vich1n](https://github.com/vich1n) y [@rodrigoogalde](https://github.com/rodrigoogalde). El historial conserva la autoría de cada integrante.
