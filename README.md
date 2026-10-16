@@ -1,14 +1,47 @@
-# E0 :construction:
+# BrainBox: planner académico para estudiantes
 
-* :pencil2: **Nombre Grupo:** BrainBox
+Aplicación web para organizar el semestre: ramos, notas, tareas, eventos de estudio compartidos y calendario. Proyecto grupal del curso IIC2513 (Tecnologías y Aplicaciones Web, PUC Chile, 2024-2).
 
-Link: https://iic2513-brainbox.netlify.app
+**Demo:** https://iic2513-brainbox.netlify.app
 
-## Descripción general :thought_balloon:
+## Qué hace
 
-- ¿De qué se tratará el proyecto? El proyecto se tratará de un Planner para estudiantes, el cual permita organizar el tiempo que se dedica a cada actividad del semestre.
-- ¿Cuál es el fin o la utilidad del proyecto? La utilidad de esta aplicación es poder darle al usuario una herramienta para organizar su semestre y poder organizar horarios de estudio con otros usuarios.
-- ¿Quiénes son los usuarios objetivo de su aplicación? Los principales usuarios son alumnos de la UC, pero puede ser usado por cualquier alumno universitario o escolar.
+- Registro e inicio de sesión (JWT) para estudiantes y administradores
+- Catálogo de ramos y carga de cada uno; el usuario agrega ramos a su cuenta
+- Calendario semanal y mensual con eventos y tareas; creación de sesiones de estudio y reuniones, e invitación a otros usuarios
+- Notas por ramo con promedio actual; marcar tareas y eventos como completados
+- Notificaciones, modo claro/oscuro
+- Panel de administración para crear y editar ramos
+
+## Stack
+
+React 18, Vite, React Router, Axios, jwt-decode, IndexedDB (`idb`), date-fns y moment. Despliegue en Netlify con CI en GitHub Actions. El backend vive en un repositorio aparte.
+
+## Equipo
+
+Florencia Aqueveque ([@Flo-aq](https://github.com/Flo-aq)), [@cpschulz](https://github.com/cpschulz), [@vich1n](https://github.com/vich1n) y [@rodrigoogalde](https://github.com/rodrigoogalde). El historial conserva la autoría de cada integrante.
+
+## Ejecutar localmente
+
+```bash
+cp .env.example .env   # definir VITE_BACKEND_URL
+npm install
+npm run dev
+```
+
+## Estructura
+
+```
+src/Pages/        Landing, LogIn, SignUp, Calendar, UserClasses, AdminClasses, Instructions, AboutUs
+src/Components/   Calendario, formularios, popups, navbar, rutas protegidas
+src/Api/          Cliente HTTP hacia el backend
+src/auth/         Manejo de sesión y token
+src/db/           Almacenamiento local (IndexedDB)
+```
+
+---
+
+# Documentación de la entrega original (E0)
 
 ## Historia de Usuarios :busts_in_silhouette:
 
